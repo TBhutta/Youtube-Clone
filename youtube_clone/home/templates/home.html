@@ -1,11 +1,290 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/home-styles.css' %}" />
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YouTube</title>
+    <title>YouTube Clone</title>
   </head>
   <body>
-    <h1>YouTube</h1>
+    {% include "header.html" %}
+    <main>
+      <aside class="sidebar">
+        <ul>
+          <li>Home</li>
+          <li>Shorts</li>
+          <li>Subscriptions</li>
+          <li>YouTube Music</li>
+        </ul>
+        <hr />
+        <ul>
+          <li>You -></li>
+          <li>History</li>
+          <li>Playlists</li>
+          <li>Your videos</li>
+          <li>Watch later</li>
+          <li>Your podcasts</li>
+          <li>Liked videos</li>
+          <li>Downloads</li>
+        </ul>
+        <hr />
+        <h3>Subscriptions</h3>
+        <ul>
+          <li></li>
+        </ul>
+        <hr />
+        <h3>Explor</h3>
+        <ul>
+          <li>Trending</li>
+          <li>Music</li>
+          <li>Movies & TV</li>
+          <li>Live</li>
+          <li>Gaming</li>
+          <li>News</li>
+          <li>Sports</li>
+          <li>Learning</li>
+          <li>Fashion & Beauty</li>
+          <li>Podcasts</li>
+          <li>Playables</li>
+        </ul>
+        <hr />
+        <h3>More from YouTube</h3>
+        <ul>
+          <li>YouTube Studio</li>
+          <li>YouTube Music</li>
+          <li>YouTube Kids</li>
+        </ul>
+        <hr />
+        <ul>
+          <li>Settings</li>
+          <li>Report history</li>
+          <li>Help</li>
+          <li>Send feedback</li>
+        </ul>
+      </aside>
+      <section class="main-content">
+        <ul class="nav-links">
+          <li>All</li>
+          <li>Gaming</li>
+          <li>Yu-Gi-Oh! -5Ds</li>
+          <li>Mixes</li>
+          <li>Ismail ibn Musa Menk</li>
+          <li>Vegeta</li>
+          <li>Comic books</li>
+          <li>Live</li>
+          <li>Gyms</li>
+          <li>Computer programming</li>
+          <li>Belief</li>
+        </ul>
+        <section class="recommended">
+          <div class="video">
+            <img
+              src="{% static 'images/elemental-hero-neos.webp' %}"
+              alt="elemental-hero-neos"
+              width="373"
+              height="209"
+            />
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views
+            </p>
+          </div>
+          <div class="video">
+            <img
+              src="{% static 'images/elemental-hero-neos.webp' %}"
+              alt="elemental-hero-neos"
+              width="373"
+              height="209"
+            />
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views
+            </p>
+          </div>
+          <div class="video">
+            <img
+              src="{% static 'images/elemental-hero-neos.webp' %}"
+              alt="elemental-hero-neos"
+              width="373"
+              height="209"
+            />
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views
+            </p>
+          </div>
+          <div class="video">
+            <img
+              src="{% static 'images/elemental-hero-neos.webp' %}"
+              alt="elemental-hero-neos"
+              width="373"
+              height="209"
+            />
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views
+            </p>
+          </div>
+          <div class="video">
+            <img
+              src="{% static 'images/elemental-hero-neos.webp' %}"
+              alt="elemental-hero-neos"
+              width="373"
+              height="209"
+            />
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views
+            </p>
+          </div>
+          <div class="video">
+            <img
+              src="{% static 'images/elemental-hero-neos.webp' %}"
+              alt="elemental-hero-neos"
+              width="373"
+              height="209"
+            />
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views
+            </p>
+          </div>
+          <div class="video">
+            <img
+              src="{% static 'images/elemental-hero-neos.webp' %}"
+              alt="elemental-hero-neos"
+              width="373"
+              height="209"
+            />
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views
+            </p>
+          </div>
+          <div class="video">
+            <img
+              src="{% static 'images/elemental-hero-neos.webp' %}"
+              alt="elemental-hero-neos"
+              width="373"
+              height="209"
+            />
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views
+            </p>
+          </div>
+          <div class="video">
+            <img
+              src="{% static 'images/elemental-hero-neos.webp' %}"
+              alt="elemental-hero-neos"
+              width="373"
+              height="209"
+            />
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views
+            </p>
+          </div>
+          <div class="video">
+            <img
+              src="{% static 'images/elemental-hero-neos.webp' %}"
+              alt="elemental-hero-neos"
+              width="373"
+              height="209"
+            />
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views
+            </p>
+          </div>
+          <div class="video">
+            <img
+              src="{% static 'images/elemental-hero-neos.webp' %}"
+              alt="elemental-hero-neos"
+              width="373"
+              height="209"
+            />
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views
+            </p>
+          </div>
+          <div class="video">
+            <img
+              src="{% static 'images/elemental-hero-neos.webp' %}"
+              alt="elemental-hero-neos"
+              width="373"
+              height="209"
+            />
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views
+            </p>
+          </div>
+        </section>
+      </section>
+    </main>
   </body>
 </html>

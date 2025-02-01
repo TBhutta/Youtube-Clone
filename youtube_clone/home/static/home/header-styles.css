@@ -1,0 +1,9 @@
+/* main {
+  position: sticky;
+  top: 10px;
+} */
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+}

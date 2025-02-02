@@ -12,56 +12,57 @@
     {% include "header.html" %}
     <main>
       <aside class="sidebar">
+        <!-- TODO: add links -->
         <ul>
-          <li>Home</li>
-          <li>Shorts</li>
-          <li>Subscriptions</li>
-          <li>YouTube Music</li>
+          <li><a href="{% url "home" %}">Home</a></li>
+          <li><a href="">Shorts</a></li>
+          <li><a href="{% url "subscriptions" %}">Subscriptions</a></li>
+          <li><a href="">YouTube Music</a></li>
         </ul>
         <hr />
         <ul>
-          <li>You -></li>
-          <li>History</li>
-          <li>Playlists</li>
-          <li>Your videos</li>
-          <li>Watch later</li>
-          <li>Your podcasts</li>
-          <li>Liked videos</li>
-          <li>Downloads</li>
+          <li><a href="">You -></a></li>
+          <li><a href="">History</a></li>
+          <li><a href="">Playlists</a></li>
+          <li><a href="">Your videos</a></li>
+          <li><a href="">Watch later</a></li>
+          <li><a href="">Your podcasts</a></li>
+          <li><a href="">Liked videos</a></li>
+          <li><a href="">Downloads</a></li>
         </ul>
         <hr />
         <h3>Subscriptions</h3>
         <ul>
-          <li></li>
+          <li><a href=""></a></li>
         </ul>
         <hr />
         <h3>Explore</h3>
         <ul>
-          <li>Trending</li>
-          <li>Music</li>
-          <li>Movies & TV</li>
-          <li>Live</li>
-          <li>Gaming</li>
-          <li>News</li>
-          <li>Sports</li>
-          <li>Learning</li>
-          <li>Fashion & Beauty</li>
-          <li>Podcasts</li>
-          <li>Playables</li>
+          <li><a href="">Trending</a></li>
+          <li><a href="">Music</a></li>
+          <li><a href="">Movies & TV</a></li>
+          <li><a href="">Live</a></li>
+          <li><a href="">Gaming</a></li>
+          <li><a href="">News</a></li>
+          <li><a href="">Sports</a></li>
+          <li><a href="">Learning</a></li>
+          <li><a href="">Fashion & Beauty</a></li>
+          <li><a href="">Podcasts</a></li>
+          <li><a href="">Playables</a></li>
         </ul>
         <hr />
         <h3>More from YouTube</h3>
         <ul>
-          <li>YouTube Studio</li>
-          <li>YouTube Music</li>
-          <li>YouTube Kids</li>
+          <li><a href="">YouTube Studio</a></li>
+          <li><a href="">YouTube Music</a></li>
+          <li><a href="">YouTube Kids</a></li>
         </ul>
         <hr />
         <ul>
-          <li>Settings</li>
-          <li>Report history</li>
-          <li>Help</li>
-          <li>Send feedback</li>
+          <li><a href="">Settings</a></li>
+          <li><a href="">Report history</a></li>
+          <li><a href="">Help</a></li>
+          <li><a href="">Send feedback</a></li>
         </ul>
       </aside>
       {% block content %} {% endblock %}

@@ -1,28 +1,19 @@
 .main-content {
   display: flex;
   flex-direction: column;
-  /* flex: 1; */
-  /* width: 100%; */
+  width: 100%;
 }
 
-.nav-links {
+.top-bar {
   display: flex;
-  overflow-x: scroll;
-  list-style: none;
-  align-items: center;
-  margin-left: 0;
 }
 
-.nav-links li {
-  margin: 0 10px 0;
-  border-radius: 5px;
-  background-color: gainsboro;
-  padding: 5px;
-  /* white-space: nowrap; */
-  /* overflow: hidden; */
+.option-buttons {
+  align-items: baseline;
+  justify-content: center;
 }
 
-.recommended {
+.latest-videos {
   height: 58%;
   display: flex;
   flex-flow: row wrap;

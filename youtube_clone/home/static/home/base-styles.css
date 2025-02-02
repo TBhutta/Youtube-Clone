@@ -4,8 +4,8 @@ main {
 
 .sidebar {
   overflow-y: scroll;
-  height: fit-content;
-  flex: 1;
+  min-width: 240px;
+  margin-right: 30px;
 }
 
 .sidebar ul {
@@ -13,5 +13,6 @@ main {
 }
 
 .sidebar li {
-  margin: 15px 0 15px;
+  padding: 10px 0 10px;
+  text-decoration: none;
 }

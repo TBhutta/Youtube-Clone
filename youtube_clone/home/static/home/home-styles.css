@@ -1,46 +1,32 @@
-main {
-  display: flex;
-}
-
-aside {
-  overflow-y: scroll;
-  height: fit-content;
-  min-width: 10%;
-}
-
 .main-content {
   display: flex;
   flex-direction: column;
-  margin-left: 80px;
-  max-height: 50%;
+  flex: 1;
 }
 
 .nav-links {
   display: flex;
-  flex-direction: row;
   overflow-x: scroll;
   list-style: none;
-  justify-content: center;
   align-items: center;
-  float: right;
 }
 
 .nav-links li {
   margin: 0 10px 0;
-  border: 1px solid gainsboro;
   border-radius: 5px;
   background-color: gainsboro;
   padding: 5px;
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
 }
 
 .recommended {
-  /* border: 1px solid gainsboro; */
   height: 58%;
-  /* width: 50%; */
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
   overflow-y: scroll;
+  margin-left: 40px;
 }
 
 .video {

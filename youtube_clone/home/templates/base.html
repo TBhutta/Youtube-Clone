@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home/base-styles.css' %}" />
+    {% block styles %} {% endblock %}
+  </head>
+  <body>
+    {% include "header.html" %}
+    <main>
+      <aside class="sidebar">
+        <ul>
+          <li>Home</li>
+          <li>Shorts</li>
+          <li>Subscriptions</li>
+          <li>YouTube Music</li>
+        </ul>
+        <hr />
+        <ul>
+          <li>You -></li>
+          <li>History</li>
+          <li>Playlists</li>
+          <li>Your videos</li>
+          <li>Watch later</li>
+          <li>Your podcasts</li>
+          <li>Liked videos</li>
+          <li>Downloads</li>
+        </ul>
+        <hr />
+        <h3>Subscriptions</h3>
+        <ul>
+          <li></li>
+        </ul>
+        <hr />
+        <h3>Explore</h3>
+        <ul>
+          <li>Trending</li>
+          <li>Music</li>
+          <li>Movies & TV</li>
+          <li>Live</li>
+          <li>Gaming</li>
+          <li>News</li>
+          <li>Sports</li>
+          <li>Learning</li>
+          <li>Fashion & Beauty</li>
+          <li>Podcasts</li>
+          <li>Playables</li>
+        </ul>
+        <hr />
+        <h3>More from YouTube</h3>
+        <ul>
+          <li>YouTube Studio</li>
+          <li>YouTube Music</li>
+          <li>YouTube Kids</li>
+        </ul>
+        <hr />
+        <ul>
+          <li>Settings</li>
+          <li>Report history</li>
+          <li>Help</li>
+          <li>Send feedback</li>
+        </ul>
+      </aside>
+      {% block content %} {% endblock %}
+    </main>
+  </body>
+</html>

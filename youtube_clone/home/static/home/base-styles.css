@@ -1,0 +1,17 @@
+main {
+  display: flex;
+}
+
+.sidebar {
+  overflow-y: scroll;
+  height: fit-content;
+  flex: 1;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin: 15px 0 15px;
+}

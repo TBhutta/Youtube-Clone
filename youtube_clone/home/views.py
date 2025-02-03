@@ -5,3 +5,6 @@ def home(request):
 
 def subscriptions(request):
     return render(request, "subscriptions-page.html", {})
+
+def history(request):
+    return render(request, "history-page.html", {})

@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+<!-- prettier-ignore -->
+{% block title %}YouTube Clone{% endblock %}
+<!-- prettier-ignore -->
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/history-page-styles.css' %}" />
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<section class="main-content">
+  <section style="display: flex">
+    <section class="history-container">
+      <h1 style="font-size: 35px">Watch history</h1>
+      <h3 style="margin-bottom: 20px">Today</h3>
+      <div class="shorts-bar">
+        <h3>Shorts</h3>
+        <button type="button">[Send feedback]</button>
+      </div>
+      <section class="shorts-history">
+        <div class="short-video-container">
+          <img
+            src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+            alt="elemental-hero-magma-neos"
+            width="210"
+            height="315"
+          />
+          <p class="video-title" style="font-weight: bold; font-size: 20px">
+            Elemental Hero Magma Neos
+          </p>
+          <p class="video-views" style="color: rgb(163, 161, 161)">38M views</p>
+        </div>
+        <div class="short-video-container">
+          <img
+            src="{% static 'images/elemental-hero-neos-3.png' %}"
+            alt="elemental-hero-neos-3"
+            width="210"
+            height="315"
+          />
+          <p class="video-title" style="font-weight: bold; font-size: 20px">
+            Elemental Hero Neos
+          </p>
+          <p class="video-views" style="color: rgb(163, 161, 161)">38M views</p>
+        </div>
+        <div class="short-video-container">
+          <img
+            src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+            alt="elemental-hero-magma-neos"
+            width="210"
+            height="315"
+          />
+          <p class="video-title" style="font-weight: bold; font-size: 20px">
+            Elemental Hero Magma Neos
+          </p>
+          <p class="video-views" style="color: rgb(163, 161, 161)">38M views</p>
+        </div>
+        <div class="short-video-container">
+          <img
+            src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+            alt="elemental-hero-magma-neos"
+            width="210"
+            height="315"
+          />
+          <p class="video-title" style="font-weight: bold; font-size: 20px">
+            Elemental Hero Magma Neos
+          </p>
+          <p class="video-views" style="color: rgb(163, 161, 161)">38M views</p>
+        </div>
+        <div class="short-video-container">
+          <img
+            src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+            alt="elemental-hero-magma-neos"
+            width="210"
+            height="315"
+          />
+          <p class="video-title" style="font-weight: bold; font-size: 20px">
+            Elemental Hero Magma Neos
+          </p>
+          <p class="video-views" style="color: rgb(163, 161, 161)">38M views</p>
+        </div>
+      </section>
+      <hr style="margin-bottom: 10px" />
+      <section class="videos-history">
+        <!-- TODO: Make template for video container -->
+        <div class="video-container">
+          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
+          width="246" height="138">
+          <section class="video-info">
+            <p class="video-title">MUI goku</p>
+            <section class="channel-views-container">
+              <p class="channel">Atozy</p>
+              <p class="views">117k views</p>
+            </section>
+            <p class="video-description">This is the video description.</p>
+          </section>
+        </div>
+        <div class="video-container">
+          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
+          width="246" height="138">
+          <section class="video-info">
+            <p class="video-title">MUI goku</p>
+            <section class="channel-views-container">
+              <p class="channel">Atozy</p>
+              <p class="views">117k views</p>
+            </section>
+            <p class="video-description">This is the video description.</p>
+          </section>
+        </div>
+        <div class="video-container">
+          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
+          width="246" height="138">
+          <section class="video-info">
+            <p class="video-title">MUI goku</p>
+            <section class="channel-views-container">
+              <p class="channel">Atozy</p>
+              <p class="views">117k views</p>
+            </section>
+            <p class="video-description">This is the video description.</p>
+          </section>
+        </div>
+        <div class="video-container">
+          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
+          width="246" height="138">
+          <section class="video-info">
+            <p class="video-title">MUI goku</p>
+            <section class="channel-views-container">
+              <p class="channel">Atozy</p>
+              <p class="views">117k views</p>
+            </section>
+            <p class="video-description">This is the video description.</p>
+          </section>
+        </div>
+        <div class="video-container">
+          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
+          width="246" height="138">
+          <section class="video-info">
+            <p class="video-title">MUI goku</p>
+            <section class="channel-views-container">
+              <p class="channel">Atozy</p>
+              <p class="views">117k views</p>
+            </section>
+            <p class="video-description">This is the video description.</p>
+          </section>
+        </div>
+        <div class="video-container">
+          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
+          width="246" height="138">
+          <section class="video-info">
+            <p class="video-title">MUI goku</p>
+            <section class="channel-views-container">
+              <p class="channel">Atozy</p>
+              <p class="views">117k views</p>
+            </section>
+            <p class="video-description">This is the video description.</p>
+          </section>
+        </div>
+        <div class="video-container">
+          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
+          width="246" height="138">
+          <section class="video-info">
+            <p class="video-title">MUI goku</p>
+            <section class="channel-views-container">
+              <p class="channel">Atozy</p>
+              <p class="views">117k views</p>
+            </section>
+            <p class="video-description">This is the video description.</p>
+          </section>
+        </div>
+      </section>
+    </section>
+    <!-- TODO: Keep this section in the same place independent of screen resolution -->
+    <section class="filters">
+      <input
+        type="text"
+        name="filter-history"
+        id="filter-history"
+        placeholder="Search watch history"
+      />
+      <ul class="history-options">
+        <li class="actions">Clear all watch history</li>
+        <li class="actions">Pause watch history</li>
+        <li class="actions">Manage all history</li>
+        <li class="sub-filters">Comments</li>
+        <li class="sub-filters">Posts</li>
+        <li class="sub-filters">Live chat</li>
+      </ul>
+    </section>
+  </section>
+</section>
+{% endblock %}

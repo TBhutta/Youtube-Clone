@@ -8,3 +8,6 @@ def subscriptions(request):
 
 def history(request):
     return render(request, "history-page.html", {})
+
+def playlists(request):
+    return render(request, "playlists-page.html", {})

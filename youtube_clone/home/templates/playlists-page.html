@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+<!-- prettier-ignore -->
+{% block title %}Your playlists - YouTube Clone{% endblock %}
+<!-- prettier-ignore -->
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/playlists-page-styles.css' %}" />
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<section class="main-content">
+  <h1 style="font-size: 40px">Playlists</h1>
+  <select
+    name="playlist-filter"
+    id="playlist-filter"
+    style="width: fit-content"
+  >
+    <option value="A-Z">A-Z</option>
+    <option value="Recently Added">Recently Added</option>
+  </select>
+  <section class="playlists-container">
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+    <section class="playlist-info">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-chaos-neos.jpg' %}"
+          alt=""
+          width="276"
+          height="155"
+        />
+      </div>
+      <p class="playlist-title">Elemental Hero Chaos Neos</p>
+      <p class="playlist-author">Jaden Yuki</p>
+      <a href="" class="playlist-link">View full playlist</a>
+    </section>
+  </section>
+</section>
+{% endblock %}

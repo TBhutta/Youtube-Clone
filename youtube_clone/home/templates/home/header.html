@@ -1,0 +1,26 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/header-styles.css' %}" />
+
+<section class="top-bar">
+  <div>
+    <button>menu</button>
+    <a href="{% url "home" %}">YouTube</a>
+  </div>
+  <div style="display: flex">
+    <form action="/" method="post">
+      <input
+        type="text"
+        name="search-filter"
+        id="search-filter"
+        placeholder="Search"
+      />
+      <button type="submit">[search icon]</button>
+    </form>
+    <button type="button">[mic icon]</button>
+  </div>
+  <div>
+    <button type="button">+ Create</button>
+    <button type="button">[bell icon]</button>
+    <button type="button">[profile icon]</button>
+  </div>
+</section>

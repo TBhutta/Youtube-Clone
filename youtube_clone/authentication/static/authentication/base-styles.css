@@ -1,0 +1,40 @@
+main {
+  display: flex;
+}
+
+.sidebar {
+  overflow-y: scroll;
+  min-width: 240px;
+  padding-right: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar li a {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* FIXME: Make <a> tag span across the entire available width */
+  /* padding-right: 100px; */
+  width: 100%;
+  border-radius: 10px;
+}
+
+.sidebar li {
+  padding: 10px;
+}
+
+.sidebar li a:hover {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+
+.sidebar li a,
+.sidebar h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: black;
+}

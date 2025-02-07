@@ -12,5 +12,21 @@
 {% endblock %}
 <!-- prettier-ignore -->
 {% block content %}
-<h1 class="titleee">Sign up</h1>
+<section class="main-content">
+  <h1 class="titleee">Sign up</h1>
+
+  <form action="#" method="post" class="sign-up-form">
+    {% csrf_token %}
+    <!--
+      <input type="text" name="f_name" id="f_name" />
+      <input type="text" name="l_name" id="l_name" />
+      <input type="text" name="username" id="username" />
+      <input type="email" name="email" id="email" />
+      <input type="password" name="password" id="password" />
+      <input type="password" name="confirm_password" id="confirm_password" />
+    -->
+    {{ form.as_p }}
+    <button type="submit">Create account</button>
+  </form>
+</section>
 {% endblock %}

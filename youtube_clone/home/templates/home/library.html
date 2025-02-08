@@ -1,4 +1,4 @@
-{% extends "home/base.html" %}
+{% extends "base.html" %}
 <!-- prettier-ignore -->
 {% block title %}You - YouTube Clone{% endblock %}
 <!-- prettier-ignore -->
@@ -9,12 +9,14 @@
 {% endblock %}
 <!-- prettier-ignore -->
 {% block scripts %}
+{% load static %}
 <script src="{% static 'home/js/library.js' %}"></script>
 <!-- prettier-ignore -->
 {% endblock %}
 <!-- prettier-ignore -->
 {% block content %}
 <section class="main-content">
+  {% if user.is_authenticated %}
   <section class="profile-container">
     <div class="profile-icon">
       <img
@@ -1826,6 +1828,7 @@
     </section>
   </section>
   <button type="button" onclick="expandHistory()">Show more</button>
+  {% endif %}
 </section>
 
 {% endblock %}

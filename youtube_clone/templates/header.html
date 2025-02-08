@@ -1,5 +1,5 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'home/header-styles.css' %}" />
+<link rel="stylesheet" href="{% static 'css/header-styles.css' %}" />
 
 <section class="top-bar">
   <div>
@@ -19,8 +19,12 @@
     <button type="button">[mic icon]</button>
   </div>
   <div>
+    {% if user.is_authenticated %}
     <button type="button">+ Create</button>
     <button type="button">[bell icon]</button>
     <button type="button">[profile icon]</button>
+    {% else %}
+    <a href="authentication/login/">Sign in</a>
+    {% endif %}
   </div>
 </section>

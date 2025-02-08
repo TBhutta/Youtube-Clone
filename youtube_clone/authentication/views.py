@@ -20,3 +20,5 @@ def registration(request):
         'form': form
     })
 
+def login_user(request):
+    return render(request, "authentication/login.html", {})

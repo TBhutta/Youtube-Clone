@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 # from django.forms.renderers import TemplatesSetting
 # import django.forms as forms
 
@@ -58,7 +59,7 @@ ROOT_URLCONF = "youtube_clone.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -126,7 +127,7 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STATICFILES_DIRS = [BASE_DIR]
+STATICFILES_DIRS = [BASE_DIR, os.path.join(BASE_DIR, 'static')]
 
 # class CustomFormRenderer(TemplatesSetting):
 #     form_template_name = "formTemplate.html"

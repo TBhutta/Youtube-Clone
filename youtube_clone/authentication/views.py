@@ -19,3 +19,4 @@ def registration(request):
     return render(request, "authentication/sign-up.html", {
         'form': form
     })
+

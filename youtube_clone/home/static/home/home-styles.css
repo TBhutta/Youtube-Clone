@@ -2,15 +2,17 @@
   display: flex;
   flex-direction: column;
   /* flex: 1; */
-  /* width: 100%; */
+  width: 100%;
 }
 
+/* FIXME: This is section spills over to the edge without being hidden */
 .nav-links {
   display: flex;
-  overflow-x: scroll;
   list-style: none;
   align-items: center;
-  margin-left: 0;
+  margin-left: 0px;
+  width: 80%;
+  overflow-x: scroll;
 }
 
 .nav-links li {

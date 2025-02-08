@@ -1,0 +1,1831 @@
+{% extends "home/base.html" %}
+<!-- prettier-ignore -->
+{% block title %}You - YouTube Clone{% endblock %}
+<!-- prettier-ignore -->
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/library-styles.css' %}" />
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block scripts %}
+<script src="{% static 'home/js/library.js' %}"></script>
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<section class="main-content">
+  <section class="profile-container">
+    <div class="profile-icon">
+      <img
+        src="{% static 'images/profile-icon.webp' %}"
+        alt="profile-icon"
+        width="120"
+        height="120"
+      />
+    </div>
+    <section class="profile-info">
+      <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+      <div style="display: flex">
+        <p>{{ user.username }}</p>
+        <a href="">View channel</a>
+      </div>
+      <div class="buttons">
+        <button type="button">Switch account</button>
+        <button type="button">Google account</button>
+      </div>
+    </section>
+  </section>
+
+  <section class="history-container">
+    <div class="top-bar">
+      <h3>History</h3>
+      <button type="button">View all</button>
+    </div>
+    <section class="videos-container" id="videos-container">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+    </section>
+  </section>
+  <section class="playlists-container">
+    <div class="top-bar">
+      <h3>Playlists</h3>
+      <button type="button">View all</button>
+    </div>
+    <section class="videos-container" id="videos-container">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+    </section>
+  </section>
+  <section class="watch-later-container">
+    <div class="top-bar">
+      <h3>Watch later</h3>
+      <button type="button">View all</button>
+    </div>
+    <section class="videos-container" id="videos-container">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+    </section>
+  </section>
+  <section class="liked-videos-container">
+    <div class="top-bar">
+      <h3>Liked videos</h3>
+      <button type="button">View all</button>
+    </div>
+    <section class="videos-container" id="videos-container">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+    </section>
+  </section>
+  <section class="clips-container">
+    <div class="top-bar">
+      <h3>Your clips</h3>
+      <button type="button">View all</button>
+    </div>
+    <section class="videos-container" id="videos-container">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+    </section>
+  </section>
+  <section class="podcast-container">
+    <div class="top-bar">
+      <h3>Your podcasts</h3>
+      <button type="button">View all</button>
+    </div>
+    <section class="videos-container" id="videos-container">
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="video">
+        <img
+          src="{% static 'images/elemental-hero-magma-neos.webp' %}"
+          alt="elemental-hero-magma-neos"
+          width="276"
+          height="155"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title">
+              This is the Title.This is the Title.This is the Title.This is the
+              Title.
+            </p>
+            <p class="channel-name">Channel name</p>
+            <div style="display: flex">
+              <p class="video-views">444k views</p>
+              <p class="video-age">2 years ago</p>
+            </div>
+          </section>
+        </section>
+      </div>
+    </section>
+  </section>
+  <button type="button" onclick="expandHistory()">Show more</button>
+</section>
+
+{% endblock %}

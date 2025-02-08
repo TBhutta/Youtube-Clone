@@ -1,0 +1,53 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.profile-container {
+  display: flex;
+}
+
+.profile-icon {
+  /* width: 10%; */
+}
+
+.profile-info {
+  /* width: 90%; */
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  width: 100%;
+}
+
+.videos-container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.video {
+  width: 276px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+}
+
+.channel-icon {
+  margin-right: 5px;
+}
+
+.video-info {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+
+.video-info p {
+  margin: 0;
+}
+
+.video-title {
+  font-weight: bold;
+}

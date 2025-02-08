@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+# from django.forms.renderers import TemplatesSetting
+# import django.forms as forms
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -125,3 +127,12 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS = [BASE_DIR]
+
+# class CustomFormRenderer(TemplatesSetting):
+#     form_template_name = "formTemplate.html"
+
+# class MyForm(forms.Form):
+#     template_name = "formTemplate.html"
+
+
+# FORM_RENDERER = "youtube_clone.settings.CustomFormRenderer"

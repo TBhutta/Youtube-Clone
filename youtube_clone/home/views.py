@@ -11,3 +11,6 @@ def history(request):
 
 def playlists(request):
     return render(request, "home/playlists-page.html", {})
+
+def library(request):
+    return render(request, "home/library.html", {})

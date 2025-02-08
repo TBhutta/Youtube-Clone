@@ -24,3 +24,7 @@ class AccountCreationForm(UserCreationForm):
         self.fields['password2'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['placeholder'] = 'Re-enter your password'
         self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'
+
+class UserLoginForm(forms.Form):
+    username = forms.CharField(label="Username")
+    password = forms.CharField(label="password")

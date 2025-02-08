@@ -6,7 +6,7 @@
 {% load static %}
 <link
   rel="stylesheet"
-  href="{% static 'authentication/sign-up-page-styles.css' %}"
+  href="{% static 'authentication/login-page-styles.css' %}"
 />
 <!-- prettier-ignore -->
 {% endblock %}
@@ -15,9 +15,9 @@
 <section class="main-content">
   <h1 class="titleee">Sign in</h1>
 
-  <form action="#" method="post" class="sign-up-form">
+  <form action="#" method="post" class="login-form">
     {% csrf_token %} {{ form.as_p }}
-    <button type="submit">Sign in</button>
+    <button type="submit">Login</button>
   </form>
 </section>
 {% endblock %}

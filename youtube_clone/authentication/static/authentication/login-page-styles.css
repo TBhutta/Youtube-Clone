@@ -1,0 +1,13 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleee {
+  color: blue;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}

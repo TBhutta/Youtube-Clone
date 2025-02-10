@@ -19,5 +19,9 @@
     {% csrf_token %} {{ form.as_p }}
     <button type="submit">Create account</button>
   </form>
+  <p>
+    Already have an account? Sign in
+    <a href="/authentication/sign-in/">here</a>.
+  </p>
 </section>
 {% endblock %}

@@ -1,5 +1,6 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/header-styles.css' %}" />
+<script src="{% static 'js/header.js' %}"></script>
 
 <section class="top-bar">
   <div>
@@ -22,9 +23,37 @@
     {% if user.is_authenticated %}
     <button type="button">+ Create</button>
     <button type="button">[bell icon]</button>
-    <button type="button">[profile icon]</button>
+    <!-- <div class="dropdown-menu-container"> -->
+        <button type="button" id="profile-btn">[profile icon]</button>
+        <a href="/authentication/logout">Logout</a>
+
+      
+      <ul id="dropdown-menu">
+        <li><a href="">Google Account</a></li>
+        <li><a href="">Switch account</a></li>
+        <li><a href="">Sign out</a></li>
+        <hr/>
+        <li><a href="">YouTube Studio</a></li>
+        <li><a href="">Your Premium benefits</a></li>
+        <li><a href="">Purchases and memberships</a></li>
+        <hr/>
+        <li><a href="">Your data in YouTube</a></li>
+        <li><a href="">Appearance: Light</a></li>
+        <li><a href="">Language: English</a></li>
+        <li><a href="">Restricted Mode: off</a></li>
+        <li><a href="">Location: United Kingdom</a></li>
+        <li><a href="">Keyboard shortcuts</a></li>
+        <hr/>
+        <li><a href="">Settings</a></li>
+        <hr/>
+        <li><a href="">Help</a></li>
+        <li><a href="">Send feedback</a></li>
+      </ul>
+      
+    </div>
+
     {% else %}
-    <a href="authentication/login/">Sign in</a>
+    <a href="/authentication/sign-in/">Sign in</a>
     {% endif %}
   </div>
 </section>

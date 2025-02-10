@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .forms import AccountCreationForm, UserLoginForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from home import views as homeViews
 
 
 def registration(request):
@@ -16,6 +17,7 @@ def registration(request):
             print(f_name, l_name, username, email, password)
             new_user = User.objects.create_user(username, email, password, first_name=f_name, last_name=l_name)
             new_user.save()
+            return redirect(login_user)
 
     form = AccountCreationForm()
     return render(request, "authentication/sign-up.html", {
@@ -29,13 +31,19 @@ def login_user(request):
             username = request.POST["username"]
             password = request.POST["password"]
             user = authenticate(request, username=username, password=password)
-            if user:
+            if user is not None:
                 login(request, user)
-                return redirect("../../you")
+                # return redirect("../../you")
+                return redirect(homeViews.library)
             else:
-                return
+                print("cp")
+                return redirect(login_user)
 
     form = UserLoginForm()
     return render(request, "authentication/login.html", {
         "form": form
     })
+
+def logout_user(request):
+    logout(request)
+    return redirect(homeViews.home)

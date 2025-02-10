@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 <!-- prettier-ignore -->
-{% block title %}Sign up - YouTube Clone{% endblock %}
+{% block title %}Sign in - YouTube Clone{% endblock %}
 <!-- prettier-ignore -->
 {% block styles %}
 {% load static %}
@@ -19,5 +19,8 @@
     {% csrf_token %} {{ form.as_p }}
     <button type="submit">Login</button>
   </form>
+  <p>
+    Don't have an account? Sign up <a href="/authentication/sign-up/">here</a>.
+  </p>
 </section>
 {% endblock %}

@@ -1,0 +1,8 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#create-btn-dropdown-menu {
+  display: none;
+}

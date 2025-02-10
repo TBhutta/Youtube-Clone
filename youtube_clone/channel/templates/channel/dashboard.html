@@ -1,0 +1,70 @@
+{% extends "channel/base.html" %}
+<!-- prettier-ignore -->
+{% block title %}Channel dashboard{% endblock %}
+<!-- prettier-ignore -->
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'channel/css/dashboard-styles.css' %}" />
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block scripts %}
+{% load static %}
+<script src="{% static 'channel/js/dashboard.js' %}"></script>
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<section class="container">
+  <aside class="side-menu">
+    <div class="profile">
+      <img
+        src="https://picsum.photos/seed/picsum/112/112"
+        alt="[fetched image]"
+        width="112"
+        height="112"
+      />
+    </div>
+    <ul class="menu-links">
+      <li><a href="">Dashboard</a></li>
+      <li><a href="">Content</a></li>
+      <li><a href="">Analytics</a></li>
+      <li><a href="">Community</a></li>
+      <li><a href="">Subtitles</a></li>
+      <li><a href="">Copyright</a></li>
+      <li><a href="">Earn</a></li>
+      <li><a href="">Customization</a></li>
+      <li><a href="">Audio library</a></li>
+      <li><a href="">Settings</a></li>
+      <li><a href="">Send feedback</a></li>
+    </ul>
+  </aside>
+  <section class="main-content">
+    <section class="main-content-top-bar">
+      <h2>Channel dashboard</h2>
+      <div class="buttons">
+        <!-- TODO: add tooltips -->
+        <button type="button" onclick="displayVideoUploader()">
+          Upload videos
+        </button>
+        <section id="video-uploader-container">
+          <section class="top">
+            <h2>Upload videos</h2>
+            <div class="upload-buttons">
+              <button type="button">Send feedback</button>
+              <button type="button">Close</button>
+            </div>
+          </section>
+        </section>
+        <button type="button">Go live</button>
+        <button type="button">Create post</button>
+      </div>
+    </section>
+    <section class="dashboard">
+      <section class="section-1">1</section>
+      <section class="section-2">2</section>
+      <section class="section-3">3</section>
+    </section>
+  </section>
+</section>
+{% endblock %}

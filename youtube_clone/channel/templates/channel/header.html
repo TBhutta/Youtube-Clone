@@ -1,0 +1,36 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'channel/css/header-styles.css' %}" />
+<script src="{% static 'channel/js/header.js' %}"></script>
+
+<section class="top-bar">
+  <div>
+    <button type="button">menu</button>
+    <a href="{% url "dashboard" %}">Studio</a>
+  </div>
+  <div style="display: flex">
+    <form action="/" method="post">
+      <input
+        type="text"
+        name="search-filter"
+        id="search-filter"
+        placeholder="Search"
+      />
+      <button type="submit">[search icon]</button>
+    </form>
+    <button type="button">[mic icon]</button>
+  </div>
+  <div>
+    <button type="button">+ Create</button>
+    <button type="button" onclick="displayCreateOptions()">Create</button>
+    <ul id="create-btn-dropdown-menu">
+      <li><a href="">Upload videos</a></li>
+      <li><a href="">Go live</a></li>
+      <li><a href="">Create post</a></li>
+      <li><a href="">New playlist</a></li>
+      <li><a href="">New podcast</a></li>
+    </ul>
+    <button type="button" id="profile-btn">[profile icon]</button>
+  </div>
+
+  </div>
+</section>

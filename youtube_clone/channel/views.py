@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def dashboard(request, user):
+def dashboard(request):
     return render(request, "channel/dashboard.html", {})

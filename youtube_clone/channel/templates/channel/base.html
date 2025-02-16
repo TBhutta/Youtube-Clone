@@ -9,6 +9,32 @@
     {% block styles %}{% endblock %} {% block scripts %}{% endblock %}
   </head>
   <body>
-    {% include "channel/header.html" %} {% block content %}{% endblock %}
+    {% include "channel/header.html" %}
+    <main>
+      <aside class="side-menu">
+        <div class="profile">
+          <img
+            src="https://picsum.photos/seed/picsum/112/112"
+            alt="[fetched image]"
+            width="112"
+            height="112"
+          />
+        </div>
+        <ul class="menu-links">
+          <li><a href="">Dashboard</a></li>
+          <li><a href="">Content</a></li>
+          <li><a href="">Analytics</a></li>
+          <li><a href="">Community</a></li>
+          <li><a href="">Subtitles</a></li>
+          <li><a href="">Copyright</a></li>
+          <li><a href="">Earn</a></li>
+          <li><a href="">Customization</a></li>
+          <li><a href="">Audio library</a></li>
+          <li><a href="">Settings</a></li>
+          <li><a href="">Send feedback</a></li>
+        </ul>
+      </aside>
+      {% block content %}{% endblock %}
+    </main>
   </body>
 </html>

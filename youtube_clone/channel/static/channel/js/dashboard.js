@@ -1,4 +1,4 @@
 function displayVideoUploader() {
   const uploader = document.getElementById("video-uploader-container");
-  //   uploader.style.display = "block";
+  uploader.style.display = "block";
 }

@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import datetime
 
+# TODO: Add tags and genre attributes
+# TODO: Add help texts, error messages
 class Video(models.Model):
     title = models.CharField(max_length=100)
     thumbnail = models.ImageField(upload_to="videos/thumbnails")

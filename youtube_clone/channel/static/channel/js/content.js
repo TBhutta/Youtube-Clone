@@ -66,8 +66,8 @@ async function fetchShorts(params) {
 
         const video_thumbnail = document.createElement("img");
         // FIXME: Thumbnails are bot fetched
-        video_thumbnail.setAttribute("src", data.base_dir + data.thumbnails[i]);
-        video_thumbnail.setAttribute("alt", "alt");
+        video_thumbnail.setAttribute("src", data.thumbnails[i]);
+        video_thumbnail.setAttribute("alt", data.thumbnails[i]);
         video_thumbnail.setAttribute("width", "120");
         video_thumbnail.setAttribute("height", "68");
 

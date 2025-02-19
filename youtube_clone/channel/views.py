@@ -25,7 +25,11 @@ def upload_video(request):
     return redirect(dashboard)
 
 def content(request):
-    return render(request, "channel/content.html", {})
+    videos = Video.objects.all()
+
+    return render(request, "channel/content.html", {
+        "videos": videos
+    })
 
 def get_videos(request):
     data = {
@@ -34,6 +38,7 @@ def get_videos(request):
     return JsonResponse(data)
 
 def get_shorts(request):
+    # TODO: fetch videos only published by current user
     videos = Video.objects.all()
     titles = []
     thumbnails = []

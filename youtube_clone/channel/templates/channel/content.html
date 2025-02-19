@@ -36,6 +36,12 @@
   </nav>
 
   <section id="dynamic">
+    {% for video in videos %}
+    <!-- prettier-ignore -->
+    <img src="{{ video.thumbnail.urls }} " alt="{{ video.thumbnail.url }}" width="120" height="68">
+
+    <!-- prettier-ignore -->
+    {% endfor %}
     <!--
     <table>
       <tr>
@@ -48,7 +54,6 @@
         <th>Promotions</th>
       </tr>
     </table>
-    -->
 
     <!--
     <section class="video-container">

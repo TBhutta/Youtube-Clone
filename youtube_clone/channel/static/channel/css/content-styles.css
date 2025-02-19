@@ -10,3 +10,25 @@
   width: 670px;
   justify-content: space-between;
 }
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.video-container {
+  display: flex;
+}
+
+.video-container p {
+  margin: 0;
+  margin-left: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.description {
+  color: rgb(127, 127, 127);
+  font-size: smaller;
+}

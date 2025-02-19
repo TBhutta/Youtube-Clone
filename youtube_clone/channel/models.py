@@ -4,6 +4,7 @@ from datetime import datetime
 # TODO: Add tags and genre attributes
 # TODO: Add help texts, error messages
 class Video(models.Model):
+    # TODO: Add duration times and comments
     title = models.CharField(max_length=100)
     thumbnail = models.ImageField(upload_to="videos/thumbnails")
     video_file = models.FileField(upload_to="videos/video_files/")
@@ -16,3 +17,7 @@ class Video(models.Model):
 
     class Meta:
         db_table = "videos"
+    
+    def __str__(self):
+        return self.title
+    

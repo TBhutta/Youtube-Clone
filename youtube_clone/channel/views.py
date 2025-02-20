@@ -69,9 +69,6 @@ def get_shorts(request):
         "dislikes": dislikes,
         "base_dir": base_dir,
     }
-    print(thumbnails)
-    print(base_dir)
-    print("/Users/talhah/Documents/python-projects/Youtube-Clone/youtube_clone/media/videos/thumbnails/apple_watch_series_9_0Qg6lz3.jpg")
     return JsonResponse(data)
 
 def get_live(request):

@@ -39,6 +39,7 @@ async function fetchShorts(params) {
       const comments = headers.insertCell(-1);
       const likes = headers.insertCell(-1);
 
+      // Setting header names
       video.innerHTML = "<th>Video</th>";
       visibility.innerHTML = "<th>visibility</th>";
       restrictions.innerHTML = "<th>restrictions</th>";
@@ -65,7 +66,6 @@ async function fetchShorts(params) {
         video_container.setAttribute("class", "video-container");
 
         const video_thumbnail = document.createElement("img");
-        // FIXME: Thumbnails are bot fetched
         video_thumbnail.setAttribute("src", data.thumbnails[i]);
         video_thumbnail.setAttribute("alt", data.thumbnails[i]);
         video_thumbnail.setAttribute("width", "120");
@@ -95,8 +95,6 @@ async function fetchShorts(params) {
         current_video_views.innerHTML = data.views[i];
         current_video_comments.innerHTML = "comments";
         current_video_likes.innerHTML = data.likes[i];
-
-        // dynamic.appendChild(video_container);
       }
     });
 }

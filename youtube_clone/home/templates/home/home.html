@@ -35,6 +35,27 @@
     <li>New to you</li>
   </ul>
   <section class="recommended">
+    <!-- FIXME: doesn't work -->
+    {% for video in recommended_videos %}
+    <div class="video">
+      <img
+        src="{{ video.thumbnail.url }}"
+        alt="{{ video.thumbnail.url }}"
+        width="373"
+        height="209"
+      />
+      <p class="video-title" style="font-weight: bold; font-size: 20px">
+        {{ video.title }}
+      </p>
+      <p class="video-channel" style="color: rgb(163, 161, 161)">
+        {{ video.author }}
+      </p>
+      <p class="video-views" style="color: rgb(163, 161, 161)">
+        {{ video.views }} views
+      </p>
+    </div>
+    {% endfor %}
+
     <div class="video">
       <img
         src="{% static 'images/elemental-hero-neos.webp' %}"

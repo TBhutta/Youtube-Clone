@@ -21,3 +21,5 @@ class Video(models.Model):
     def __str__(self):
         return self.title
     
+
+# TODO: Add extra stuff to user, e.g. playlists, subscriber count, viewers count, number of videos, comments, likes, subscriptions, notifications, etc

@@ -1,6 +1,7 @@
 .video-and-comments-container {
   flex: 2;
   border: 1px solid black;
+  margin: 10px;
 }
 
 .recommended-videos {
@@ -23,4 +24,11 @@
 
 .channel-info {
   margin: 0;
+}
+
+.video-description-container {
+  margin: 1rem;
+  background-color: gainsboro;
+  padding: 1rem;
+  border-radius: 10px;
 }

@@ -1,0 +1,26 @@
+.video-and-comments-container {
+  flex: 2;
+  border: 1px solid black;
+}
+
+.recommended-videos {
+  flex: 1;
+}
+
+.sidebar {
+  display: none;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.channel {
+  display: flex;
+  align-items: start;
+}
+
+.channel-info {
+  margin: 0;
+}

@@ -10,7 +10,7 @@ class Video(models.Model):
     video_file = models.FileField(upload_to="videos/video_files/")
     description = models.TextField()
     upload_date = models.DateTimeField(default=datetime.today().isoformat()) # TODO: Make readonly
-    author = models.IntegerField() # TODO: Make readonly
+    author = models.IntegerField() # TODO: Make readonly, make foreign key?
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)

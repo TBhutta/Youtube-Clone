@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+<!-- prettier-ignore -->
+{% block title %}You - YouTube Clone{% endblock %}
+<!-- prettier-ignore -->
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/watch-video-styles.css' %}" />
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block scripts %}
+{% load static %}
+
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<section class="video-and-comments-container">
+  <video controls width="100%">
+    <source src="{{ selected_video.video_file.url }}" />
+  </video>
+  <section class="video-info">
+    <h2>{{ selected_video.title }}</h2>
+    <section class="bottom-container">
+      <section class="channel">
+        <div class="profile">
+          <img
+            src="https://picsum.photos/seed/picsum/40/40"
+            alt="[fetched image]"
+            width="40"
+            height="40"
+          />
+        </div>
+        <section class="channel-info">
+          {{ channel_username }}
+          <p>20M subscribers</p>
+        </section>
+        <button type="button">Subscribe</button>
+      </section>
+
+      <section class="user-options">
+        <button type="button">Like</button>
+        <button type="button">Dislike</button>
+        <button type="button">Share</button>
+        <button type="button">Download</button>
+        <button type="button">...</button>
+      </section>
+    </section>
+
+    <section class="video-description-container">
+      <section class="date-views-container">
+        {{ selected_video.views }} views {{ selected_video.upload_date }}
+      </section>
+      <section class="video-description">
+        {{ selected_video.description }}
+      </section>
+    </section>
+  </section>
+</section>
+<section class="recommended-videos">
+  <p>Here are your recommended videos</p>
+</section>
+{% endblock %}

@@ -12,9 +12,9 @@ class Video(models.Model):
     video_file = models.FileField(upload_to="videos/video_files/")
     description = models.TextField()
     upload_date = models.DateTimeField(auto_now_add=True)
-    # author = models.IntegerField() # TODO: Make readonly, make foreign key?
+    author = models.IntegerField() # TODO: Make readonly, make foreign key?
     # FIXME: User model's username is referenced instead of id
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE) # TODO: look for better on_delete
+    # author = models.ForeignKey(User, on_delete=models.CASCADE) # TODO: look for better on_delete
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)
@@ -42,3 +42,10 @@ class Comment(models.Model):
     
 
 # TODO: Add extra stuff to user, e.g. playlists, subscriber count, viewers count, number of videos, comments, likes, subscriptions, notifications, etc
+
+class User_Playlist(models.Model):
+    title = models.CharField(max_length=50)
+    owner_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    last_updated = models.DateField(auto_now=True)
+    # number of videos will be calculated at runtime as I believe it is not necessary to store that information
+

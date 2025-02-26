@@ -4,33 +4,35 @@ from django.contrib.auth.models import User
 
 def home(request):
     recommended_videos = Video.objects.all()
-    ids = []
-    titles = []
-    thumbnails = []
-    descriptions = []
-    dates = []
-    views = []
+    for i in recommended_videos:
+        print(i.author)
+    
+    # ids = []
+    # titles = []
+    # thumbnails = []
+    # descriptions = []
+    # dates = []
+    # views = []
 
-    for video in recommended_videos:
-        ids.append(User.objects.filter(id=video.id))
-        titles.append(video.title)
-        thumbnails.append(video.thumbnail.url)
-        descriptions.append(video.description)
-        dates.append(video.upload_date)
-        views.append(video.views)
+    # for video in recommended_videos:
+    #     ids.append(User.objects.filter(id=video.id))
+    #     titles.append(video.title)
+    #     thumbnails.append(video.thumbnail.url)
+    #     descriptions.append(video.description)
+    #     dates.append(video.upload_date)
+    #     views.append(video.views)
 
-    data = {
-        'ids': ids,
-        'titles': titles,
-        'thumbnails': thumbnails,
-        'descriptions': descriptions,
-        'dates': dates,
-        'views': views
-    }
+    # data = {
+    #     'ids': ids,
+    #     'titles': titles,
+    #     'thumbnails': thumbnails,
+    #     'descriptions': descriptions,
+    #     'dates': dates,
+    #     'views': views
+    # }
 
     return render(request, "home/home.html", {
         "recommended_videos": recommended_videos,
-        "len": len(recommended_videos)
     })
 
 def subscriptions(request):
@@ -48,10 +50,15 @@ def library(request):
 def watch_video(request):
     # FIXME: Pass in id of actual selected video so that can be displayed
     selected_video = Video.objects.filter(id=9).first()
-    print(selected_video.title)
+    # print(selected_video.title)
     author = User.objects.filter(id=selected_video.author).first()
-    print(author.username)
+    # print(author.username)
     return render(request, "home/watch-video.html", {
         "selected_video": selected_video,
         "channel_username": author.username,
     })
+
+def test(request):
+    print("hello worls")
+
+    return render(request, "home/home.html", {})

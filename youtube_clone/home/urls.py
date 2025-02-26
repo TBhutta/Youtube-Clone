@@ -10,4 +10,5 @@ urlpatterns = [
     path("you/", views.library, name="you"),
     # path("watch?<int:video_id>/", views.library, name="watch-video"),
     path("watch/", views.watch_video, name="watch-video"),
+    path("watch/test/", views.test, name="test"),
 ]

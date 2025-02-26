@@ -10,7 +10,7 @@
 <!-- prettier-ignore -->
 {% block scripts %}
 {% load static %}
-
+<script src="{% static 'home/js/watch_video.js' %}"></script>
 <!-- prettier-ignore -->
 {% endblock %}
 <!-- prettier-ignore -->
@@ -54,6 +54,192 @@
       <section class="video-description">
         {{ selected_video.description }}
       </section>
+    </section>
+  </section>
+  <div class="top-bar">
+    <h3>comments</h3>
+    <select name="filter" id="filter">
+      Sort by
+      <option value="top_comments">Top comments</option>
+    </select>
+  </div>
+  <section class="add-comment-container">
+    <div class="profile">
+      <img
+        src="https://picsum.photos/seed/picsum/40/40"
+        alt="[fetched image]"
+        width="40"
+        height="40"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        name="new-comment"
+        id="new-comment"
+        placeholder="Add a new comment..."
+        onclick="showButtons()"
+      />
+      <div class="buttons">
+        <button type="button" onclick="hideButtons()">Cancel</button>
+        <button type="button" onclick="addComment()">Comment</button>
+      </div>
+    </div>
+  </section>
+  <section class="comments-container">
+    <section class="comment">
+      <div class="profile">
+        <img
+          src="https://picsum.photos/seed/picsum/40/40"
+          alt="[fetched image]"
+          width="40"
+          height="40"
+        />
+      </div>
+      <div>
+        <div class="channel-and-age">
+          <p>[channel]</p>
+          <p>4 years ago</p>
+        </div>
+        this is my first comment.
+        <div class="options">
+          <button type="button">like</button>
+          <button type="button">dislike</button>
+          <button type="button">reply</button>
+        </div>
+      </div>
+    </section>
+    <section class="comment">
+      <div class="profile">
+        <img
+          src="https://picsum.photos/seed/picsum/40/40"
+          alt="[fetched image]"
+          width="40"
+          height="40"
+        />
+      </div>
+      <div>
+        <div class="channel-and-age">
+          <p>[channel]</p>
+          <p>4 years ago</p>
+        </div>
+        this is my first comment.
+        <div class="options">
+          <button type="button">like</button>
+          <button type="button">dislike</button>
+          <button type="button">reply</button>
+        </div>
+      </div>
+    </section>
+    <section class="comment">
+      <div class="profile">
+        <img
+          src="https://picsum.photos/seed/picsum/40/40"
+          alt="[fetched image]"
+          width="40"
+          height="40"
+        />
+      </div>
+      <div>
+        <div class="channel-and-age">
+          <p>[channel]</p>
+          <p>4 years ago</p>
+        </div>
+        this is my first comment.
+        <div class="options">
+          <button type="button">like</button>
+          <button type="button">dislike</button>
+          <button type="button">reply</button>
+        </div>
+      </div>
+    </section>
+    <section class="comment">
+      <div class="profile">
+        <img
+          src="https://picsum.photos/seed/picsum/40/40"
+          alt="[fetched image]"
+          width="40"
+          height="40"
+        />
+      </div>
+      <div>
+        <div class="channel-and-age">
+          <p>[channel]</p>
+          <p>4 years ago</p>
+        </div>
+        this is my first comment.
+        <div class="options">
+          <button type="button">like</button>
+          <button type="button">dislike</button>
+          <button type="button">reply</button>
+        </div>
+      </div>
+    </section>
+    <section class="comment">
+      <div class="profile">
+        <img
+          src="https://picsum.photos/seed/picsum/40/40"
+          alt="[fetched image]"
+          width="40"
+          height="40"
+        />
+      </div>
+      <div>
+        <div class="channel-and-age">
+          <p>[channel]</p>
+          <p>4 years ago</p>
+        </div>
+        this is my first comment.
+        <div class="options">
+          <button type="button">like</button>
+          <button type="button">dislike</button>
+          <button type="button">reply</button>
+        </div>
+      </div>
+    </section>
+    <section class="comment">
+      <div class="profile">
+        <img
+          src="https://picsum.photos/seed/picsum/40/40"
+          alt="[fetched image]"
+          width="40"
+          height="40"
+        />
+      </div>
+      <div>
+        <div class="channel-and-age">
+          <p>[channel]</p>
+          <p>4 years ago</p>
+        </div>
+        this is my first comment.
+        <div class="options">
+          <button type="button">like</button>
+          <button type="button">dislike</button>
+          <button type="button">reply</button>
+        </div>
+      </div>
+    </section>
+    <section class="comment">
+      <div class="profile">
+        <img
+          src="https://picsum.photos/seed/picsum/40/40"
+          alt="[fetched image]"
+          width="40"
+          height="40"
+        />
+      </div>
+      <div>
+        <div class="channel-and-age">
+          <p>[channel]</p>
+          <p>4 years ago</p>
+        </div>
+        this is my first comment.
+        <div class="options">
+          <button type="button">like</button>
+          <button type="button">dislike</button>
+          <button type="button">reply</button>
+        </div>
+      </div>
     </section>
   </section>
 </section>

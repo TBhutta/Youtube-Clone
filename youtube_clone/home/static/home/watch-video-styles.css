@@ -1,6 +1,5 @@
 .video-and-comments-container {
   flex: 2;
-  border: 1px solid black;
   margin: 10px;
 }
 
@@ -17,12 +16,27 @@
   justify-content: space-between;
 }
 
+.add-comment-container {
+  display: flex;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.buttons {
+  float: inline-end;
+  display: none;
+}
+
+#new-comment {
+  width: 100%;
+}
+
 .channel {
   display: flex;
   align-items: start;
 }
 
-.channel-info {
+.channel-info p {
   margin: 0;
 }
 
@@ -31,4 +45,23 @@
   background-color: gainsboro;
   padding: 1rem;
   border-radius: 10px;
+}
+
+.profile {
+  margin-right: 1rem;
+}
+
+.comment {
+  display: flex;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+.channel-and-age {
+  display: flex;
+}
+
+.channel-and-age p {
+  margin: 0;
+  margin-right: 10px;
 }

@@ -47,9 +47,12 @@ def playlists(request):
 def library(request):
     return render(request, "home/library.html", {})
 
-def watch_video(request):
+def watch_video(request, video_id=None):
     # FIXME: Pass in id of actual selected video so that can be displayed
-    selected_video = Video.objects.filter(id=9).first()
+    if video_id:
+        selected_video = Video.objects.filter(id=video_id).first()
+    else:
+        selected_video = Video.objects.filter(id=9).first()
     # print(selected_video.title)
     author = User.objects.filter(id=selected_video.author).first()
     # print(author.username)
@@ -58,7 +61,7 @@ def watch_video(request):
         "channel_username": author.username,
     })
 
-def test(request):
-    print("hello worls")
+def test(request, id):
+    print("hello worls ", id)
 
     return render(request, "home/home.html", {})

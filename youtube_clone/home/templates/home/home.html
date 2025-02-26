@@ -36,7 +36,7 @@
   </ul>
   <section class="recommended">
     {% for video in recommended_videos %}
-    <a href="{% url "watch-video" %}">
+    <a href="{% url "watch-video" video_id=video.id %}">
       <div class="video">
         <img
           src="{{ video.thumbnail.url }}"

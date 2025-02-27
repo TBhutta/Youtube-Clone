@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 from channel.models import Video
 from django.contrib.auth.models import User
 
@@ -61,7 +62,8 @@ def watch_video(request, video_id=None):
         "channel_username": author.username,
     })
 
-def test(request, id):
-    print("hello worls ", id)
+def test(request, video_id):
+    print("hello worls ", video_id)
+    # return JsonResponse({"data": f"hello word {id}"})
 
     return render(request, "home/home.html", {})

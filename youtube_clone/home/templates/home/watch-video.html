@@ -11,12 +11,15 @@
 {% block scripts %}
 {% load static %}
 <script src="{% static 'home/js/watch_video.js' %}"></script>
+<script>
+  let url = "{% url 'test' video_id=selected_video.id %}";
+</script>
 <!-- prettier-ignore -->
 {% endblock %}
 <!-- prettier-ignore -->
 {% block content %}
 <section class="video-and-comments-container">
-  <video controls width="100%">
+  <video controls width="100%" data-video-id="{{ selected_video.id }}">
     <source src="{{ selected_video.video_file.url }}" />
   </video>
   <section class="video-info">

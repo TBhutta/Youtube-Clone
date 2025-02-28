@@ -3,6 +3,21 @@
   justify-content: space-between;
 }
 
+#search-filter {
+  width: 515px;
+  height: 24px;
+  padding: 0.2rem;
+}
+
+#search-icon {
+  width: 64px;
+  height: 40px;
+  border-radius: 50%;
+  /* background-color: white; */
+  border: none;
+  margin-right: 15px;
+}
+
 #dropdown-menu {
   display: none;
 }

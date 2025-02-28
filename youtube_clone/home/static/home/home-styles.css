@@ -45,6 +45,11 @@
   margin-bottom: 5px;
 }
 
+.video-link {
+  text-decoration: none;
+  color: black;
+}
+
 .video-views {
   margin: 0;
 }

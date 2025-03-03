@@ -1,10 +1,22 @@
 from django.shortcuts import render, redirect
-from .forms import VideoUploadForm
+from .forms import VideoUploadForm, AccountUpdateForm
+from authentication.forms import UserCreationForm
 from django.contrib import messages
 from django.http import JsonResponse
 from .models import Video
 from youtube_clone.settings import BASE_DIR
 import PIL
+
+def profile(request):
+    return render(request, "channel/profile.html", {})
+
+def update_account(request):
+    account_update_form = AccountUpdateForm(instance=request.user)
+    # user_creation_form = UserCreationForm(instance=request.user)
+    return render(request, "channel/update-account.html", {
+        # "user_creation_form": user_creation_form,
+        "account_update_form": account_update_form
+    })
 
 def dashboard(request):
     form = VideoUploadForm()
@@ -32,8 +44,35 @@ def content(request):
     })
 
 def get_videos(request):
+    videos = Video.objects.filter(author = request.user.id)
+    titles = []
+    thumbnails = []
+    descriptions = []
+    dates = []
+    views = []
+    likes = []
+    dislikes = []
+    
+    for video in videos:
+        titles.append(video.title)
+        thumbnails.append(video.thumbnail.url)
+        descriptions.append(video.description)
+        dates.append(video.upload_date)
+        views.append(video.views)
+        likes.append(video.likes)
+        dislikes.append(video.dislikes)
+    
+    base_dir = str(BASE_DIR)
+
     data = {
-        "name": "My Name Is Jeff"
+        "titles": titles,
+        "thumbnails": thumbnails,
+        "descriptions": descriptions,
+        "dates": dates,
+        "views": views,
+        "likes": likes,
+        "dislikes": dislikes,
+        "base_dir": base_dir,
     }
     return JsonResponse(data)
 

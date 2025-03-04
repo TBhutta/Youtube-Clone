@@ -14,8 +14,6 @@ function hideButtons() {
 
 async function addComment() {
   // getting video instance
-  // const video = document.querySelector("video");
-  // const video_id = video.getAttribute("data-video-id");
   const new_comment = document.getElementById("new-comment").value;
 
   let content = {
@@ -23,10 +21,7 @@ async function addComment() {
   };
 
   const uri = url;
-  // FIXME: CSRF token not being passed
-  console.log("csrf token: \n");
   const csrftoken = getCookie("csrftoken");
-  console.log(csrftoken);
 
   fetch(uri, {
     method: "POST",
@@ -37,10 +32,10 @@ async function addComment() {
     },
   })
     .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-    });
+    .then((data) => {});
 
+  document.getElementById("new-comment").value = ""
+  console.log("getting comments")
   getComments()
 }
 
@@ -60,7 +55,7 @@ function getCookie(name) {
   return cookieValue;
 }
 
-async function getComments() {
+function getComments() {
   const uri = comments_url;
 
   fetch(uri, {
@@ -71,14 +66,15 @@ async function getComments() {
   })
     .then((response) => response.json())
     .then((data) => {
+      const commentsContainer = document.getElementById("comments-container")
+      commentsContainer.innerHTML = "" // Resetting the container
+
       const fetchedComments = JSON.parse(data.comments)
       const NUM_COMMENTS = Object.keys(fetchedComments).length
-      console.log(fetchedComments[1])
+      const video_ids = Object.keys(fetchedComments)
       document.getElementById("num-comments").innerHTML = `${NUM_COMMENTS} comments`;
 
-      for (let i = 1; i < NUM_COMMENTS+1; i++) {
-        const commentsContainer = document.getElementById("comments-container")
-
+      for (let i = 0; i < NUM_COMMENTS; i++) {
         const comment = document.createElement("section");
         comment.setAttribute("class", "comment");
 
@@ -98,15 +94,16 @@ async function getComments() {
 
         const channel = document.createElement("p")
         channel.setAttribute("class", "channel")
-        channel.innerHTML = fetchedComments[i].commenter;
+        // The code below gets the index of the correct video, according to the id of the video
+        channel.innerHTML = fetchedComments[video_ids[i]].commenter;
 
         const commentAge = document.createElement("p")
         commentAge.setAttribute("class", "age")
-        commentAge.innerHTML = fetchedComments[i].date_posted; // TODO: Find difference between current time and date posted and set that as age
+        commentAge.innerHTML = fetchedComments[video_ids[i]].date_posted; // TODO: Find difference between current time and date posted and set that as age
 
         const commentContent = document.createElement("p")
         commentContent.setAttribute("class", "content")
-        commentContent.innerHTML = fetchedComments[i].content;
+        commentContent.innerHTML = fetchedComments[video_ids[i]].content;
 
         const optionButtons = document.createElement("div")
         optionButtons.setAttribute("class", "options")

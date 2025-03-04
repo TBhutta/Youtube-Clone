@@ -59,9 +59,9 @@ def watch_video(request, video_id=None):
     })
 
 def get_comments(request, video_id):
-    print("get comments")
     fetched_comments = Comment.objects.filter(video_id=video_id).all()
     all_comments = {}
+    # FIXME: Newly added comment is not fetched right after posting commenting
     for comment in fetched_comments:
         all_comments[comment.id] = {
             "content": comment.content,
@@ -70,7 +70,6 @@ def get_comments(request, video_id):
             "date_posted": comment.date_time.isoformat(),
             "commenter": User.objects.get(id=comment.commenter_id).username,
         }
-    print(all_comments)
     return JsonResponse({"comments": json.dumps(all_comments)})
 
 @ensure_csrf_cookie

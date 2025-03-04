@@ -1,10 +1,11 @@
 .video-and-comments-container {
-  flex: 2;
+  /*flex: 2;*/
+  width: 70%;
   margin: 10px;
 }
 
 .recommended-videos {
-  flex: 1;
+  /*flex: 1;*/
 }
 
 .sidebar {

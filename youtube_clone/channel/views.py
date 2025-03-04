@@ -28,6 +28,7 @@ def upload_video(request):
     if request.method == "POST":
         form = VideoUploadForm(request.POST, request.FILES)
         if form.is_valid():
+            # Not committing the form as we still need to set the author's id field
             new_author = form.save(commit=False)
             new_author.author = request.user.id
             new_author.save()

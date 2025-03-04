@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="16733b2a-b228-4752-9117-7d7eb424bf66" name="Changes" comment="">
+    <list default="true" id="16733b2a-b228-4752-9117-7d7eb424bf66" name="Changes" comment="Comments for a video are now displayed">
+      <change beforePath="$PROJECT_DIR$/.idea/Youtube-Clone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Youtube-Clone.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube_clone/authentication/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/authentication/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube_clone/authentication/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/authentication/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/channel/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/channel/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube_clone/channel/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/channel/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube_clone/channel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/channel/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube_clone/channel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/channel/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube_clone/home/static/home/js/watch_video.js" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/home/static/home/js/watch_video.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube_clone/home/static/home/watch-video-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/home/static/home/watch-video-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube_clone/home/templates/home/library.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/home/templates/home/library.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube_clone/home/templates/home/watch-video.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/home/templates/home/watch-video.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/home/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube_clone/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube_clone/static/css/header-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/static/css/header-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube_clone/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/templates/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,28 +28,58 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;CLOSED&quot;,
+      &quot;assignee&quot;: &quot;TBhutta&quot;,
+      &quot;author&quot;: &quot;TBhutta&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;CLOSED&quot;,
+    &quot;assignee&quot;: &quot;TBhutta&quot;,
+    &quot;author&quot;: &quot;TBhutta&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TBhutta/Youtube-Clone.git&quot;,
+    &quot;accountId&quot;: &quot;99743535-2de9-4afb-baac-7ebbffcfac0c&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2tZvywAt0Tq9pRdEXSJYe0YGsw1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/talhah/Documents/python-projects/Youtube-Clone",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.views.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/talhah/Documents/python-projects/Youtube-Clone&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-WS-243.24978.60" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
+        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
       </set>
     </attachedChunks>
   </component>
@@ -51,10 +92,73 @@
       <option name="presentableId" value="Default" />
       <updated>1740572668896</updated>
       <workItem from="1740572670354" duration="30000" />
+      <workItem from="1740979283262" duration="37000" />
+      <workItem from="1740979326984" duration="676000" />
+      <workItem from="1740980007512" duration="1000" />
+      <workItem from="1740980016362" duration="148000" />
+      <workItem from="1740980167458" duration="143000" />
+      <workItem from="1741043625831" duration="289000" />
+      <workItem from="1741043920125" duration="6818000" />
+      <workItem from="1741086655294" duration="7538000" />
+      <workItem from="1741102075943" duration="3464000" />
     </task>
+    <task id="LOCAL-00001" summary="Modified the functions so that the correct function would fetch all uploaded videos by a user">
+      <option name="closed" value="true" />
+      <created>1741005591420</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741005591420</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Can now add comments">
+      <option name="closed" value="true" />
+      <created>1741047322695</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741047322695</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Comments for a video are now displayed">
+      <option name="closed" value="true" />
+      <created>1741091887722</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1741091887722</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Modified the functions so that the correct function would fetch all uploaded videos by a user" />
+    <MESSAGE value="Can now add comments" />
+    <MESSAGE value="Comments for a video are now displayed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments for a video are now displayed" />
   </component>
 </project>

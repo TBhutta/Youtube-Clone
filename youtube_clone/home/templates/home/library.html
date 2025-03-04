@@ -30,7 +30,9 @@
       <h1>{{ user.first_name }} {{ user.last_name }}</h1>
       <div style="display: flex">
         <p>{{ user.username }}</p>
-        <a href="">View channel</a>
+        <!--TODO: Add page to view channel from where user should be able to
+        update account -->
+        <a href="{% url 'profile' %}">View channel</a>
       </div>
       <div class="buttons">
         <button type="button">Switch account</button>

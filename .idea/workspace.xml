@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16733b2a-b228-4752-9117-7d7eb424bf66" name="Changes" comment="Comments for a video are now displayed">
-      <change beforePath="$PROJECT_DIR$/.idea/Youtube-Clone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Youtube-Clone.iml" afterDir="false" />
+    <list default="true" id="16733b2a-b228-4752-9117-7d7eb424bf66" name="Changes" comment="Testing commit on pycharm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/authentication/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/authentication/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/authentication/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/authentication/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/channel/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/channel/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/channel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/channel/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/channel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/channel/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/home/static/home/js/watch_video.js" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/home/static/home/js/watch_video.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/home/static/home/watch-video-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/home/static/home/watch-video-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/home/templates/home/library.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/home/templates/home/library.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/home/templates/home/watch-video.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/home/templates/home/watch-video.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/static/css/header-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/static/css/header-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube_clone/youtube_clone/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/youtube_clone/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,22 +47,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.views.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/talhah/Documents/python-projects/Youtube-Clone&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.settings.executor": "Run",
+    "Python.views.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/talhah/Documents/python-projects/Youtube-Clone",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -100,7 +94,7 @@
       <workItem from="1741043625831" duration="289000" />
       <workItem from="1741043920125" duration="6818000" />
       <workItem from="1741086655294" duration="7538000" />
-      <workItem from="1741102075943" duration="3464000" />
+      <workItem from="1741102075943" duration="10694000" />
     </task>
     <task id="LOCAL-00001" summary="Modified the functions so that the correct function would fetch all uploaded videos by a user">
       <option name="closed" value="true" />
@@ -126,7 +120,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741091887722</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="FIXED: &quot;Comments for a video are now displayed&quot; -&gt; the logic to get the id of all videos was incorrect">
+      <option name="closed" value="true" />
+      <created>1741107430531</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741107430531</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Testing commit on pycharm">
+      <option name="closed" value="true" />
+      <created>1741107453442</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1741107453442</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +169,11 @@
     <MESSAGE value="Modified the functions so that the correct function would fetch all uploaded videos by a user" />
     <MESSAGE value="Can now add comments" />
     <MESSAGE value="Comments for a video are now displayed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments for a video are now displayed" />
+    <MESSAGE value="FIXED: &quot;Comments for a video are now displayed&quot; -&gt; the logic to get the id of all videos was incorrect" />
+    <MESSAGE value="Testing commit on pycharm" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing commit on pycharm" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Youtube_Clone$settings.coverage" NAME="settings Coverage Results" MODIFIED="1741118298504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/youtube_clone/youtube_clone" />
   </component>
 </project>

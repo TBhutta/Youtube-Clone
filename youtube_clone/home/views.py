@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from channel.models import Video
+from django.views.decorators.csrf import ensure_csrf_cookie
+from channel.models import Video, Comment
 from django.contrib.auth.models import User
+import json
 
 def home(request):
     recommended_videos = Video.objects.all()
-    for i in recommended_videos:
-        print(i.author)
+    # TODO: Acquire channel username from author id of all recommended videos
     
     # ids = []
     # titles = []
@@ -49,21 +50,36 @@ def library(request):
     return render(request, "home/library.html", {})
 
 def watch_video(request, video_id=None):
-    # FIXME: Pass in id of actual selected video so that can be displayed
-    if video_id:
-        selected_video = Video.objects.filter(id=video_id).first()
-    else:
-        selected_video = Video.objects.filter(id=9).first()
-    # print(selected_video.title)
+    selected_video = Video.objects.filter(id=video_id).first()
+    print("selected_video.id: " , selected_video.id)
     author = User.objects.filter(id=selected_video.author).first()
-    # print(author.username)
     return render(request, "home/watch-video.html", {
         "selected_video": selected_video,
         "channel_username": author.username,
     })
 
-def test(request, video_id):
-    print("hello worls ", video_id)
-    # return JsonResponse({"data": f"hello word {id}"})
+def get_comments(request, video_id):
+    print("get comments")
+    fetched_comments = Comment.objects.filter(video_id=video_id).all()
+    all_comments = []
+    for comment in fetched_comments:
+        all_comments.append(comment)
+    return JsonResponse({"all-comments": all_comments})
 
-    return render(request, "home/home.html", {})
+@ensure_csrf_cookie
+def add_comment(request, video_id):
+    print("hello worls ", video_id)
+    # TODO: Store comment in database
+
+    data = json.loads(request.body)
+    print(data)
+    video = Video.objects.get(id=video_id)
+    new_comment = Comment(commenter=request.user,
+                          content=data["new_comment"],
+                          video_id=video,
+                          )
+    new_comment.save()
+    print("successfully added comment")
+    return JsonResponse({"data": f"hello word {video_id}"})
+
+    # return render(request, "home/home.html", {})

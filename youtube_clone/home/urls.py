@@ -9,5 +9,6 @@ urlpatterns = [
     path("playlists/", views.playlists, name="playlists"),
     path("you/", views.library, name="you"),
     path("watch/<int:video_id>/", views.watch_video, name="watch-video"),
-    path("watch/<int:video_id>/add-comment/", views.test, name="test"),
+    path("watch/<int:video_id>/get-comments/", views.get_comments, name="get-comments"),
+    path("watch/<int:video_id>/add-comment/", views.add_comment, name="add-comment"),
 ]

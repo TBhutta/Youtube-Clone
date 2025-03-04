@@ -61,10 +61,17 @@ def watch_video(request, video_id=None):
 def get_comments(request, video_id):
     print("get comments")
     fetched_comments = Comment.objects.filter(video_id=video_id).all()
-    all_comments = []
+    all_comments = {}
     for comment in fetched_comments:
-        all_comments.append(comment)
-    return JsonResponse({"all-comments": all_comments})
+        all_comments[comment.id] = {
+            "content": comment.content,
+            "likes": comment.likes,
+            "dislikes": comment.dislikes,
+            "date_posted": comment.date_time.isoformat(),
+            "commenter": User.objects.get(id=comment.commenter_id).username,
+        }
+    print(all_comments)
+    return JsonResponse({"comments": json.dumps(all_comments)})
 
 @ensure_csrf_cookie
 def add_comment(request, video_id):
@@ -81,5 +88,3 @@ def add_comment(request, video_id):
     new_comment.save()
     print("successfully added comment")
     return JsonResponse({"data": f"hello word {video_id}"})
-
-    # return render(request, "home/home.html", {})

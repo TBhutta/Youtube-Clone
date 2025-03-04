@@ -12,7 +12,8 @@
 {% load static %}
 <script src="{% static 'home/js/watch_video.js' %}"></script>
 <script>
-  let url = "{% url 'test' video_id=selected_video.id %}";
+  let url = "{% url 'add-comment' video_id=selected_video.id %}";
+  let comments_url = "{% url 'get-comments' video_id=selected_video.id %}";
 </script>
 <!-- prettier-ignore -->
 {% endblock %}
@@ -60,7 +61,7 @@
     </section>
   </section>
   <div class="top-bar">
-    <h3>comments</h3>
+    <h3 id="num-comments"></h3>
     <select name="filter" id="filter">
       Sort by
       <option value="top_comments">Top comments</option>
@@ -89,7 +90,7 @@
       </div>
     </div>
   </section>
-  <section class="comments-container">
+  <section id="comments-container">
     <section class="comment">
       <div class="profile">
         <img
@@ -101,10 +102,10 @@
       </div>
       <div>
         <div class="channel-and-age">
-          <p>[channel]</p>
-          <p>4 years ago</p>
+          <p class="channel">[channel]</p>
+          <p class="age">4 years ago</p>
         </div>
-        this is my first comment.
+        <p class="content">this is my first comment.</p>
         <div class="options">
           <button type="button">like</button>
           <button type="button">dislike</button>

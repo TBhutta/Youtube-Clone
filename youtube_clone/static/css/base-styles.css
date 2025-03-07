@@ -1,11 +1,22 @@
+:root {
+  color-scheme: light dark;
+}
+
 main {
   display: flex;
 }
 
+.body {
+  background-color: light-dark(white, black);
+  color: light-dark(black, white);
+}
+
+/* TODO: Make scrollable */
 .sidebar {
   overflow-y: scroll;
   min-width: 240px;
   padding-right: 30px;
+  max-height: fit-content;
 }
 
 .sidebar ul {
@@ -17,18 +28,18 @@ main {
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
-  /* FIXME: Make <a> tag span across the entire available width */
-  /* padding-right: 100px; */
   width: 100%;
   border-radius: 10px;
+  color: light-dark(black, white); !important;
 }
 
 .sidebar li {
   padding: 10px;
 }
 
-.sidebar li a:hover {
+.sidebar li:hover {
   background-color: #e6e6e6;
+  border-radius: 10px;
   cursor: pointer;
 }
 

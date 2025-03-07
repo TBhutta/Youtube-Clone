@@ -14,6 +14,7 @@
 <script>
   let url = "{% url 'add-comment' video_id=selected_video.id %}";
   let comments_url = "{% url 'get-comments' video_id=selected_video.id %}";
+  let like_url = "{% url 'like-video' video_id=selected_video.id %}";
 </script>
 <!-- prettier-ignore -->
 {% endblock %}
@@ -43,8 +44,8 @@
       </section>
 
       <section class="user-options">
-        <button type="button">Like</button>
-        <button type="button">Dislike</button>
+        <button type="button" onclick="likeVideo()">Like</button>
+        <button type="button" onclick="dislikeVideo()">Dislike</button>
         <button type="button">Share</button>
         <button type="button">Download</button>
         <button type="button">...</button>

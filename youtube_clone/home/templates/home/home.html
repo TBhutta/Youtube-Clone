@@ -38,6 +38,7 @@
     {% for video in recommended_videos %}
     <a href="{% url "watch-video" video_id=video.id %}" class="video-link">
       <div class="video">
+        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
         <img
           src="{{ video.thumbnail.url }}"
           alt="{{ video.thumbnail.url }}"

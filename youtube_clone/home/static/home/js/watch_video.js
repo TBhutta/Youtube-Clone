@@ -12,6 +12,15 @@ function hideButtons() {
   });
 }
 
+function likeVideo() {
+  const uri = like_url;
+
+  fetch(uri)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(err => console.error(err))
+}
+
 async function addComment() {
   // getting video instance
   const new_comment = document.getElementById("new-comment").value;
@@ -106,20 +115,34 @@ function getComments() {
         commentContent.innerHTML = fetchedComments[video_ids[i]].content;
 
         const optionButtons = document.createElement("div")
-        optionButtons.setAttribute("class", "options")
+        optionButtons.setAttribute("class", "options-container")
 
+
+        const likeButtonIcon = "" +
+            "<svg height=\"24\" width=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
+            "\t<g fill=\"none\">\n" +
+            "\t\t<path d=\"m15 10l-.986-.164A1 1 0 0 0 15 11v-1ZM4 10V9a1 1 0 0 0-1 1h1Zm16.522 2.392l.98.196l-.98-.196ZM6 21h11.36v-2H6v2ZM18.56 9H15v2h3.56V9Zm-2.573 1.164l.805-4.835L14.82 5l-.806 4.836l1.973.328ZM14.82 3h-.214v2h.214V3Zm-3.543 1.781L8.762 8.555l1.664 1.11l2.516-3.774l-1.665-1.11ZM7.93 9H4v2h3.93V9ZM3 10v8h2v-8H3Zm17.302 8.588l1.2-6l-1.96-.392l-1.2 6l1.96.392ZM8.762 8.555A1 1 0 0 1 7.93 9v2a3 3 0 0 0 2.496-1.336l-1.664-1.11Zm8.03-3.226A2 2 0 0 0 14.82 3v2l1.972.329ZM18.56 11a1 1 0 0 1 .981 1.196l1.961.392A3 3 0 0 0 18.561 9v2Zm-1.2 10a3 3 0 0 0 2.942-2.412l-1.96-.392a1 1 0 0 1-.982.804v2ZM14.606 3a4 4 0 0 0-3.329 1.781l1.665 1.11A2 2 0 0 1 14.606 5V3ZM6 19a1 1 0 0 1-1-1H3a3 3 0 0 0 3 3v-2Z\" fill=\"currentColor\"/>\n" +
+            "\t\t<path d=\"M8 10v10\" stroke=\"currentColor\" strokeWidth=\"2\"/>\n" +
+            "\t</g>\n" +
+            "</svg>"
         const likeButton = document.createElement("button")
         likeButton.setAttribute("class", "option-btn")
-        likeButton.innerHTML = "like"
+        likeButton.setAttribute("onclick", "likeComment()")
+        likeButton.innerHTML = likeButtonIcon
 
+        const dislikeButtonIcon = "" +
+            "<svg height=\"24\" width=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
+            "\t<path d=\"M20 3H6.693A2.01 2.01 0 0 0 4.82 4.298l-2.757 7.351A1 1 0 0 0 2 12v2c0 1.103.897 2 2 2h5.612L8.49 19.367a2.004 2.004 0 0 0 .274 1.802c.376.52.982.831 1.624.831H12c.297 0 .578-.132.769-.36l4.7-5.64H20c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm-8.469 17h-1.145l1.562-4.684A1 1 0 0 0 11 14H4v-1.819L6.693 5H16v9.638L11.531 20zM18 14V5h2l.001 9H18z\" fill=\"currentColor\"/>\n" +
+            "</svg>"
         const dislikeButton = document.createElement("button")
         dislikeButton.setAttribute("class", "option-btn")
-        dislikeButton.innerHTML = "dislike"
+        dislikeButton.setAttribute("onclick", "DislikeComment()")
+        dislikeButton.innerHTML = dislikeButtonIcon
 
         const replyButton = document.createElement("button")
-        replyButton.setAttribute("class", "option-btn")
-        replyButton.innerHTML = "reply"
-
+        replyButton.setAttribute("class", "option-btn reply-btn")
+        replyButton.setAttribute("onclick", "replyComment()")
+        replyButton.innerHTML = "<p class='reply-label'>Reply</p>"
 
         profile.appendChild(profileImage)
         comment.appendChild(profile)
@@ -137,12 +160,36 @@ function getComments() {
         comment.appendChild(divContainer)
 
         commentsContainer.appendChild(comment)
-
-
       }
     });
 }
 
+// TODO: I can pass in parameters according to chosen topic from nav bar to select videos
+async function getRecommendedVideos() {
+  const uri = get_recommendations_url;
+
+  fetch(uri, {
+    method: "GET",
+    headers: {
+      "X-Requested-With": "XMLHttpRequest",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+      const recommended_videos_container = document.getElementById("recommended-videos");
+      const fetchedVideos = JSON.parse(data.videos)
+      const NUM_VIDEOS = Object.keys(fetchedVideos).length
+
+      for (let i = 0; i < NUM_VIDEOS; i++) {
+
+      }
+
+
+    })
+}
+
 window.onload = function () {
   getComments();
+  getRecommendedVideos();
 };

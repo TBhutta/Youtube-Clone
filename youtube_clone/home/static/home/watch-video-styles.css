@@ -1,11 +1,61 @@
+:root {
+  color-scheme: light dark;
+  --show-replies-color: rgb(6, 95, 212);
+}
+
+p {
+  font-family: "Roboto","Arial",sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+video {
+  border-radius: 10px;
+}
+
+.date-views-container {
+  font-weight: bold;
+}
+
 .video-and-comments-container {
-  /*flex: 2;*/
   width: 70%;
   margin: 10px;
+  background-color: light-dark(white, black);
 }
 
 .recommended-videos {
-  /*flex: 1;*/
+  background-color: light-dark(white, black);
+  width: 30%;
+  margin-left: 1rem;
+}
+
+.recommended-video img {
+  border-radius: 10px;
+}
+
+.recommended-video {
+  margin-right: 5px;
+}
+
+.video-container {
+  display: flex;
+}
+
+.recommended-video-channel, .views-and-age {
+  font-size: small;
+  margin-top: 6px;
+}
+
+.recommended-video-title {
+  font-weight: bold;
+}
+
+.recommended-video-channel {
+  font-weight: normal;
+}
+
+.views-and-age {
+  display: flex;
 }
 
 .sidebar {
@@ -32,13 +82,13 @@
   width: 100%;
 }
 
-.channel {
-  display: flex;
-  align-items: start;
-}
-
 .channel-info p {
   margin: 0;
+}
+
+.age {
+  color: #4a4747;
+  font-size: small;
 }
 
 .video-description-container {
@@ -52,6 +102,21 @@
   margin-right: 1rem;
 }
 
+.option-btn {
+  background-color: light-dark(white, black);
+  border: none;
+  margin-top: 15px;
+}
+
+.reply-btn {
+  margin-left: 15px;
+}
+
+.reply-label {
+  font-weight: bold;
+  font-size: smaller;
+}
+
 .comment {
   display: flex;
   align-items: start;
@@ -60,13 +125,33 @@
 
 .channel {
   font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  align-items: start;
 }
 
 .channel-and-age {
   display: flex;
+  margin-bottom: 0;
+
 }
 
 .channel-and-age p {
   margin: 0;
   margin-right: 10px;
+}
+
+.user-option-btns {
+  background-color: light-dark(gainsboro, rgba(255, 255, 255, 0.1));
+  padding: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 25px;
+}
+
+.content {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 14px;
 }

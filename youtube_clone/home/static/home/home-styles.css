@@ -1,7 +1,12 @@
+:root {
+  color-scheme: light dark;
+}
+
 .main-content {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: light-dark(white, black);
 }
 
 p, h1, h2 {

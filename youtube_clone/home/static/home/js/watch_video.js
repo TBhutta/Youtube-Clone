@@ -177,12 +177,64 @@ async function getRecommendedVideos() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data)
-      const recommended_videos_container = document.getElementById("recommended-videos");
+      const recommendedVideosContainer = document.getElementById("recommended-videos");
       const fetchedVideos = JSON.parse(data.videos)
       const NUM_VIDEOS = Object.keys(fetchedVideos).length
+      const videoIDs = Object.keys(fetchedVideos)
 
       for (let i = 0; i < NUM_VIDEOS; i++) {
+        // const videoContainer = document.createElement("section");
+        // videoContainer.setAttribute("class", "video-container")
+        //
+        // const videoLink = document.createElement("a")
+        // videoLink.setAttribute("href", "#")
+        // videoLink.setAttribute("class", "recommended-video")
+        //
+        // const videoThumbnail = document.createElement("img")
+        // videoThumbnail.setAttribute("src", "https://picsum.photos/seed/picsum/168/94")
+        // videoThumbnail.setAttribute("alt", "[fetched image]")
+        // videoThumbnail.setAttribute("width", "168")
+        // videoThumbnail.setAttribute("height", "94")
+        // videoLink.appendChild(videoThumbnail)
+        // videoContainer.appendChild(videoLink)
+        //
+        // const videoInfo = document.createElement("section")
+        // videoInfo.setAttribute("class", "video-info")
+        //
+        // const videoTitle = document.createElement("p")
+        // videoTitle.innerHTML = `<p class="recommended-video-title">Try not to laugh! *GONE WRONG*</p>`
+        //
+        // videoContainer.appendChild(videoInfo)
+        //
+        // recommendedVideosContainer.appendChild(videoContainer)
 
+
+
+        const videoID = videoIDs[i]
+        // const video_url = video_url_template.replace("temp", videoID)
+        // const video_url = `{% url 'watch-video' video_id=videoID %}`.replace('videoID', videoID)
+        const video_url = `/watch/${videoID}` // FIXME: try to implement a way with django's url format
+        console.log(video_url)
+        recommendedVideosContainer.innerHTML += `
+          <section class="video-container">
+            <a href=${video_url} class="recommended-video">
+              <img
+                src=${fetchedVideos[videoIDs[i]].thumbnail}
+                alt="[fetched image]"
+                width="168"
+                height="94"
+              />
+            </a>
+            <section class="video-info">
+              <p class="recommended-video-title">${fetchedVideos[videoIDs[i]].title}</p>
+              <p class="recommended-video-channel">${fetchedVideos[videoIDs[i]].author}</p>
+              <div class="views-and-age">
+                <p class="views">${fetchedVideos[videoIDs[i]].views} views . </p>
+                <p class="age"> ${fetchedVideos[videoIDs[i]].upload_date}</p>
+              </div>
+            </section>
+          </section>
+        `
       }
 
 

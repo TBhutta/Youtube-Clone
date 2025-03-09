@@ -11,4 +11,6 @@ urlpatterns = [
     path("watch/<int:video_id>/", views.watch_video, name="watch-video"),
     path("watch/<int:video_id>/get-comments/", views.get_comments, name="get-comments"),
     path("watch/<int:video_id>/add-comment/", views.add_comment, name="add-comment"),
+    path("watch/<int:video_id>/like-video/", views.like_video, name="like-video"),
+    path("watch/get-recommendations/", views.get_recommendations, name="get-recommendations"),
 ]

@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Video, Account
+from .models import Video
+from authentication.models import Account
 
 class VideoUploadForm(ModelForm):
     class Meta:
@@ -18,4 +19,4 @@ class AccountUpdateForm(ModelForm):
     class Meta:
         model = Account
         # TODO: Add fields from User model
-        fields = ['first_name', 'last_name', 'username', 'email', 'birth_date', 'profile_pic', 'about']
+        fields = ['first_name', 'last_name', 'username', 'email', 'profile_pic', 'about']

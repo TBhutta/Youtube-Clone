@@ -11,6 +11,16 @@ def profile(request):
     return render(request, "channel/profile.html", {})
 
 def update_account(request):
+    if request.method == "POST":
+        print("cp")
+        form = AccountUpdateForm(request.POST)
+        # if form.is_valid():
+        form.save()
+        print("Account updated")
+        return redirect("/")
+        # else:
+        #     print("form not valid")
+
     account_update_form = AccountUpdateForm(instance=request.user)
     # user_creation_form = UserCreationForm(instance=request.user)
     return render(request, "channel/update-account.html", {

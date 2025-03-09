@@ -8,15 +8,18 @@ USER_MODEL = get_user_model()
 
 def registration(request):
     if request.method == "POST":
-        form = AccountCreationForm(request.POST)
+        form = AccountCreationForm(request.POST, request.FILES)
         if form.is_valid():
             f_name = form.cleaned_data["first_name"]
             l_name = form.cleaned_data["last_name"]
             username = form.cleaned_data["username"]
             email = form.cleaned_data["email"]
             password = form.cleaned_data["password"]
-            print(f_name, l_name, username, email, password)
-            new_user = USER_MODEL.objects.create_user(username, email, password, first_name=f_name, last_name=l_name)
+            # FIXME: Profile pic url not being picked up
+            profile_pic = form.cleaned_data["profile_pic"]
+            about = form.cleaned_data["about"]
+            print(f_name, l_name, username, email, password, profile_pic)
+            new_user = USER_MODEL.objects.create_user(username, email, password, first_name=f_name, last_name=l_name, about=about, profile_pic=profile_pic)
             new_user.save()
             return redirect(login_user)
 

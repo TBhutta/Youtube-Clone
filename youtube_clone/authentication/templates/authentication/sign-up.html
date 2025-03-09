@@ -15,7 +15,7 @@
 <section class="main-content">
   <h1 class="titleee">Sign up</h1>
 
-  <form action="#" method="post" class="sign-up-form">
+  <form action="#" method="post" class="sign-up-form" enctype="multipart/form-data">
     {% csrf_token %} {{ form.as_p }}
     <button type="submit">Create account</button>
   </form>

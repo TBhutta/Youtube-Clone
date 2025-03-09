@@ -5,15 +5,14 @@ from django.contrib import messages
 from django.http import JsonResponse
 from .models import Video
 from youtube_clone.settings import BASE_DIR
-import PIL
 
 def profile(request):
     return render(request, "channel/profile.html", {})
 
 def update_account(request):
     if request.method == "POST":
-        print("cp")
-        form = AccountUpdateForm(request.POST)
+        form = AccountUpdateForm(request.POST, request.FILES, instance=request.user)
+        # TODO: Validate form
         # if form.is_valid():
         form.save()
         print("Account updated")

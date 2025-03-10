@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16733b2a-b228-4752-9117-7d7eb424bf66" name="Changes" comment="1) Integrated a custom user model to add extra fields like user profile pic&#10;&#10;2) Can now watch one of the recommended video from the side pane.">
+    <list default="true" id="16733b2a-b228-4752-9117-7d7eb424bf66" name="Changes" comment="FIXED: Profile pic urls are now saved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube_clone/authentication/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/authentication/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube_clone/channel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_clone/channel/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +123,7 @@
       <workItem from="1741389333598" duration="167000" />
       <workItem from="1741389507338" duration="140000" />
       <workItem from="1741465204071" duration="6313000" />
-      <workItem from="1741480279119" duration="13478000" />
+      <workItem from="1741480279119" duration="15367000" />
     </task>
     <task id="LOCAL-00001" summary="Modified the functions so that the correct function would fetch all uploaded videos by a user">
       <option name="closed" value="true" />
@@ -206,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741546746407</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="FIXED: Profile pic urls are now saved">
+      <option name="closed" value="true" />
+      <created>1741548360401</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1741548360401</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +253,8 @@
     <MESSAGE value="Improved UI" />
     <MESSAGE value="Can like a video and get recommendations for more videos to watch after while watching the current video" />
     <MESSAGE value="1) Integrated a custom user model to add extra fields like user profile pic&#10;&#10;2) Can now watch one of the recommended video from the side pane." />
-    <option name="LAST_COMMIT_MESSAGE" value="1) Integrated a custom user model to add extra fields like user profile pic&#10;&#10;2) Can now watch one of the recommended video from the side pane." />
+    <MESSAGE value="FIXED: Profile pic urls are now saved" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIXED: Profile pic urls are now saved" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

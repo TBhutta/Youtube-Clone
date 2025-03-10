@@ -1,37 +1,13 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from django.views.decorators.csrf import ensure_csrf_cookie
 from channel.models import Video, Comment
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 import json
+
+USER_MODEL = get_user_model()
 
 def home(request):
     recommended_videos = Video.objects.all()
-    # TODO: Acquire channel username from author id of all recommended videos
-    
-    # ids = []
-    # titles = []
-    # thumbnails = []
-    # descriptions = []
-    # dates = []
-    # views = []
-
-    # for video in recommended_videos:
-    #     ids.append(User.objects.filter(id=video.id))
-    #     titles.append(video.title)
-    #     thumbnails.append(video.thumbnail.url)
-    #     descriptions.append(video.description)
-    #     dates.append(video.upload_date)
-    #     views.append(video.views)
-
-    # data = {
-    #     'ids': ids,
-    #     'titles': titles,
-    #     'thumbnails': thumbnails,
-    #     'descriptions': descriptions,
-    #     'dates': dates,
-    #     'views': views
-    # }
 
     return render(request, "home/home.html", {
         "recommended_videos": recommended_videos,
@@ -51,10 +27,10 @@ def library(request):
 
 def watch_video(request, video_id=None):
     selected_video = Video.objects.filter(id=video_id).first()
-    author = User.objects.filter(id=selected_video.author).first()
+    author = USER_MODEL.objects.filter(id=selected_video.author.id).first()
     return render(request, "home/watch-video.html", {
         "selected_video": selected_video,
-        "channel_username": author.username,
+        "author": author,
     })
 
 def get_comments(request, video_id):
@@ -67,7 +43,7 @@ def get_comments(request, video_id):
             "likes": comment.likes,
             "dislikes": comment.dislikes,
             "date_posted": comment.date_time.isoformat(),
-            "commenter": User.objects.get(id=comment.commenter_id).username,
+            "commenter": USER_MODEL.objects.get(id=comment.commenter_id).username,
         }
     return JsonResponse({"comments": json.dumps(all_comments)})
 

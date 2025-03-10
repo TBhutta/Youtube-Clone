@@ -45,176 +45,404 @@
           width="373"
           height="209"
         />
-        <p class="video-title" style="font-weight: bold; font-size: 20px">
-          {{ video.title }}
-        </p>
-        <p class="video-channel" style="color: rgb(163, 161, 161)">
-          <!-- FIXME: author id is displayed, but change it to their username -->
-          {{ video.author }}
-        </p>
-        <p class="video-views" style="color: rgb(163, 161, 161)">
-          {{ video.views }} views
-        </p>
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{{ video.author.profile_pic.url }}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              {{ video.title }}
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              <!-- FIXME: author id is displayed, but change it to their username -->
+              {{ video.author }}
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              {{ video.views }} views
+            </p>
+          </section>
+        </section>
       </div>
     </a>
     {% endfor %}
 
     <div class="video">
-      <img
-        src="{% static 'images/elemental-hero-neos.webp' %}"
-        alt="elemental-hero-neos"
-        width="373"
-        height="209"
-      />
-      <p class="video-title" style="font-weight: bold; font-size: 20px">
-        Elemental Hero Neos
-      </p>
-      <p class="video-channel" style="color: rgb(163, 161, 161)">Jaden Yuki</p>
-      <p class="video-views" style="color: rgb(163, 161, 161)">222k views</p>
-    </div>
+        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+        <img
+          src="{% static 'images/elemental-hero-neos.webp' %}"
+          alt="{% static 'images/elemental-hero-neos.webp' %}"
+          width="373"
+          height="209"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              <!-- FIXME: author id is displayed, but change it to their username -->
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views views
+            </p>
+          </section>
+        </section>
+      </div>
     <div class="video">
-      <img
-        src="{% static 'images/elemental-hero-neos.webp' %}"
-        alt="elemental-hero-neos"
-        width="373"
-        height="209"
-      />
-      <p class="video-title" style="font-weight: bold; font-size: 20px">
-        Elemental Hero Neos
-      </p>
-      <p class="video-channel" style="color: rgb(163, 161, 161)">Jaden Yuki</p>
-      <p class="video-views" style="color: rgb(163, 161, 161)">222k views</p>
-    </div>
+        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+        <img
+          src="{% static 'images/elemental-hero-neos.webp' %}"
+          alt="{% static 'images/elemental-hero-neos.webp' %}"
+          width="373"
+          height="209"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              <!-- FIXME: author id is displayed, but change it to their username -->
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views views
+            </p>
+          </section>
+        </section>
+      </div>
     <div class="video">
-      <img
-        src="{% static 'images/elemental-hero-neos.webp' %}"
-        alt="elemental-hero-neos"
-        width="373"
-        height="209"
-      />
-      <p class="video-title" style="font-weight: bold; font-size: 20px">
-        Elemental Hero Neos
-      </p>
-      <p class="video-channel" style="color: rgb(163, 161, 161)">Jaden Yuki</p>
-      <p class="video-views" style="color: rgb(163, 161, 161)">222k views</p>
-    </div>
+        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+        <img
+          src="{% static 'images/elemental-hero-neos.webp' %}"
+          alt="{% static 'images/elemental-hero-neos.webp' %}"
+          width="373"
+          height="209"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              <!-- FIXME: author id is displayed, but change it to their username -->
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views views
+            </p>
+          </section>
+        </section>
+      </div>
     <div class="video">
-      <img
-        src="{% static 'images/elemental-hero-neos.webp' %}"
-        alt="elemental-hero-neos"
-        width="373"
-        height="209"
-      />
-      <p class="video-title" style="font-weight: bold; font-size: 20px">
-        Elemental Hero Neos
-      </p>
-      <p class="video-channel" style="color: rgb(163, 161, 161)">Jaden Yuki</p>
-      <p class="video-views" style="color: rgb(163, 161, 161)">222k views</p>
-    </div>
+        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+        <img
+          src="{% static 'images/elemental-hero-neos.webp' %}"
+          alt="{% static 'images/elemental-hero-neos.webp' %}"
+          width="373"
+          height="209"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              <!-- FIXME: author id is displayed, but change it to their username -->
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views views
+            </p>
+          </section>
+        </section>
+      </div>
     <div class="video">
-      <img
-        src="{% static 'images/elemental-hero-neos.webp' %}"
-        alt="elemental-hero-neos"
-        width="373"
-        height="209"
-      />
-      <p class="video-title" style="font-weight: bold; font-size: 20px">
-        Elemental Hero Neos
-      </p>
-      <p class="video-channel" style="color: rgb(163, 161, 161)">Jaden Yuki</p>
-      <p class="video-views" style="color: rgb(163, 161, 161)">222k views</p>
-    </div>
+        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+        <img
+          src="{% static 'images/elemental-hero-neos.webp' %}"
+          alt="{% static 'images/elemental-hero-neos.webp' %}"
+          width="373"
+          height="209"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              <!-- FIXME: author id is displayed, but change it to their username -->
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views views
+            </p>
+          </section>
+        </section>
+      </div>
     <div class="video">
-      <img
-        src="{% static 'images/elemental-hero-neos.webp' %}"
-        alt="elemental-hero-neos"
-        width="373"
-        height="209"
-      />
-      <p class="video-title" style="font-weight: bold; font-size: 20px">
-        Elemental Hero Neos
-      </p>
-      <p class="video-channel" style="color: rgb(163, 161, 161)">Jaden Yuki</p>
-      <p class="video-views" style="color: rgb(163, 161, 161)">222k views</p>
-    </div>
+        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+        <img
+          src="{% static 'images/elemental-hero-neos.webp' %}"
+          alt="{% static 'images/elemental-hero-neos.webp' %}"
+          width="373"
+          height="209"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              <!-- FIXME: author id is displayed, but change it to their username -->
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views views
+            </p>
+          </section>
+        </section>
+      </div>
     <div class="video">
-      <img
-        src="{% static 'images/elemental-hero-neos.webp' %}"
-        alt="elemental-hero-neos"
-        width="373"
-        height="209"
-      />
-      <p class="video-title" style="font-weight: bold; font-size: 20px">
-        Elemental Hero Neos
-      </p>
-      <p class="video-channel" style="color: rgb(163, 161, 161)">Jaden Yuki</p>
-      <p class="video-views" style="color: rgb(163, 161, 161)">222k views</p>
-    </div>
+        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+        <img
+          src="{% static 'images/elemental-hero-neos.webp' %}"
+          alt="{% static 'images/elemental-hero-neos.webp' %}"
+          width="373"
+          height="209"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              <!-- FIXME: author id is displayed, but change it to their username -->
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views views
+            </p>
+          </section>
+        </section>
+      </div>
     <div class="video">
-      <img
-        src="{% static 'images/elemental-hero-neos.webp' %}"
-        alt="elemental-hero-neos"
-        width="373"
-        height="209"
-      />
-      <p class="video-title" style="font-weight: bold; font-size: 20px">
-        Elemental Hero Neos
-      </p>
-      <p class="video-channel" style="color: rgb(163, 161, 161)">Jaden Yuki</p>
-      <p class="video-views" style="color: rgb(163, 161, 161)">222k views</p>
-    </div>
+        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+        <img
+          src="{% static 'images/elemental-hero-neos.webp' %}"
+          alt="{% static 'images/elemental-hero-neos.webp' %}"
+          width="373"
+          height="209"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              <!-- FIXME: author id is displayed, but change it to their username -->
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views views
+            </p>
+          </section>
+        </section>
+      </div>
     <div class="video">
-      <img
-        src="{% static 'images/elemental-hero-neos.webp' %}"
-        alt="elemental-hero-neos"
-        width="373"
-        height="209"
-      />
-      <p class="video-title" style="font-weight: bold; font-size: 20px">
-        Elemental Hero Neos
-      </p>
-      <p class="video-channel" style="color: rgb(163, 161, 161)">Jaden Yuki</p>
-      <p class="video-views" style="color: rgb(163, 161, 161)">222k views</p>
-    </div>
+        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+        <img
+          src="{% static 'images/elemental-hero-neos.webp' %}"
+          alt="{% static 'images/elemental-hero-neos.webp' %}"
+          width="373"
+          height="209"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              <!-- FIXME: author id is displayed, but change it to their username -->
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views views
+            </p>
+          </section>
+        </section>
+      </div>
     <div class="video">
-      <img
-        src="{% static 'images/elemental-hero-neos.webp' %}"
-        alt="elemental-hero-neos"
-        width="373"
-        height="209"
-      />
-      <p class="video-title" style="font-weight: bold; font-size: 20px">
-        Elemental Hero Neos
-      </p>
-      <p class="video-channel" style="color: rgb(163, 161, 161)">Jaden Yuki</p>
-      <p class="video-views" style="color: rgb(163, 161, 161)">222k views</p>
-    </div>
+        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+        <img
+          src="{% static 'images/elemental-hero-neos.webp' %}"
+          alt="{% static 'images/elemental-hero-neos.webp' %}"
+          width="373"
+          height="209"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              <!-- FIXME: author id is displayed, but change it to their username -->
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views views
+            </p>
+          </section>
+        </section>
+      </div>
     <div class="video">
-      <img
-        src="{% static 'images/elemental-hero-neos.webp' %}"
-        alt="elemental-hero-neos"
-        width="373"
-        height="209"
-      />
-      <p class="video-title" style="font-weight: bold; font-size: 20px">
-        Elemental Hero Neos
-      </p>
-      <p class="video-channel" style="color: rgb(163, 161, 161)">Jaden Yuki</p>
-      <p class="video-views" style="color: rgb(163, 161, 161)">222k views</p>
-    </div>
+        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+        <img
+          src="{% static 'images/elemental-hero-neos.webp' %}"
+          alt="{% static 'images/elemental-hero-neos.webp' %}"
+          width="373"
+          height="209"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              <!-- FIXME: author id is displayed, but change it to their username -->
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views views
+            </p>
+          </section>
+        </section>
+      </div>
     <div class="video">
-      <img
-        src="{% static 'images/elemental-hero-neos.webp' %}"
-        alt="elemental-hero-neos"
-        width="373"
-        height="209"
-      />
-      <p class="video-title" style="font-weight: bold; font-size: 20px">
-        Elemental Hero Neos
-      </p>
-      <p class="video-channel" style="color: rgb(163, 161, 161)">Jaden Yuki</p>
-      <p class="video-views" style="color: rgb(163, 161, 161)">222k views</p>
-    </div>
+        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+        <img
+          src="{% static 'images/elemental-hero-neos.webp' %}"
+          alt="{% static 'images/elemental-hero-neos.webp' %}"
+          width="373"
+          height="209"
+        />
+        <section class="video-info">
+          <div class="channel-icon">
+            <img
+              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
+              alt="elemental-hero-nebula-neos"
+              width="36"
+              height="36"
+            />
+          </div>
+          <section>
+            <p class="video-title" style="font-weight: bold; font-size: 20px">
+              Elemental Hero Neos
+            </p>
+            <p class="video-channel" style="color: rgb(163, 161, 161)">
+              <!-- FIXME: author id is displayed, but change it to their username -->
+              Jaden Yuki
+            </p>
+            <p class="video-views" style="color: rgb(163, 161, 161)">
+              222k views views
+            </p>
+          </section>
+        </section>
+      </div>
   </section>
 </section>
 {% endblock %}

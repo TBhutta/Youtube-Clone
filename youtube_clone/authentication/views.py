@@ -15,10 +15,9 @@ def registration(request):
             username = form.cleaned_data["username"]
             email = form.cleaned_data["email"]
             password = form.cleaned_data["password"]
-            # FIXME: Profile pic url not being picked up
             profile_pic = form.cleaned_data["profile_pic"]
             about = form.cleaned_data["about"]
-            print(f_name, l_name, username, email, password, profile_pic)
+            # print(f_name, l_name, username, email, password, profile_pic)
             new_user = USER_MODEL.objects.create_user(username, email, password, first_name=f_name, last_name=l_name, about=about, profile_pic=profile_pic)
             new_user.save()
             return redirect(login_user)

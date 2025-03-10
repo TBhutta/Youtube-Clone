@@ -14,9 +14,9 @@ class Video(models.Model):
     video_file = models.FileField(upload_to="videos/video_files/")
     description = models.TextField()
     upload_date = models.DateTimeField(auto_now_add=True)
-    author = models.IntegerField() # TODO: Make readonly, make foreign key?
+    # author = models.IntegerField() # TODO: Make readonly, make foreign key?
     # FIXME: User model's username is referenced instead of id
-    # author = models.ForeignKey(User, on_delete=models.CASCADE) # TODO: look for better on_delete
+    author = models.ForeignKey(USER_MODEL, on_delete=models.CASCADE) # TODO: look for better on_delete
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)

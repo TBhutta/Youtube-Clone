@@ -59,6 +59,11 @@ p, h1, h2 {
   color: light-dark(black, white);
 }
 
+.video-info {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+
 .video img {
   border-radius: 10px;
 }
@@ -66,6 +71,14 @@ p, h1, h2 {
 .video-title,
 .video-channel {
   margin: 5px 0;
+}
+
+.channel-icon {
+  margin-right: 5px;
+
+  img {
+    border-radius: 17px;
+  }
 }
 
 .video-link {

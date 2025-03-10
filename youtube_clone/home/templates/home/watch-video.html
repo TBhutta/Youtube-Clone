@@ -31,14 +31,14 @@
       <section class="channel">
         <div class="profile">
           <img
-            src="https://picsum.photos/seed/picsum/40/40"
+            src="{{ selected_video.author.profile_pic.url }}"
             alt="[fetched image]"
             width="40"
             height="40"
           />
         </div>
         <section class="channel-info">
-          {{ author.username }}
+          {{ selected_video.author.username }}
           <p>20M subscribers</p>
         </section>
         <button type="button" class="user-option-btns">Subscribe</button>

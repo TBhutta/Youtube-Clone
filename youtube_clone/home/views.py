@@ -27,10 +27,8 @@ def library(request):
 
 def watch_video(request, video_id=None):
     selected_video = Video.objects.filter(id=video_id).first()
-    author = USER_MODEL.objects.filter(id=selected_video.author.id).first()
     return render(request, "home/watch-video.html", {
         "selected_video": selected_video,
-        "author": author,
     })
 
 def get_comments(request, video_id):
@@ -72,7 +70,9 @@ def get_recommendations(request):
             "title": video.title,
             "thumbnail": video.thumbnail.url,
             "upload_date": video.upload_date.isoformat(),
-            "author": video.author,
+            # FIXME: Author is not passed because it's not JSON serializable
+            "author": json.dumps(video.author),
             "views": video.views,
         }
+        print(json.dumps(video.author))
     return JsonResponse({"videos": json.dumps(fetched_videos)})

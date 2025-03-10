@@ -100,6 +100,10 @@ video {
 
 .profile {
   margin-right: 1rem;
+
+  img {
+    border-radius: 20px;
+  }
 }
 
 .option-btn {

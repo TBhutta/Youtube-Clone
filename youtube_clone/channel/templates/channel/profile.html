@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+<!-- prettier-ignore -->
+{% block title %}Channel dashboard{% endblock %}
+<!-- prettier-ignore -->
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'channel/css/profile-styles.css' %}" />
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block scripts %}
+{% load static %}
+<script src="{% static 'channel/js/content.js' %}"></script>
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<section class="profile-container">
+  <div class="profile-icon">
+    <img
+      src="{% static 'images/profile-icon.webp' %}"
+      alt="profile-icon"
+      width="120"
+      height="120"
+    />
+  </div>
+  <section class="profile-info">
+    <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+    <div style="display: flex; flex-direction: column">
+      <p>{{ user.username }} [subscriber count] [video count]</p>
+      <p>More about this channel...</p>
+      <!--TODO: Add page to view channel from where user should be able to
+        update account -->
+    </div>
+    <div class="buttons">
+      <button type="button">Customize channel</button>
+      <button type="button">Join</button>
+      <a href="{% url 'update-account' %}">Update account details</a>
+    </div>
+  </section>
+</section>
+{% endblock %}

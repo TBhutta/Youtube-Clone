@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+<!-- prettier-ignore -->
+{% block title %}Channel dashboard{% endblock %}
+<!-- prettier-ignore -->
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'channel/css/profile-styles.css' %}" />
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block scripts %}
+{% load static %}
+<script src="{% static 'channel/js/content.js' %}"></script>
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<h2>update user</h2>
+<form action="{% url 'update-account' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ account_update_form.as_p }}
+
+    {% if form.errors %}
+       {% for field in form %}
+           {% for error in field.errors %}
+              <div class="alert alert-danger">
+                   <strong>{{ error|escape }}</strong>
+              </div>
+           {% endfor %}
+       {% endfor %}
+    {% endif %}
+    <button type="submit">Update Account</button>
+</form>
+{% endblock %}

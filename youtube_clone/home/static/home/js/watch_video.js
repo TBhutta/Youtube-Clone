@@ -75,6 +75,7 @@ function getComments() {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data)
       const commentsContainer = document.getElementById("comments-container")
       commentsContainer.innerHTML = "" // Resetting the container
 

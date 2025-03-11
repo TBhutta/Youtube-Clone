@@ -41,8 +41,7 @@ def get_comments(request, video_id):
             "likes": comment.likes,
             "dislikes": comment.dislikes,
             "date_posted": comment.date_time.isoformat(),
-            # FIXME: find a way to pass Account object
-            "commenter": USER_MODEL.objects.filter(id=comment.commenter.id).first().username,
+            "commenter": comment.commenter.username,
         }
     return JsonResponse({"comments": json.dumps(all_comments)})
 
@@ -72,7 +71,7 @@ def get_recommendations(request):
             "thumbnail": video.thumbnail.url,
             "upload_date": video.upload_date.isoformat(),
             # FIXME: Author is not passed because it's not JSON serializable
-            "author": USER_MODEL.objects.filter(id=video.author.id).first().username,
+            "author": video.author.username,
             "views": video.views,
         }
     return JsonResponse({"videos": json.dumps(fetched_videos)})

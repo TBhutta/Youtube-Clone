@@ -14,7 +14,11 @@
 {% block content %}
 <section class="main-content">
   <h1 class="titleee">Sign up</h1>
-
+  {% if messages %}
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  {% endif %}
   <form action="#" method="post" class="sign-up-form" enctype="multipart/form-data">
     {% csrf_token %} {{ form.as_p }}
     <button type="submit">Create account</button>

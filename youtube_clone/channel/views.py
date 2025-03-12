@@ -39,7 +39,7 @@ def upload_video(request):
         if form.is_valid():
             # Not committing the form as we still need to set the author's id field
             new_author = form.save(commit=False)
-            new_author.author = request.user.id
+            new_author.author = request.user
             new_author.save()
             messages.success(request, "Video uploaded.")
         else:

@@ -51,6 +51,9 @@ class Playlist(models.Model):
     class Meta:
         db_table = "playlists"
 
+    def __str__(self):
+        return f"This is {self.owner}'s playlist, {self.title}"
+
 
 class Playlist_Video(models.Model):
     playlist = models.ForeignKey(Playlist, on_delete=models.CASCADE)

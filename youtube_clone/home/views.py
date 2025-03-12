@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from channel.models import Video, Comment
+from channel.models import Video, Comment, Playlist, Playlist_Video
 from django.contrib.auth import get_user_model
 import json
 
@@ -56,10 +56,52 @@ def add_comment(request, video_id):
     return JsonResponse({"data": f"hello word {video_id}"})
 
 def like_video(request, video_id):
+    # TODO: Ensure only logged in users can like/dislike
     # TODO: Make it so that a user can only like a video once, and if disliked, remove their like
-    video = Video.objects.get(id=video_id)
-    video.likes += 1
-    video.save()
+
+    #TODO: Test this!
+    video_in_question = Video.objects.get(id=video_id)
+    user_liked_videos_playlist = Playlist.objects.get(title="Liked videos", owner=request.user)
+    user_disliked_videos_playlist = Playlist.objects.get(title="Disliked videos", owner=request.user)
+    try:
+        video_is_liked = Playlist_Video.objects.get(playlist=user_liked_videos_playlist, video=video_in_question)
+    except Playlist_Video.DoesNotExist:
+        video_is_liked = False
+        print("Video does not exist")
+
+    try:
+        video_is_disliked = Playlist_Video.objects.get(playlist=user_disliked_videos_playlist, video=video_in_question)
+    except Playlist_Video.DoesNotExist:
+        video_is_disliked = False
+        print("Video does not exist")
+
+
+    if video_is_liked:
+        Playlist_Video.objects.get(playlist=user_liked_videos_playlist, video=video_in_question).delete() # Removing the video from user's "Liked videos playlist"
+        video_in_question.likes -= 1 # User is UN-liking (NOT disliking, just removing the like), so decrement likes by 1
+        video_in_question.save()
+
+    elif video_is_disliked:
+        Playlist_Video.objects.get(playlist=user_disliked_videos_playlist, video=video_in_question).delete()
+        video_in_question.dislikes -= 1 # User already has this video disliked, so we need to undo this
+        video_in_question.save()
+
+        # Adding video to user's "Liked videos" playlist
+        liking_video = Playlist_Video(playlist=user_liked_videos_playlist, video=video_in_question)
+        liking_video.save()
+
+        # Incrementing the video in question's likes by 1
+        video_in_question.likes += 1
+        video_in_question.save()
+    else:
+        # Adding video to user's "Liked videos" playlist
+        liking_video = Playlist_Video(playlist=user_liked_videos_playlist, video=video_in_question)
+        liking_video.save()
+
+        # Incrementing the video in question's likes by 1
+        video_in_question.likes += 1
+        video_in_question.save()
+
     return JsonResponse({"data": f"successfully liked video {video_id}"})
 
 def get_recommendations(request):

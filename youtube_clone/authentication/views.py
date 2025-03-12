@@ -1,10 +1,6 @@
-from pyexpat.errors import messages
-
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
 from django.contrib import messages
-from django.template.defaultfilters import title
-
 from .forms import AccountCreationForm, UserLoginForm
 from django.contrib.auth import authenticate, login, logout
 from home import views as homeViews
@@ -23,8 +19,6 @@ def registration(request):
                 messages.error(request, "Passwords don't match")
                 return redirect(registration)
 
-
-
             f_name = form.cleaned_data["first_name"]
             l_name = form.cleaned_data["last_name"]
             username = form.cleaned_data["username"]
@@ -38,8 +32,13 @@ def registration(request):
             new_user.save()
 
             # Creating 'Likes' playlist for user entity
-            new_likes_playlist  = Playlist.objects.create(title="Liked vidoes", owner=new_user)
+            new_likes_playlist  = Playlist.objects.create(title="Liked videos", owner=new_user)
             new_likes_playlist.save()
+
+            # Creating 'Dislikes' playlist for user entity
+            new_dislikes_playlist  = Playlist.objects.create(title="Disliked videos", owner=new_user)
+            new_dislikes_playlist.save()
+
             return redirect(login_user)
 
     form = AccountCreationForm()

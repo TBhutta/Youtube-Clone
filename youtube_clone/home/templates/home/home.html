@@ -46,13 +46,16 @@
           height="209"
         />
         <section class="video-info">
+          <!-- TODO: Make profile pics links to channel account and make channel account page -->
           <div class="channel-icon">
-            <img
-              src="{{ video.author.profile_pic.url }}"
-              alt="elemental-hero-nebula-neos"
-              width="40"
-              height="40"
-            />
+            <a href="{% url 'view-channel' channel_username=video.author.username %}">
+              <img
+                src="{{ video.author.profile_pic.url }}"
+                alt="elemental-hero-nebula-neos"
+                width="40"
+                height="40"
+              />
+            </a>
           </div>
           <section>
             <p class="video-title" style="font-weight: bold; font-size: 20px">

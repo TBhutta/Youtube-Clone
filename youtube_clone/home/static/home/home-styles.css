@@ -61,7 +61,6 @@ p, h1, h2 {
 
 .video-info {
   display: flex;
-  /* flex-wrap: wrap; */
 }
 
 .video img {

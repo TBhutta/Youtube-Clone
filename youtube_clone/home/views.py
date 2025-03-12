@@ -166,3 +166,10 @@ def get_recommendations(request):
             "views": video.views,
         }
     return JsonResponse({"videos": json.dumps(fetched_videos)})
+
+def view_channel(request, channel_username):
+    channel_to_view = USER_MODEL.objects.get(username=channel_username)
+
+    return render(request, "home/view-channel.html", {
+        "channel": channel_to_view,
+    })

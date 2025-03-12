@@ -21,6 +21,15 @@ function likeVideo() {
       .catch(err => console.error(err))
 }
 
+function dislikeVideo() {
+  const uri = dislike_url;
+
+  fetch(uri)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(err => console.error(err))
+}
+
 async function addComment() {
   // getting video instance
   const new_comment = document.getElementById("new-comment").value;

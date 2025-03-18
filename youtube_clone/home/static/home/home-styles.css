@@ -57,6 +57,13 @@ p, h1, h2, a {
   margin-bottom: 30px;
   margin-right: 10px;
   color: light-dark(black, white);
+  width: 373px;
+}
+
+.video-title {
+  /*text-wrap: wrap;*/
+  /*  TODO: Set max lines for title wrap */
+  overflow-wrap: break-word;
 }
 
 .video-info {

@@ -46,7 +46,6 @@
           height="209"
         />
         <section class="video-info">
-          <!-- TODO: Make profile pics links to channel account and make channel account page -->
           <div class="channel-icon">
             <a href="{% url 'view-channel' channel_username=video.author.username %}">
               <img
@@ -58,13 +57,12 @@
             </a>
           </div>
           <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
+            <p class="video-title" style="">
               {{ video.title }}
             </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              <!-- FIXME: author id is displayed, but change it to their username -->
+            <a href="{% url 'view-channel' channel_username=video.author.username %}" class="video-channel" >
               {{ video.author }}
-            </p>
+            </a>
             <p class="video-views" style="color: rgb(163, 161, 161)">
               {{ video.views }} views
             </p>

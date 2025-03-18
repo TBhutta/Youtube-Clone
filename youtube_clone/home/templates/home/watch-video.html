@@ -26,7 +26,7 @@
   <video controls width="100%" data-video-id="{{ selected_video.id }}">
     <source src="{{ selected_video.video_file.url }}" />
   </video>
-  <section class="video-info">
+  <section class="video-info" style="font-family: Roboto,Arial,sans-serif;">
     <h2>{{ selected_video.title }}</h2>
     <section class="bottom-container">
       <section class="channel">
@@ -40,9 +40,9 @@
         </div>
         <section class="channel-info">
           {{ selected_video.author.username }}
-          <p>20M subscribers</p>
+          <p style="font-size: small; color: gainsboro; font-weight: normal">20M subscribers</p>
         </section>
-        <button type="button" class="user-option-btns">Subscribe</button>
+        <button type="button" id="subscribe-btn" class="user-option-btns">Subscribe</button>
       </section>
 
       <section class="user-options">
@@ -94,13 +94,13 @@
   <section class="add-comment-container">
     <div class="profile">
       <img
-        src="https://picsum.photos/seed/picsum/40/40"
+        src="{{ profile_pic }}"
         alt="[fetched image]"
         width="40"
         height="40"
       />
     </div>
-    <div>
+    <div style="width: 100%">
       <input
         type="text"
         name="new-comment"

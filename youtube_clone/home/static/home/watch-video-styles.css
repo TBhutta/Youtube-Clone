@@ -50,6 +50,12 @@ video {
   font-weight: bold;
 }
 
+#subscribe-btn {
+  background-color: light-dark(black, white);
+  color: light-dark(white, black);
+  margin-left: 1rem;
+}
+
 .recommended-video-channel {
   font-weight: normal;
 }
@@ -74,7 +80,7 @@ video {
 }
 
 .buttons {
-  float: inline-end;
+  float: right;
   display: none;
 }
 
@@ -141,8 +147,7 @@ video {
 }
 
 .channel-and-age p {
-  margin: 0;
-  margin-right: 10px;
+  margin: 0 10px 0 0;
 }
 
 .user-option-btns {
@@ -152,6 +157,10 @@ video {
   font-size: 15px;
   font-weight: bold;
   border-radius: 25px;
+}
+
+.user-option-btns:hover {
+  cursor: pointer;
 }
 
 .content {

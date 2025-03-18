@@ -9,7 +9,7 @@
   background-color: light-dark(white, black);
 }
 
-p, h1, h2 {
+p, h1, h2, a {
   font-family: "Roboto","Arial",sans-serif;;
 }
 
@@ -67,6 +67,11 @@ p, h1, h2 {
   border-radius: 10px;
 }
 
+.video-channel {
+  color: rgb(163, 161, 161);
+  text-decoration: none;
+}
+
 .video-title,
 .video-channel {
   margin: 5px 0;
@@ -87,8 +92,10 @@ p, h1, h2 {
 
 .video-views {
   margin: 0;
+  font-size: 15px;
 }
 
-.video-title, .video-views {
-  font-size: 15px;
+.video-title {
+  font-weight: bold;
+  font-size: 20px
 }

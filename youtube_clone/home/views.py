@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.shortcuts import render
 from django.http import JsonResponse
-from channel.models import Video, Comment, Playlist, Playlist_Video
+from channel.models import Video, Comment, Playlist, Playlist_Video, Subscriptions
 from django.contrib.auth import get_user_model
 import json
 
@@ -10,13 +10,29 @@ USER_MODEL = get_user_model()
 
 def home(request):
     recommended_videos = Video.objects.all()
-
+    subscriptions = Subscriptions.objects.filter(subscriber=request.user)
     return render(request, "home/home.html", {
         "recommended_videos": recommended_videos,
+        "subscriptions": subscriptions,
     })
+
+def subscribe_to_channel(request, channel_id):
+    channel_to_subscribe = USER_MODEL.objects.get(id=channel_id)
+    new_subscription = Subscriptions(subscriber=request.user, subscribing_to=channel_to_subscribe)
+    new_subscription.save()
+    return JsonResponse({"status": "subscribed"})
 
 def subscriptions(request):
     return render(request, "home/subscriptions-page.html", {})
+
+def get_subscriptions(request):
+    subscriptions = {}
+    for channel in Subscriptions.objects.filter(subscriber=request.user):
+        subscriptions[channel.id] = {
+            "username": channel.subscribing_to.username,
+            "profile_pic": channel.subscribing_to.profile_pic.url,
+        }
+    return JsonResponse({"subscriptions": json.dumps(subscriptions)})
 
 def history(request):
     return render(request, "home/history-page.html", {})
@@ -29,13 +45,17 @@ def library(request):
 
 def watch_video(request, video_id=None):
     selected_video = Video.objects.filter(id=video_id).first()
-    # today = datetime.today()
-    # print(today)
     video_age = datetime.now().timestamp() - selected_video.upload_date.timestamp()
-    print(video_age)
+    try:
+        is_subscribed = Subscriptions.objects.get(subscriber=request.user, subscribing_to=selected_video.author)
+        is_subscribed = True
+    except:
+        is_subscribed = False
+
     return render(request, "home/watch-video.html", {
         "selected_video": selected_video,
         "profile_pic": request.user.profile_pic.url,
+        "is_subscribed": is_subscribed,
     })
 
 def get_comments(request, video_id):
@@ -177,7 +197,7 @@ def get_recommendations(request):
 
 def view_channel(request, channel_username):
     channel_to_view = USER_MODEL.objects.get(username=channel_username)
-
     return render(request, "home/view-channel.html", {
         "channel": channel_to_view,
     })
+

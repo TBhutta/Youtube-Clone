@@ -35,10 +35,12 @@ video {
 
 .recommended-video {
   margin-right: 5px;
+
 }
 
 .video-container {
   display: flex;
+  text-decoration: none;
 }
 
 .recommended-video-channel, .views-and-age {

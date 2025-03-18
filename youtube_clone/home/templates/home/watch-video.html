@@ -17,6 +17,8 @@
   let like_url = "{% url 'like-video' video_id=selected_video.id %}";
   let dislike_url = "{% url 'dislike-video' video_id=selected_video.id %}";
   let get_recommendations_url = "{% url 'get-recommendations' %}";
+  let subscribe_url = "{% url 'subscribe' channel_id=selected_video.author.id %}";
+  let is_subscribed = "{{ is_subscribed }}"
 </script>
 <!-- prettier-ignore -->
 {% endblock %}
@@ -42,7 +44,7 @@
           {{ selected_video.author.username }}
           <p style="font-size: small; color: gainsboro; font-weight: normal">20M subscribers</p>
         </section>
-        <button type="button" id="subscribe-btn" class="user-option-btns">Subscribe</button>
+        <button type="button" id="subscribe-btn" onclick="subscribe()" class="user-option-btns">Subscribe</button>
       </section>
 
       <section class="user-options">

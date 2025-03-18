@@ -61,3 +61,10 @@ class Playlist_Video(models.Model):
 
     class Meta:
         db_table = "playlist_videos"
+
+class Subscriptions(models.Model):
+    subscriber = models.ForeignKey(USER_MODEL, on_delete=models.CASCADE, related_name="subscriber")
+    subscribing_to = models.ForeignKey(USER_MODEL, on_delete=models.CASCADE, related_name="subscribing_to")
+
+    class Meta:
+        db_table = "subscriptions"

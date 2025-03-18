@@ -25,7 +25,6 @@ def registration(request):
             email = form.cleaned_data["email"]
             profile_pic = form.cleaned_data["profile_pic"]
             about = form.cleaned_data["about"]
-            # print(f_name, l_name, username, email, password, profile_pic)
 
             # Creating User entity
             new_user = USER_MODEL.objects.create_user(username, email, password, first_name=f_name, last_name=l_name, about=about, profile_pic=profile_pic)

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import render
 from django.http import JsonResponse
 from channel.models import Video, Comment, Playlist, Playlist_Video
@@ -27,8 +29,13 @@ def library(request):
 
 def watch_video(request, video_id=None):
     selected_video = Video.objects.filter(id=video_id).first()
+    # today = datetime.today()
+    # print(today)
+    video_age = datetime.now().timestamp() - selected_video.upload_date.timestamp()
+    print(video_age)
     return render(request, "home/watch-video.html", {
         "selected_video": selected_video,
+        "profile_pic": request.user.profile_pic.url,
     })
 
 def get_comments(request, video_id):
@@ -42,6 +49,7 @@ def get_comments(request, video_id):
             "dislikes": comment.dislikes,
             "date_posted": comment.date_time.isoformat(),
             "commenter": comment.commenter.username,
+            "commenter_profile_pic": comment.commenter.profile_pic.url,
         }
     return JsonResponse({"comments": json.dumps(all_comments)})
 

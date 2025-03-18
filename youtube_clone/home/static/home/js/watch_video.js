@@ -101,7 +101,7 @@ function getComments() {
         profile.setAttribute("class", "profile")
 
         const profileImage = document.createElement("img")
-        profileImage.setAttribute("src", "https://picsum.photos/seed/picsum/40/40")
+        profileImage.setAttribute("src", fetchedComments[video_ids[i]].commenter_profile_pic)
         profileImage.setAttribute("alt", "[fetched image]")
         profileImage.setAttribute("width", "40")
         profileImage.setAttribute("height", "40")

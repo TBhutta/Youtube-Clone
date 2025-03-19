@@ -13,7 +13,6 @@ p, h1, h2, a {
   font-family: "Roboto","Arial",sans-serif;;
 }
 
-/* FIXME: This is section spills over to the edge without being hidden */
 .nav-links {
   display: flex;
   list-style: none;

@@ -83,90 +83,20 @@
       <hr style="margin-bottom: 10px" />
       <section class="videos-history">
         <!-- TODO: Make template for video container -->
-        <div class="video-container">
-          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
-          width="246" height="138">
-          <section class="video-info">
-            <p class="video-title">MUI goku</p>
-            <section class="channel-views-container">
-              <p class="channel">Atozy</p>
-              <p class="views">117k views</p>
+        {% for video in videos %}
+          <a href="{% url 'watch-video' video_id=video.id %}" class="video-container">
+            <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}"
+            width="246" height="138">
+            <section class="video-info">
+              <p class="video-title">{{ video.title }}</p>
+              <section class="channel-views-container">
+                <p class="channel">{{ video.author }}</p>
+                <p class="views">{{ video.views }} views</p>
+              </section>
+              <p class="video-description">{{ video.description }}</p>
             </section>
-            <p class="video-description">This is the video description.</p>
-          </section>
-        </div>
-        <div class="video-container">
-          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
-          width="246" height="138">
-          <section class="video-info">
-            <p class="video-title">MUI goku</p>
-            <section class="channel-views-container">
-              <p class="channel">Atozy</p>
-              <p class="views">117k views</p>
-            </section>
-            <p class="video-description">This is the video description.</p>
-          </section>
-        </div>
-        <div class="video-container">
-          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
-          width="246" height="138">
-          <section class="video-info">
-            <p class="video-title">MUI goku</p>
-            <section class="channel-views-container">
-              <p class="channel">Atozy</p>
-              <p class="views">117k views</p>
-            </section>
-            <p class="video-description">This is the video description.</p>
-          </section>
-        </div>
-        <div class="video-container">
-          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
-          width="246" height="138">
-          <section class="video-info">
-            <p class="video-title">MUI goku</p>
-            <section class="channel-views-container">
-              <p class="channel">Atozy</p>
-              <p class="views">117k views</p>
-            </section>
-            <p class="video-description">This is the video description.</p>
-          </section>
-        </div>
-        <div class="video-container">
-          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
-          width="246" height="138">
-          <section class="video-info">
-            <p class="video-title">MUI goku</p>
-            <section class="channel-views-container">
-              <p class="channel">Atozy</p>
-              <p class="views">117k views</p>
-            </section>
-            <p class="video-description">This is the video description.</p>
-          </section>
-        </div>
-        <div class="video-container">
-          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
-          width="246" height="138">
-          <section class="video-info">
-            <p class="video-title">MUI goku</p>
-            <section class="channel-views-container">
-              <p class="channel">Atozy</p>
-              <p class="views">117k views</p>
-            </section>
-            <p class="video-description">This is the video description.</p>
-          </section>
-        </div>
-        <div class="video-container">
-          <img src="{% static "images/mui-goku.jpg" %}" alt="MUI goku"
-          width="246" height="138">
-          <section class="video-info">
-            <p class="video-title">MUI goku</p>
-            <section class="channel-views-container">
-              <p class="channel">Atozy</p>
-              <p class="views">117k views</p>
-            </section>
-            <p class="video-description">This is the video description.</p>
-          </section>
-        </div>
+          </a>
+        {% endfor %}
       </section>
     </section>
     <!-- TODO: Keep this section in the same place independent of screen resolution -->

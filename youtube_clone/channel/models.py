@@ -68,3 +68,10 @@ class Subscriptions(models.Model):
 
     class Meta:
         db_table = "subscriptions"
+
+class History(models.Model):
+    user = models.ForeignKey(USER_MODEL, on_delete=models.CASCADE)
+    video = models.ForeignKey(Video, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "videos_history"

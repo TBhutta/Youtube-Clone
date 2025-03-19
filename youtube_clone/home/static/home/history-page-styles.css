@@ -1,7 +1,16 @@
+:root {
+  color-scheme: light dark;
+}
+
 .main-content {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: light-dark(white, black);
+}
+
+p, h1, h2, a {
+  font-family: "Roboto","Arial",sans-serif;;
 }
 
 .history-container {
@@ -11,6 +20,15 @@
   height: 58%;
   overflow-y: scroll;
   scrollbar-width: none;
+
+  a {
+    text-decoration: none;
+    color: light-dark(black, white);
+  }
+
+  img {
+    border-radius: 10px;
+  }
 }
 
 .shorts-bar {

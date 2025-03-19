@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.shortcuts import render
 from django.http import JsonResponse
-from channel.models import Video, Comment, Playlist, Playlist_Video, Subscriptions
+from channel.models import Video, Comment, Playlist, Playlist_Video, Subscriptions, History
 from django.contrib.auth import get_user_model
 import json
 
@@ -26,6 +26,7 @@ def subscriptions(request):
     return render(request, "home/subscriptions-page.html", {})
 
 def get_subscriptions(request):
+    # TODO: Make this run on every publicly available page
     subscriptions = {}
     for channel in Subscriptions.objects.filter(subscriber=request.user):
         subscriptions[channel.id] = {
@@ -34,8 +35,21 @@ def get_subscriptions(request):
         }
     return JsonResponse({"subscriptions": json.dumps(subscriptions)})
 
-def history(request):
-    return render(request, "home/history-page.html", {})
+def get_history(request):
+    history_records = History.objects.filter(user=request.user)
+    videos = []
+    for record in history_records:
+        videos.append(record.video)
+    videos = reversed(videos)
+    return render(request, "home/history-page.html", {
+        "videos": videos
+    })
+
+def add_video_to_history(request, video_id):
+    if request.user.is_authenticated:
+        video = Video.objects.get(id=video_id)
+        new_history = History(video=video, user=request.user)
+        new_history.save()
 
 def playlists(request):
     return render(request, "home/playlists-page.html", {})
@@ -44,6 +58,7 @@ def library(request):
     return render(request, "home/library.html", {})
 
 def watch_video(request, video_id=None):
+    add_video_to_history(request, video_id)
     selected_video = Video.objects.filter(id=video_id).first()
     video_age = datetime.now().timestamp() - selected_video.upload_date.timestamp()
     try:
@@ -59,6 +74,7 @@ def watch_video(request, video_id=None):
     })
 
 def get_comments(request, video_id):
+    # TODO: Re-arrange the fetched comments to display the user's comments (if any) at the top.
     fetched_comments = Comment.objects.filter(video_id=video_id).all()
     all_comments = {}
     # FIXME: Newly added comment is not fetched right after posting commenting

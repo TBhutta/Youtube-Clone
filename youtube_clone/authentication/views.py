@@ -64,5 +64,7 @@ def login_user(request):
     })
 
 def logout_user(request):
+    # FIXME: Raises error
+    print("this is logout")
     logout(request)
     return redirect(homeViews.home)

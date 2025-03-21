@@ -4,7 +4,6 @@
   position: sticky;
   top: 0;
   background-color: light-dark(white, black);
-  margin-bottom: 1rem;
 }
 
 #search-filter {
@@ -23,6 +22,11 @@
   /* background-color: white; */
   border: none;
   margin-right: 15px;
+}
+
+#profile-btn {
+  background: none;
+  border: none;
 }
 
 #dropdown-menu {

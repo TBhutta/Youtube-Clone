@@ -36,7 +36,9 @@ function getSubscriptions() {
       })
 }
 
+async function fetchFeed() {
 
+}
 
 window.onload = function () {
     getSubscriptions();

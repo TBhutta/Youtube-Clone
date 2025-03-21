@@ -40,6 +40,11 @@ h3 {
   font-size: 14px;
 }
 
+.sidebar svg {
+  vertical-align: top;
+  margin-right: 10px;
+}
+
 .sidebar img {
   border-radius: 45px;
   margin-right: 1rem;

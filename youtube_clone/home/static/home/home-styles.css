@@ -22,27 +22,28 @@ p, h1, h2, a {
   overflow-x: scroll;
   scrollbar-width: none;
 
+  li {
+    margin-right: 1rem;
+    border-radius: 5px;
+    background-color: light-dark(rgba(0, 0, 0, 0.04), rgba(154, 154, 154, 0.2));
+    padding: 6px;
+    white-space: nowrap;
+    font-family: Roboto, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  li:hover {
+    background-color: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.2));
+    cursor: pointer;
+  }
+
+  li:active {
+    background-color: light-dark(black, white);
+    color: light-dark(white, black);
+  }
 }
 
-.nav-links li {
-  margin-right: 1rem;
-  border-radius: 5px;
-  background-color: light-dark(rgba(0, 0, 0, 0.04), rgba(154, 154, 154, 0.2));
-  padding: 6px;
-  white-space: nowrap;
-  font-family: Roboto, Arial, sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.nav-links li a {
-  padding: 10px;
-}
-
-.nav-links li:hover {
-  background-color: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.2));
-  cursor: pointer;
-}
 
 .recommended {
   height: 58%;

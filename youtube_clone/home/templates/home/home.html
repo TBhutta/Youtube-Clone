@@ -13,6 +13,9 @@
 <script src="{% static 'home/js/home.js' %}"></script>
 <script>
   let get_subscriptions_url = "{% url 'get-subscriptions' %}";
+  let filter_videos_url = "{% url 'filter-videos' %}"
+  let view_channel_url = "{% url 'view-channel' channel_username=1234 %}"
+  let watch_video_url = "{% url 'watch-video' video_id=1234 %}"
 </script>
 {% endblock %}
 <!-- prettier-ignore -->
@@ -20,472 +23,524 @@
 <section class="main-content">
   <ul class="nav-links">
     <!-- TODO: Use fetch api -->
-    <li>All</li>
-    <li>Gaming</li>
-    <li>Yu-Gi-Oh! -5Ds</li>
-    <li>Mixes</li>
-    <li>Ismail ibn Musa Menk</li>
-    <li>Vegeta</li>
-    <li>Comic books</li>
-    <li>Live</li>
-    <li>Gyms</li>
-    <li>Computer programming</li>
-    <li>Software Engineering</li>
-    <li>Manga</li>
-    <li>Dragon ball Super</li>
-    <li>Yu Gi oh! Gx</li>
-    <li>ShotGunRaids</li>
-    <li>Belief</li>
-    <li>Smartphones</li>
-    <li>Weight Training</li>
-    <li>Recently uploaded</li>
-    <li>Watched</li>
-    <li>New to you</li>
+    <li>
+      <input type="radio" name="filter" id="all" value="all" onclick="fetchFeed()" checked>
+      <label for="all">All</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="gaming" value="gaming" onclick="fetchFeed()">
+      <label for="gaming">Gaming</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="yugioh-5ds" value="yugioh-5ds" onclick="fetchFeed()">
+      <label for="yugioh-5ds">Yu-Gi-Oh! -5Ds</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="mixes" value="mixes" onclick="fetchFeed()">
+      <label for="mixes">Mixes</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="vegeta" value="vegeta" onclick="fetchFeed()">
+      <label for="vegeta">Vegeta</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="comic-books" value="comic-books" onclick="fetchFeed()">
+      <label for="comic-books">Comic books</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="live" value="live" onclick="fetchFeed()">
+      <label for="live">Live</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="gyms" value="gyms" onclick="fetchFeed()">
+      <label for="gyms">Gyms</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="computer-programming" value="computer-programming" onclick="fetchFeed()">
+      <label for="computer-programming">Computer programming</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="software-engineering" value="software-engineering" onclick="fetchFeed()">
+      <label for="software-engineering">Software Engineering</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="manga" value="manga" onclick="fetchFeed()">
+      <label for="manga">Manga</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="dbs" value="dbs" onclick="fetchFeed()">
+      <label for="dbs">Dragon ball Super</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="ShotGunRaids" value="ShotGunRaids" onclick="fetchFeed()">
+      <label for="ShotGunRaids">ShotGunRaids</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="Belief" value="Belief" onclick="fetchFeed()">
+      <label for="Belief">Belief</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="Smartphones" value="Smartphones" onclick="fetchFeed()">
+      <label for="Smartphones">Smartphones</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="recently-uploaded" value="recently-uploaded" onclick="fetchFeed()">
+      <label for="recently-uploaded">Recently uploaded</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="watched" value="watched" onclick="fetchFeed()">
+      <label for="watched">Watched</label>
+    </li>
+    <li>
+      <input type="radio" name="filter" id="new-to-you" value="new-to-you" onclick="fetchFeed()">
+      <label for="new-to-you">New to you</label>
+    </li>
   </ul>
-  <section class="recommended">
-    {% for video in recommended_videos %}
-    <a href="{% url 'watch-video' video_id=video.id %}" class="video-link">
-      <div class="video">
-        <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
-        <img
-          src="{{ video.thumbnail.url }}"
-          alt="{{ video.thumbnail.url }}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <a href="{% url 'view-channel' channel_username=video.author.username %}">
-              <img
-                src="{{ video.author.profile_pic.url }}"
-                alt="elemental-hero-nebula-neos"
-                width="40"
-                height="40"
-              />
-            </a>
-          </div>
-          <section>
-            <p class="video-title" style="">
-              {{ video.title }}
-            </p>
-            <a href="{% url 'view-channel' channel_username=video.author.username %}" class="video-channel" >
-              {{ video.author }}
-            </a>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              {{ video.views }} views
-            </p>
-          </section>
-        </section>
-      </div>
-    </a>
-    {% endfor %}
+  <section class="recommended" id="videos-container">
 
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
-    <div class="video">
-        <img
-          src="{% static 'images/elemental-hero-neos.webp' %}"
-          alt="{% static 'images/elemental-hero-neos.webp' %}"
-          width="373"
-          height="209"
-        />
-        <section class="video-info">
-          <div class="channel-icon">
-            <img
-              src="{% static 'images/elemental-hero-nebula-neos.png' %}"
-              alt="elemental-hero-nebula-neos"
-              width="36"
-              height="36"
-            />
-          </div>
-          <section>
-            <p class="video-title" style="font-weight: bold; font-size: 20px">
-              Elemental Hero Neos
-            </p>
-            <p class="video-channel" style="color: rgb(163, 161, 161)">
-              Jaden Yuki
-            </p>
-            <p class="video-views" style="color: rgb(163, 161, 161)">
-              222k views views
-            </p>
-          </section>
-        </section>
-      </div>
+<!--    {% for video in recommended_videos %}-->
+<!--    <a href="{% url 'watch-video' video_id=video.id %}" class="video-link">-->
+<!--      <div class="video">-->
+<!--        &lt;!&ndash; TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. &ndash;&gt;-->
+<!--        <img-->
+<!--          src="{{ video.thumbnail.url }}"-->
+<!--          alt="{{ video.thumbnail.url }}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <a href="{% url 'view-channel' channel_username=video.author.username %}">-->
+<!--              <img-->
+<!--                src="{{ video.author.profile_pic.url }}"-->
+<!--                alt="elemental-hero-nebula-neos"-->
+<!--                width="40"-->
+<!--                height="40"-->
+<!--              />-->
+<!--            </a>-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="">-->
+<!--              {{ video.title }}-->
+<!--            </p>-->
+<!--            <a href="{% url 'view-channel' channel_username=video.author.username %}" class="video-channel" >-->
+<!--              {{ video.author }}-->
+<!--            </a>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              {{ video.views }} views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    </a>-->
+<!--    {% endfor %}-->
+
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
+<!--    <div class="video">-->
+<!--        <img-->
+<!--          src="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          alt="{% static 'images/elemental-hero-neos.webp' %}"-->
+<!--          width="373"-->
+<!--          height="209"-->
+<!--        />-->
+<!--        <section class="video-info">-->
+<!--          <div class="channel-icon">-->
+<!--            <img-->
+<!--              src="{% static 'images/elemental-hero-nebula-neos.png' %}"-->
+<!--              alt="elemental-hero-nebula-neos"-->
+<!--              width="36"-->
+<!--              height="36"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <section>-->
+<!--            <p class="video-title" style="font-weight: bold; font-size: 20px">-->
+<!--              Elemental Hero Neos-->
+<!--            </p>-->
+<!--            <p class="video-channel" style="color: rgb(163, 161, 161)">-->
+<!--              Jaden Yuki-->
+<!--            </p>-->
+<!--            <p class="video-views" style="color: rgb(163, 161, 161)">-->
+<!--              222k views views-->
+<!--            </p>-->
+<!--          </section>-->
+<!--        </section>-->
+<!--      </div>-->
   </section>
 </section>
 {% endblock %}

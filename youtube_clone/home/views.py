@@ -1,20 +1,35 @@
 from datetime import datetime
 
 from django.shortcuts import render
+from django.conf import settings
 from django.http import JsonResponse
 from channel.models import Video, Comment, Playlist, Playlist_Video, Subscriptions, History
 from django.contrib.auth import get_user_model
 import json
 
+
 USER_MODEL = get_user_model()
 
 def home(request):
-    recommended_videos = Video.objects.all()
     subscriptions = Subscriptions.objects.filter(subscriber=request.user)
     return render(request, "home/home.html", {
-        "recommended_videos": recommended_videos,
         "subscriptions": subscriptions,
     })
+
+def filter_videos(request):
+    data = json.loads(request.body)
+    if data["filter"] == "all":
+        videos = Video.objects.all().values("id", "title", "description", "thumbnail", "upload_date", "author__username", "author__profile_pic", "views")
+
+        # Convert image paths to full URLs
+        for video in videos:
+            video["thumbnail"] = f"{settings.MEDIA_URL}{video['thumbnail']}"
+            video["author__profile_pic"] = f"{settings.MEDIA_URL}{video['author__profile_pic']}"
+
+    else:
+        videos = []
+    return JsonResponse(list(videos), safe=False)
+    # return JsonResponse({"videos": json.dumps(fetched_videos)})
 
 def subscribe_to_channel(request, channel_id):
     channel_to_subscribe = USER_MODEL.objects.get(id=channel_id)

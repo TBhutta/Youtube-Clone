@@ -10,6 +10,7 @@ import json
 
 USER_MODEL = get_user_model()
 
+
 def home(request):
     subscriptions = Subscriptions.objects.filter(subscriber=request.user)
     return render(request, "home/home.html", {

@@ -1,3 +1,17 @@
+
+function showExtraOptions() {
+  const extraOptionsBtn = document.getElementById("extra-options")
+  if (extraOptionsBtn.style.display === "none") {
+    extraOptionsBtn.style.display = "block"
+  } else {
+    extraOptionsBtn.style.display = "none"
+    extraOptionsBtn.style.zIndex = "0"
+  }
+
+}
+
+
+
 function showButtons() {
   console.log("clicked");
   document.querySelectorAll(".buttons").forEach((item) => {
@@ -174,7 +188,7 @@ function getComments() {
 }
 
 // TODO: I can pass in parameters according to chosen topic from nav bar to select videos
-async function getRecommendedVideos() {
+function getRecommendedVideos() {
   const uri = get_recommendations_url;
 
   fetch(uri, {
@@ -234,10 +248,32 @@ function subscribe() {
   })
 }
 
+function getTime() {
+  const video = document.getElementById("current-video")
+
+  // if (video.currentTime === video.duration || video.currentTime === 30) {
+  const uri = increment_views_url;
+  const csrftoken = getCookie("csrftoken");
+
+  fetch(uri, {
+    method: "POST",
+    headers: {
+      "X-CSRFToken": csrftoken,
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+    });
+    // }
+
+}
+
 window.onload = function () {
   getComments();
   getRecommendedVideos();
-  if (is_subscribed == "True") {
+  if (is_subscribed === "True") {
     const subscribe_btn = document.getElementById("subscribe-btn")
     subscribe_btn.style.backgroundColor = "gainsboro";
     subscribe_btn.innerHTML = `
@@ -249,3 +285,6 @@ window.onload = function () {
     subscribe_btn.style.color = "black"
   }
 };
+
+// TODO: Complete
+setTimeout(getTime, 30000)

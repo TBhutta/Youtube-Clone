@@ -170,3 +170,24 @@ video {
   margin-bottom: 0;
   font-size: 14px;
 }
+
+#extra-options {
+  display: none;
+  position: absolute;
+  z-index: 1 !important;
+  /* TODO: Find a way to position properly */
+  right: 30%;
+  border-radius: 10px;
+
+  li {
+    list-style: none;
+    background-color: light-dark(gainsboro, rgba(255, 255, 255, 0.1));
+  }
+
+  button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+
+  }
+}

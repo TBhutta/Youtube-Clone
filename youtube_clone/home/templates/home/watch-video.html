@@ -18,14 +18,15 @@
   let dislike_url = "{% url 'dislike-video' video_id=selected_video.id %}";
   let get_recommendations_url = "{% url 'get-recommendations' %}";
   let subscribe_url = "{% url 'subscribe' channel_id=selected_video.author.id %}";
-  let is_subscribed = "{{ is_subscribed }}"
+  let is_subscribed = "{{ is_subscribed }}";
+  let increment_views_url = "{% url 'increment-views' video_id=selected_video.id %}";
 </script>
 <!-- prettier-ignore -->
 {% endblock %}
 <!-- prettier-ignore -->
 {% block content %}
 <section class="video-and-comments-container">
-  <video controls width="100%" data-video-id="{{ selected_video.id }}">
+  <video controls autoplay muted width="100%" data-video-id="{{ selected_video.id }}" id="current-video">
     <source src="{{ selected_video.video_file.url }}" />
   </video>
   <section class="video-info" style="font-family: Roboto,Arial,sans-serif;">
@@ -73,7 +74,14 @@
           </svg>
           Download
         </button>
-        <button type="button" class="user-option-btns">...</button>
+        <button type="button" class="user-option-btns" onclick="showExtraOptions()" >...</button>
+        <ul id="extra-options">
+          <li><button type="button" >Thanks</button></li>
+          <li><button type="button">Clip</button></li>
+          <li><button type="button">Save</button></li>
+          <li><button type="button" >Report</button></li>
+        </ul>
+
       </section>
     </section>
 

@@ -11,11 +11,12 @@
 
 #video-uploader-container {
   width: 60%;
-  display: none;
+  /* TODO: IMPORTANT! UNcomment below soon! */
+  /*display: none;  */
   position: fixed;
   left: 15%;
-  background-color: black;
-  color: white;
+  /*background-color: black;*/
+  color: black;
   width: 75%;
 }
 

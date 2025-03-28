@@ -213,6 +213,12 @@ def dislike_video(request, video_id):
 
     return JsonResponse({"data": f"successfully disliked video {video_id}"})
 
+def increment_views(request, video_id):
+    video_in_question = Video.objects.get(id=video_id)
+    video_in_question.views += 1
+    video_in_question.save()
+    return JsonResponse({"data": f"successfully incremented views for {video_id}"})
+
 def get_recommendations(request):
     videos = Video.objects.all()
     fetched_videos = {}
@@ -221,7 +227,6 @@ def get_recommendations(request):
             "title": video.title,
             "thumbnail": video.thumbnail.url,
             "upload_date": video.upload_date.isoformat(),
-            # FIXME: Author is not passed because it's not JSON serializable
             "author": video.author.username,
             "views": video.views,
         }

@@ -43,7 +43,7 @@
         </div>
         <section class="channel-info">
           {{ selected_video.author.username }}
-          <p style="font-size: small; color: gainsboro; font-weight: normal">20M subscribers</p>
+          <p style="font-size: small; color: gainsboro; font-weight: normal">{{ selected_video.author.subscribers }} subscribers</p>
         </section>
         <button type="button" id="subscribe-btn" onclick="subscribe()" class="user-option-btns">Subscribe</button>
       </section>

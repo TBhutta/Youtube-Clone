@@ -36,6 +36,8 @@ def subscribe_to_channel(request, channel_id):
     channel_to_subscribe = USER_MODEL.objects.get(id=channel_id)
     new_subscription = Subscriptions(subscriber=request.user, subscribing_to=channel_to_subscribe)
     new_subscription.save()
+    channel_to_subscribe.subscribers += 1
+    channel_to_subscribe.save()
     return JsonResponse({"status": "subscribed"})
 
 def subscriptions(request):

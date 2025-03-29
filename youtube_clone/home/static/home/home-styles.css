@@ -22,12 +22,6 @@ p, h1, h2, a {
   overflow-x: scroll;
   scrollbar-width: none;
 
-
-  /*li:active {*/
-  /*  background-color: light-dark(black, white);*/
-  /*  color: light-dark(white, black);*/
-  /*}*/
-
   /* Hiding circular dials */
   input[type="radio"] {
     opacity: 0;

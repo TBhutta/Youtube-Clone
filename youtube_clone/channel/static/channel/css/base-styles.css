@@ -1,7 +1,55 @@
+
+:root {
+  color-scheme: light dark;
+}
+
+
+
 main {
   display: flex;
 }
 
+p, h1, h2, a {
+  font-family: "Roboto","Arial",sans-serif;;
+}
+
+
 .side-menu {
   width: 255px;
+  border-right: 1px solid gainsboro;
+  margin-right: 2rem;
+
+  img {
+    justify-content: center;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+
+  li  {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 14px;
+
+    a {
+      text-decoration: none;
+      color: light-dark(black, white) !important;
+
+      svg {
+       fill: light-dark(black, white);
+      }
+    }
+  }
+
+  li:hover {
+    background-color: light-dark(#e6e6e6, rgba(255, 255, 255, 0.1));
+    border-radius: 10px;
+    cursor: pointer;
+  }
 }

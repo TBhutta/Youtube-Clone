@@ -7,11 +7,34 @@ USER_MODEL = get_user_model()
 # TODO: Add tags and genre attributes
 # TODO: Add help texts, error messages
 class Video(models.Model):
+    VIDEO_TYPES = [
+        ('video', 'Video'),
+        ('shorts', 'Shorts'),
+    ]
+
+    RESTRICTIONS = [
+        ('none', 'None'),
+        ('age', 'Age'),
+        ('copyright', 'Copyright'),
+    ]
+
+    ACCESSIBILITY = [
+        ('public', 'Public'),
+        ('private', 'Private'),
+        ('protected', 'Protected'),
+    ]
+
     # TODO: Add duration times and comments
+    # TODO: Add visibility, perhaps use permissions?
+    # TODO: Private/Unlisted videos' view count should be excluded from total channel view count
     title = models.CharField(max_length=100, null=False, blank=False)
     thumbnail = models.ImageField(upload_to="videos/thumbnails")
     video_file = models.FileField(upload_to="videos/video_files/", null=False, blank=False)
     description = models.TextField()
+    # TODO: Add functionality for the three below
+    type = models.CharField(choices=VIDEO_TYPES, max_length=10, null=False, blank=False, default='Video')
+    restriction = models.CharField(choices=RESTRICTIONS, max_length=10, null=False, blank=False, default='None')
+    visibility = models.CharField(choices=ACCESSIBILITY, max_length=10, null=False, blank=False, default='Public')
     upload_date = models.DateTimeField(auto_now_add=True, null=False, blank=False)
     author = models.ForeignKey(USER_MODEL, on_delete=models.CASCADE, null=False, blank=False) # TODO: look for better on_delete
     views = models.IntegerField(default=0)
@@ -40,7 +63,6 @@ class Comment(models.Model):
         return self.content
     
 
-# TODO: Add extra stuff to user, e.g. playlists, subscriber count, viewers count, number of videos, comments, likes, subscriptions, notifications, etc
 class Playlist(models.Model):
     title = models.CharField(max_length=50)
     owner = models.ForeignKey(USER_MODEL, on_delete=models.CASCADE)

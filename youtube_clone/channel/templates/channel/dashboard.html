@@ -11,7 +11,6 @@
 {% block scripts %}
 {% load static %}
 <script src="{% static 'channel/js/dashboard.js' %}"></script>
-<script src="https://esm.run/@material/web/all.js" type="module"></script>
 
 <!-- prettier-ignore -->
 {% endblock %}
@@ -20,13 +19,17 @@
 <section class="main-content">
   <section class="main-content-top-bar">
     {% if messages %}
-    <!-- prettier-ignore -->
-    {% for message in messages %}
-    {{ message }} 
-    {% endfor %}
-    <!-- prettier-ignore -->
+      <!-- prettier-ignore -->
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+      <!-- prettier-ignore -->
     {% endif %}
     <h2>Channel dashboard</h2>
+    <dialog id="my_dialog">
+      <h1>This is my dialog window</h1>
+      <button onclick="my_dialog.close()">Close Dialog</button>
+    </dialog>
     <div class="buttons">
       <!-- TODO: add tooltips -->
       <button type="button" onclick="displayVideoUploader()">

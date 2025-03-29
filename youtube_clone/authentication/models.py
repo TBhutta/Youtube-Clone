@@ -5,6 +5,8 @@ class Account(AbstractUser):
     profile_pic = models.ImageField(upload_to="users/profile_pics/", null=True, blank=True)
     about = models.TextField(blank=True)
     subscribers = models.IntegerField(default=0)
+    # TODO: Add code to automatically increment/ decrement number of videos
+    number_of_videos = models.IntegerField(default=0)
 
     groups = models.ManyToManyField(
         Group,

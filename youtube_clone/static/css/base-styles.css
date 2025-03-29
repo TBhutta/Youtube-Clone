@@ -23,6 +23,10 @@ h3 {
   padding-right: 30px;
   max-height: fit-content;
   background-color: light-dark(white, black);
+
+  svg {
+   fill: light-dark(black, white);
+  }
 }
 
 .sidebar ul {

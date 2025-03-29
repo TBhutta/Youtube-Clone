@@ -10,29 +10,29 @@
 <!-- prettier-ignore -->
 {% block content %}
 <section class="main-content">
-    <div class="channel-banner">
-        <img src="{% static 'img/lf-mui-goku-banner.png' %}" alt="banner">
+  <div class="channel-banner">
+    <img src="{% static 'img/lf-mui-goku-banner.png' %}" alt="banner">
+  </div>
+  <section class="channel-info-container">
+    <div class="profile-pic">
+      <img src="{{ channel.profile_pic.url }}" alt="profile pic" width="160", height="160">
     </div>
-    <section class="channel-info-container">
-        <div class="profile-pic">
-            <img src="{{ channel.profile_pic.url }}" alt="profile pic" width="160", height="160">
-        </div>
-        <section class="channel-info">
-            <p style="font-weight: bold; font-size: 35px">{{ channel.username }}</p>
-            <div style="display: flex">
-                <p>{{ channel.subscribers }} subscribers </p>
-                <!-- TODO: Add videos count to account model -->
-                <p>1.2k videos</p>
-            </div>
-            <div class="channel-about">
-                <p>{{ channel.about }}</p>
-            </div>
-            <div class="buttons">
-                <button type="button">Subscribe</button>
-                <button type="button">Join</button>
-            </div>
-        </section>
+    <section class="channel-info">
+      <p style="font-weight: bold; font-size: 35px">{{ channel.username }}</p>
+      <div style="display: flex">
+        <p>{{ channel.subscribers }} subscribers </p>
+        <!-- TODO: Add videos count to account model -->
+        <p>1.2k videos</p>
+      </div>
+      <div class="channel-about">
+        <p>{{ channel.about }}</p>
+      </div>
+      <div class="buttons">
+        <button type="button">Subscribe</button>
+        <button type="button">Join</button>
+      </div>
     </section>
+  </section>
 </section>
 
 {% endblock %}

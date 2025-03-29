@@ -29,8 +29,10 @@ def update_account(request):
 
 def dashboard(request):
     form = VideoUploadForm()
+    user = request.user
     return render(request, "channel/dashboard.html", {
-        "form": form
+        "form": form,
+        "user": user,
     })
 
 def upload_video(request):

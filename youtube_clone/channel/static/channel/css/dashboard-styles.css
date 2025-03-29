@@ -12,7 +12,7 @@
 #video-uploader-container {
   width: 60%;
   /* TODO: IMPORTANT! UNcomment below soon! */
-  /*display: none;  */
+  display: none;
   position: fixed;
   left: 15%;
   /*background-color: black;*/
@@ -35,3 +35,4 @@
 .section-3 {
   flex: 1/3;
 }
+

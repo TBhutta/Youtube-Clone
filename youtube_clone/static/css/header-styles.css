@@ -19,7 +19,6 @@
   width: 64px;
   height: 40px;
   border-radius: 50%;
-  /* background-color: white; */
   border: none;
   margin-right: 15px;
 }
@@ -37,4 +36,9 @@
   padding: 0.7rem;
   border: none;
   border-radius: 20px;
+}
+
+svg {
+ fill: light-dark(black, white);
+  vertical-align: bottom;
 }

@@ -3,7 +3,7 @@ from .forms import VideoUploadForm, AccountUpdateForm
 from authentication.forms import UserCreationForm
 from django.contrib import messages
 from django.http import JsonResponse
-from .models import Video
+from .models import Video, Playlist, Playlist_Video
 from youtube_clone.settings import BASE_DIR
 
 def profile(request):
@@ -128,7 +128,7 @@ def get_live(request):
 def get_posts(request):
     return render(request, "channel/content.html", {})
 
-def get_playlists(request):
+def playlists_page(request):
     return render(request, "channel/content.html", {})
 
 def get_podcasts(request):
@@ -137,3 +137,16 @@ def get_podcasts(request):
 def get_promotions(request):
     return render(request, "channel/content.html", {})
 
+def get_playlists(request, video_id):
+    # TODO: Filter out liked and disliked playlist
+    fetched_playlists = Playlist.objects.filter(owner=request.user)
+    all_playlists = {}
+    for playlist in fetched_playlists:
+        all_playlists[playlist.id] = playlist.title
+
+    # Below is a list of the user's playlists that already has the video in question saved.
+    fetched_playlists = Playlist_Video.objects.filter(playlist__owner=request.user, video=video_id)
+    video_saved_playlists = []
+    for playlist in fetched_playlists:
+        video_saved_playlists.append(playlist.playlist_id)
+    return JsonResponse({"playlists": all_playlists, "video_saved_playlists": video_saved_playlists})

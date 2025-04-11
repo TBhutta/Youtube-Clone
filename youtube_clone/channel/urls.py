@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     # path("dashboard/<int:user_id>/", views.dashboard, name="dashboard"), # FIXME: figure out how to add account id in url
     path("", views.profile, name="profile"),
+    path("get-playlists/<int:video_id>/", views.get_playlists, name="get-playlists"),
     path("update-account/", views.update_account, name="update-account"),
     path("dashboard/", views.dashboard, name="dashboard"),
     path("dashboard/upload-video/", views.upload_video, name="upload-video"),

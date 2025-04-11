@@ -240,3 +240,15 @@ def view_channel(request, channel_username):
         "channel": channel_to_view,
     })
 
+def video_playlist_actions(request, video_id, playlist_id):
+    data = json.loads(request.body)
+    if data['action'] == 'checked':
+        add_video_to_playlist = Playlist_Video(playlist_id=playlist_id, video_id=video_id)
+        add_video_to_playlist.save()
+        return JsonResponse({"data": f"successfully added video {video_id} to playlist {playlist_id}"})
+    elif data['action'] == 'unchecked':
+        remove_video_from_playlist = Playlist_Video.objects.get(playlist_id=playlist_id, video_id=video_id)
+        remove_video_from_playlist.delete()
+        return JsonResponse({"data": f"successfully removed video {video_id} from playlist {playlist_id}"})
+
+

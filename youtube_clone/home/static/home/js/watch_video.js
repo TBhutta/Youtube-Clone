@@ -267,6 +267,68 @@ function getTime() {
       console.log(data)
     });
     // }
+}
+
+function getPlaylists() {
+  const uri = get_playlists_url
+
+  fetch(uri, {
+    method: "GET",
+    headers: {
+      "X-Requested-With": "XMLHttpRequest",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+      const playlists = Object.values(data.playlists)
+      let user_playlists = document.getElementById("user-playlists")
+
+      for (let [k, v] of Object.entries(data.playlists)) {
+        if (data["video_saved_playlists"].includes(parseInt(k))) {
+          user_playlists.innerHTML += `
+            <li>
+              <input type="checkbox" name="playlist" id="${k}" value="${k}" onclick="addToPlaylist(this.id)" checked  >
+              <label for="${k}">${v}</label>
+            </li>
+          `
+        } else {
+          user_playlists.innerHTML += `
+            <li>
+              <input type="checkbox" name="playlist" id="${k}" value="${k}" onclick="addToPlaylist(this.id)"  >
+              <label for="${k}">${v}</label>
+            </li>
+          `
+        }
+      }
+    })
+}
+
+function addToPlaylist(id) {
+  const checkbox = document.getElementById(id);
+  const action = checkbox.checked ? "checked" : "unchecked"
+
+  let uri = add_video_to_playlist_url.replace('11', id)
+  // console.log(uri);
+
+  let content = {
+    action: action
+  };
+
+  const csrftoken = getCookie("csrftoken");
+
+  fetch(uri, {
+    method: "POST",
+    body: JSON.stringify(content),
+    headers: {
+      "X-CSRFToken": csrftoken,
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+    });
 
 }
 
@@ -284,6 +346,20 @@ window.onload = function () {
     `
     subscribe_btn.style.color = "black"
   }
+
+  let playlist_modal = document.getElementById("playlist-modal")
+  let save_btn = document.getElementById("save-btn")
+  let close_btn = document.getElementById("playlist-modal-close-btn")
+
+  save_btn.onclick = function () {
+    playlist_modal.style.display = "block"
+  }
+
+  close_btn.onclick = function () {
+    playlist_modal.style.display = "none"
+  }
+
+  getPlaylists()
 };
 
 // TODO: Complete

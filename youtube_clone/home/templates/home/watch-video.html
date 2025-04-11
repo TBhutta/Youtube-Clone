@@ -20,6 +20,8 @@
   let subscribe_url = "{% url 'subscribe' channel_id=selected_video.author.id %}";
   let is_subscribed = "{{ is_subscribed }}";
   let increment_views_url = "{% url 'increment-views' video_id=selected_video.id %}";
+  let get_playlists_url = "{% url 'get-playlists' video_id=selected_video.id %}";
+  let add_video_to_playlist_url = "{% url 'add-video-to-playlist' video_id=selected_video.id playlist_id=11 %}";
 </script>
 <!-- prettier-ignore -->
 {% endblock %}
@@ -78,12 +80,23 @@
         <ul id="extra-options">
           <li><button type="button" >Thanks</button></li>
           <li><button type="button">Clip</button></li>
-          <li><button type="button">Save</button></li>
+          <li><button type="button" id="save-btn">Save</button></li>
           <li><button type="button" >Report</button></li>
         </ul>
 
       </section>
     </section>
+
+<!--    Modal for saving to playlist -->
+    <div class="playlist-modal" id="playlist-modal">
+      <div class="modal-content">
+        <span class="close-btn" id="playlist-modal-close-btn">&times;</span>
+        <p>Save video to...</p>
+        <ul id="user-playlists">
+
+        </ul>
+      </div>
+    </div>
 
     <section class="video-description-container">
       <section class="date-views-container">

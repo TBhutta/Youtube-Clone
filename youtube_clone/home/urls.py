@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path("/filter-videos", views.filter_videos, name="filter-videos"),
+    path("filter-videos/", views.filter_videos, name="filter-videos"),
     path("subscriptions/", views.subscriptions, name="subscriptions"),
     path("history/", views.get_history, name="history"),
     path("playlists/", views.playlists, name="playlists"),
@@ -16,6 +16,7 @@ urlpatterns = [
     path("watch/<int:video_id>/dislike-video/", views.dislike_video, name="dislike-video"),
     path("watch/<int:video_id>/increment-views/", views.increment_views, name="increment-views"),
     path("watch/get-recommendations/", views.get_recommendations, name="get-recommendations"),
-    path("subscribe/<int:channel_id>", views.subscribe_to_channel, name="subscribe"),
-    path("getting-subscriptions", views.get_subscriptions, name="get-subscriptions"),
+    path("subscribe/<int:channel_id>/", views.subscribe_to_channel, name="subscribe"),
+    path("getting-subscriptions/", views.get_subscriptions, name="get-subscriptions"),
+    path("add-video-to-playlist/<int:video_id>/<int:playlist_id>/", views.video_playlist_actions, name="add-video-to-playlist"),
 ]

@@ -215,13 +215,22 @@ video {
     }
   }
 
+#new-playlist-btn {
+  border: none;
+  border-radius: 50px;
+  background-color: light-dark(gainsboro, rgba(255, 255, 255, 0.1));
+  padding: 5px 0 ;
+  width: 95%;
+  font-weight: bold;
+}
+
 .modal-content {
-  background-color: light-dark(gainsboro, black);
+  background-color: light-dark(white, black);
   margin: 15% auto;
   padding: 20px;
   border: none;
   border-radius: 10px;
-  width: 25%;
+  width: 15%;
 }
 
 .close-btn {

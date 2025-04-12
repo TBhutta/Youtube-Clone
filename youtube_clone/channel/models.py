@@ -68,6 +68,7 @@ class Playlist(models.Model):
     owner = models.ForeignKey(USER_MODEL, on_delete=models.CASCADE)
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateField(auto_now=True)
+    # TODO: Add visibility
     # number of videos will be calculated at runtime as I believe it is not necessary to store that information
 
     class Meta:

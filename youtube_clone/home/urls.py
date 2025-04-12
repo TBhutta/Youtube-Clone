@@ -19,4 +19,5 @@ urlpatterns = [
     path("subscribe/<int:channel_id>/", views.subscribe_to_channel, name="subscribe"),
     path("getting-subscriptions/", views.get_subscriptions, name="get-subscriptions"),
     path("add-video-to-playlist/<int:video_id>/<int:playlist_id>/", views.video_playlist_actions, name="add-video-to-playlist"),
+    path("create-playlist/", views.create_playlist, name="create-playlist"),
 ]

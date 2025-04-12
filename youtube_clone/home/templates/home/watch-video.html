@@ -12,6 +12,7 @@
 {% load static %}
 <script src="{% static 'home/js/watch_video.js' %}"></script>
 <script>
+  let video_id = "{{ selected_video.id }}"
   let url = "{% url 'add-comment' video_id=selected_video.id %}";
   let comments_url = "{% url 'get-comments' video_id=selected_video.id %}";
   let like_url = "{% url 'like-video' video_id=selected_video.id %}";
@@ -22,6 +23,7 @@
   let increment_views_url = "{% url 'increment-views' video_id=selected_video.id %}";
   let get_playlists_url = "{% url 'get-playlists' video_id=selected_video.id %}";
   let add_video_to_playlist_url = "{% url 'add-video-to-playlist' video_id=selected_video.id playlist_id=11 %}";
+  let create_playlist_url = "{% url 'create-playlist' %}";
 </script>
 <!-- prettier-ignore -->
 {% endblock %}
@@ -89,14 +91,17 @@
 
 <!--    Modal for saving to playlist -->
     <div class="playlist-modal" id="playlist-modal">
-      <div class="modal-content">
+      <div class="modal-content" id="modal-content">
         <span class="close-btn" id="playlist-modal-close-btn">&times;</span>
         <p>Save video to...</p>
         <ul id="user-playlists">
 
         </ul>
+        <button id="new-playlist-btn" onclick="makeNewPlaylist()">+ New playlist</button>
       </div>
+
     </div>
+
 
     <section class="video-description-container">
       <section class="date-views-container">

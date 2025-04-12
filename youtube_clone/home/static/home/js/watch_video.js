@@ -332,6 +332,49 @@ function addToPlaylist(id) {
 
 }
 
+function makeNewPlaylist() {
+  let modal_content = document.getElementById("modal-content")
+
+  modal_content.innerHTML = ""
+  modal_content.innerHTML += `
+    <h1>New playlist</h1>
+    <input type="text" placeholder="Choose a title" id="playlist-name">
+    <select name="visibility" id="visibility">
+      <option value="public">Public</option>
+      <option value="unlisted">Unlisted</option>
+      <option value="private" selected>Private</option>
+    </select>
+    <div>
+      <button>Cancel</button>
+      <button onclick="createAndAddToPlaylist()">Create</button>
+    </div>
+  `
+}
+
+function createAndAddToPlaylist() {
+  const playlist_name = document.getElementById("playlist-name").value
+  // TODO: Store playlist visibility as well
+  const playlist_visibility = document.getElementById("visibility")
+
+  const csrftoken = getCookie("csrftoken");
+  let uri = create_playlist_url;
+  fetch(uri, {
+    method: "POST",
+    body: JSON.stringify({name: playlist_name, id: video_id}),
+    headers: {
+      "X-CSRFToken": csrftoken,
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      document.getElementById("playlist-modal").style.display = "none";
+      document.getElementById("modal-content").style.display = "none";
+
+    });
+
+}
+
 window.onload = function () {
   getComments();
   getRecommendedVideos();
@@ -362,5 +405,4 @@ window.onload = function () {
   getPlaylists()
 };
 
-// TODO: Complete
 setTimeout(getTime, 30000)

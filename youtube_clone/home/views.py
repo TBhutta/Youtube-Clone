@@ -7,30 +7,22 @@ from channel.models import Video, Comment, Playlist, Playlist_Video, Subscriptio
 from django.contrib.auth import get_user_model
 import json
 
-
 USER_MODEL = get_user_model()
 
-
 def home(request):
-    # subscriptions = Subscriptions.objects.filter(subscriber=request.user)
-    return render(request, "home/home.html", {
-        # "subscriptions": subscriptions,
-    })
+    return render(request, "home/home.html", {})
 
 def filter_videos(request):
     data = json.loads(request.body)
     if data["filter"] == "all":
         videos = Video.objects.all().values("id", "title", "description", "thumbnail", "upload_date", "author__username", "author__profile_pic", "views")
-
         # Convert image paths to full URLs
         for video in videos:
             video["thumbnail"] = f"{settings.MEDIA_URL}{video['thumbnail']}"
             video["author__profile_pic"] = f"{settings.MEDIA_URL}{video['author__profile_pic']}"
-
     else:
         videos = []
     return JsonResponse(list(videos), safe=False)
-    # return JsonResponse({"videos": json.dumps(fetched_videos)})
 
 def subscribe_to_channel(request, channel_id):
     channel_to_subscribe = USER_MODEL.objects.get(id=channel_id)

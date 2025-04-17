@@ -1,15 +1,10 @@
 
 function fetchFeed() {
   const filter = document.querySelector("input[name='filter']:checked").value
-  console.log(filter)
-
   let content = {
     filter: filter,
   };
-
   const uri = filter_videos_url;
-  // uri = uri.replace("1234", filter)
-
   const csrftoken = getCookie("csrftoken");
 
   fetch(uri, {
@@ -24,14 +19,13 @@ function fetchFeed() {
     .then((data) => {
       const videos_container = document.getElementById("videos-container")
       videos_container.innerHTML = ""
-
       const NUM_VIDEOS = Object.keys(data).length
 
       for (let i = 0; i < NUM_VIDEOS; i++) {
         const video = data[i]
         let channel_url = view_channel_url.replace("1234", video.author__username)
-
         const video_url = `/watch/${video.id}`
+
         videos_container.innerHTML += `
         <a href=${video_url} class="video-link">
           <div class="video">
@@ -88,7 +82,6 @@ function getCookie(name) {
   return cookieValue;
 }
 
-window.onload = function () {
-    console.log("home loaded")
-    fetchFeed();
-}
+$(document).ready(function(){
+  fetchFeed();
+})

@@ -35,7 +35,6 @@ function getSubscriptions() {
     })
 }
 
-window.onload = function () {
+$(document).ready(function(){
   getSubscriptions();
-  console.log("base loaded")
-}
+});

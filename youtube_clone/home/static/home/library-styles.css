@@ -11,7 +11,7 @@ p, h1, h2, a {
 .main-content {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 81%;
   background-color: light-dark(white, black);
 }
 
@@ -45,7 +45,7 @@ p, h1, h2, a {
 .videos-container {
   display: flex;
   flex-wrap: wrap;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
   width: 100%;
 }
 
@@ -53,7 +53,6 @@ p, h1, h2, a {
   margin-bottom: 30px;
   margin-right: 10px;
   color: light-dark(black, white);
-  width: 373px;
 }
 
 .video-title {
@@ -85,6 +84,8 @@ p, h1, h2, a {
 
   img {
     border-radius: 10px;
+    width: 276px;
+    height: 155px;
   }
 }
 

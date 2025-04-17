@@ -53,8 +53,12 @@ def get_subscriptions(request):
         }
     return JsonResponse({"subscriptions": json.dumps(subscriptions)})
 
-def get_history(request):
-    history_records = History.objects.filter(user=request.user)
+def get_history(request, limit=None):
+    if limit is None:
+        history_records = History.objects.filter(user=request.user)
+    else:
+        history_records = History.objects.filter(user=request.user)[:limit]
+
     videos = []
     for record in history_records:
         videos.append(record.video)
@@ -74,16 +78,19 @@ def add_video_to_history(request, video_id):
         new_history = History(video=video, user=request.user)
         new_history.save()
 
+def get_playlists(request):
+    playlists = Playlist.objects.filter(owner=request.user).order_by('title')
+    return playlists
+
+
 def playlists(request):
-    return render(request, "home/playlists-page.html", {})
+    playlists = get_playlists(request)
+    return render(request, "home/playlists-page.html", {
+        "playlists": playlists,
+    })
 
 def library(request):
-    history_videos = get_history(request)
-    for video in history_videos:
-        print(video.id)
-        print(video.title)
-        print(video.thumbnail.url)
-    print(history_videos)
+    history_videos = get_history(request, limit=4)
     return render(request, "home/library.html", {
         "history_videos": history_videos,
     })

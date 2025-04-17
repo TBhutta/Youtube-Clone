@@ -59,6 +59,11 @@ def get_history(request):
     for record in history_records:
         videos.append(record.video)
     videos = reversed(videos)
+    return videos
+
+def history(request):
+    videos = get_history(request)
+    print("videsdvsdvos", videos)
     return render(request, "home/history-page.html", {
         "videos": videos
     })
@@ -73,7 +78,15 @@ def playlists(request):
     return render(request, "home/playlists-page.html", {})
 
 def library(request):
-    return render(request, "home/library.html", {})
+    history_videos = get_history(request)
+    for video in history_videos:
+        print(video.id)
+        print(video.title)
+        print(video.thumbnail.url)
+    print(history_videos)
+    return render(request, "home/library.html", {
+        "history_videos": history_videos,
+    })
 
 def watch_video(request, video_id=None):
     add_video_to_history(request, video_id)

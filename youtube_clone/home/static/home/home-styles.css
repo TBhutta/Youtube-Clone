@@ -82,9 +82,7 @@ p, h1, h2, a {
   display: flex;
 }
 
-.video img {
-  border-radius: 10px;
-}
+
 
 .video-channel {
   color: rgb(163, 161, 161);
@@ -96,20 +94,25 @@ p, h1, h2, a {
   margin: 5px 0;
 }
 
+
+.video-link {
+  text-decoration: none;
+  color: black;
+
+  img {
+    border-radius: 10px;
+  }
+}
+
+.video-views {
+  margin: 0;
+  font-size: 15px;
+}
+
 .channel-icon {
   margin-right: 5px;
 
   img {
     border-radius: 20px;
   }
-}
-
-.video-link {
-  text-decoration: none;
-  color: black;
-}
-
-.video-views {
-  margin: 0;
-  font-size: 15px;
 }

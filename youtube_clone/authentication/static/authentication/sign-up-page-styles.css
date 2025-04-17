@@ -1,10 +1,14 @@
+:root {
+  color-scheme: light dark;
+}
+
+
 .main-content {
   display: flex;
   flex-direction: column;
-}
-
-.title {
-  color: blue;
+  width: 100%;
+  background-color: light-dark(white, black) !important;
+  color: light-dark(black, white);
 }
 
 .sign-up-form {

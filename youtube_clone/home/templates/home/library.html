@@ -20,14 +20,14 @@
   <section class="profile-container">
     <div class="profile-icon">
       <img
-        src="{% static 'images/profile-icon.webp' %}"
+        src="{{ user.profile_pic.url }}"
         alt="profile-icon"
         width="120"
         height="120"
       />
     </div>
     <section class="profile-info">
-      <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+      <p id="user-first-and-last-names">{{ user.first_name }} {{ user.last_name }}</p>
       <div style="display: flex">
         <p>{{ user.username }}</p>
         <!--TODO: Add page to view channel from where user should be able to update account -->
@@ -45,7 +45,48 @@
       <h3>History</h3>
       <button type="button">View all</button>
     </div>
-    <section class="videos-container" id="videos-container">
+
+<!--    TODO: Finish rendering history -->
+    <section class="videos-container" id="history-container">
+      {% for video in history_videos %}
+        {{ video.title }}
+        <a href="{% url 'watch-video' video_id=video.id %}" class="video-link">
+          <div class="video">
+            <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+            <img
+              src="{{ video.thumbnail.url }}"
+              alt="video thumbnail"
+              width="373"
+              height="209"
+            />
+            <section class="video-info">
+              <div class="channel-icon">
+                <a href="{% url 'view-channel' channel_username=video.author.username %}">
+                  <img
+                    src="{{ video.author.profile_pic.url }}"
+                    alt="profile"
+                    width="40"
+                    height="40"
+                  />
+                </a>
+              </div>
+              <section>
+                <p class="video-title" style="">
+                  {{ video.title }}
+                </p>
+                <a href=${channel_url} class="video-channel" >
+                  {{ video.author.username }}
+                </a>
+                <p class="video-views">
+                  {{ video.views }} views
+                </p>
+              </section>
+            </section>
+          </div>
+        </a>
+      {% endfor %}
+
+
       <div class="video">
         <img
           src="{% static 'images/elemental-hero-magma-neos.webp' %}"
@@ -343,7 +384,7 @@
       <h3>Playlists</h3>
       <button type="button">View all</button>
     </div>
-    <section class="videos-container" id="videos-container">
+    <section class="videos-container" id="playlists-container">
       <div class="video">
         <img
           src="{% static 'images/elemental-hero-magma-neos.webp' %}"
@@ -641,7 +682,7 @@
       <h3>Watch later</h3>
       <button type="button">View all</button>
     </div>
-    <section class="videos-container" id="videos-container">
+    <section class="videos-container" id="watch-later-container">
       <div class="video">
         <img
           src="{% static 'images/elemental-hero-magma-neos.webp' %}"
@@ -939,7 +980,7 @@
       <h3>Liked videos</h3>
       <button type="button">View all</button>
     </div>
-    <section class="videos-container" id="videos-container">
+    <section class="videos-container" id="liked-videos-container">
       <div class="video">
         <img
           src="{% static 'images/elemental-hero-magma-neos.webp' %}"
@@ -1237,7 +1278,7 @@
       <h3>Your clips</h3>
       <button type="button">View all</button>
     </div>
-    <section class="videos-container" id="videos-container">
+    <section class="videos-container" id="your-clips-container">
       <div class="video">
         <img
           src="{% static 'images/elemental-hero-magma-neos.webp' %}"
@@ -1535,7 +1576,7 @@
       <h3>Your podcasts</h3>
       <button type="button">View all</button>
     </div>
-    <section class="videos-container" id="videos-container">
+    <section class="videos-container" id="podcasts-container">
       <div class="video">
         <img
           src="{% static 'images/elemental-hero-magma-neos.webp' %}"

@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 from django.http import JsonResponse
 from channel.models import Video, Comment, Playlist, Playlist_Video, Subscriptions, History
@@ -81,6 +81,7 @@ def playlists(request):
     for playlist in fetched_playlists:
         pl = {}
         try:
+            # If the playlist isn't empty then at least one video can be fetched...
             first_video = Playlist_Video.objects.filter(playlist=playlist).first().video
             pl['video_id'] = first_video.id
             pl['title'] = playlist.title
@@ -88,7 +89,8 @@ def playlists(request):
             pl['video_link'] = "{% url 'watch-video' video_id=playlist_info.video_id %}"
 
         except:
-            pl['video_id'] = 1
+            # ...otherwise set placeholder information
+            pl['video_id'] = '#'
             pl['title'] = playlist.title
             pl['thumbnail'] = settings.MEDIA_URL + 'videos/thumbnails/placeholder.png'
             pl['video_link'] = "#"
@@ -100,6 +102,18 @@ def playlists(request):
         "data": data
     })
 
+def view_playlist(request, playlist_id):
+    playlist = Playlist.objects.get(id=playlist_id)
+    try:
+        # If the playlist isn't empty then at least one video can be fetched...
+        first_video = Playlist_Video.objects.filter(playlist=playlist).first().video
+    except:
+        first_video = None
+    return render(request, "home/view-playlist.html", {
+        "first_video": first_video,
+        "playlist": playlist,
+    })
+
 def library(request):
     history_videos = get_history(request, limit=4)
     return render(request, "home/library.html", {
@@ -107,20 +121,24 @@ def library(request):
     })
 
 def watch_video(request, video_id=None):
-    add_video_to_history(request, video_id)
-    selected_video = Video.objects.filter(id=video_id).first()
-    video_age = datetime.now().timestamp() - selected_video.upload_date.timestamp()
-    try:
-        is_subscribed = Subscriptions.objects.get(subscriber=request.user, subscribing_to=selected_video.author)
-        is_subscribed = True
-    except:
-        is_subscribed = False
+    if type(video_id) == int:
+        add_video_to_history(request, video_id)
+        selected_video = Video.objects.filter(id=video_id).first()
+        video_age = datetime.now().timestamp() - selected_video.upload_date.timestamp()
+        try:
+            is_subscribed = Subscriptions.objects.get(subscriber=request.user, subscribing_to=selected_video.author)
+            is_subscribed = True
+        except:
+            is_subscribed = False
 
-    return render(request, "home/watch-video.html", {
-        "selected_video": selected_video,
-        "profile_pic": request.user.profile_pic.url,
-        "is_subscribed": is_subscribed,
-    })
+        return render(request, "home/watch-video.html", {
+            "selected_video": selected_video,
+            "profile_pic": request.user.profile_pic.url,
+            "is_subscribed": is_subscribed,
+        })
+    else:
+        # Redirects user back to playlists page if trying to watch a video from an empty playlist
+        return redirect('playlists')
 
 def get_comments(request, video_id):
     # TODO: Re-arrange the fetched comments to display the user's comments (if any) at the top.

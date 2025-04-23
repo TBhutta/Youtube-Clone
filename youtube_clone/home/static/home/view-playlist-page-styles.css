@@ -1,0 +1,83 @@
+:root {
+  color-scheme: light dark;
+}
+
+p, h1, h2, a {
+  font-family: "Roboto","Arial",sans-serif;
+}
+
+.main-content {
+    display: flex;
+    width: 100%;
+    background-color: light-dark(white, black);
+    padding-top: 1rem;
+}
+
+.playlist-player {
+    width: 360px;
+    border: 1px solid red;
+    margin-right: 4px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    /*position: sticky;*/
+
+    .first-video-thumbnail {
+        margin: 1.5rem;
+        width: 312px;
+        height: 175.5px;
+        border-radius: 10px;
+    }
+
+    .first-video-info {
+        margin: 0 1.5rem;
+
+        #first-video-title {
+            font-size: 28px;
+            width: 312px;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .channel-info {
+            display: flex;
+            margin-top: 0;
+            text-decoration: none;
+            color: gainsboro;
+            font-size: small;
+
+            #channel-profile-icon {
+                width: 24px;
+                height: 24px;
+                border-radius: 24px;
+                margin-right: 12px;
+            }
+
+            #channel-username {
+                line-height: 1px;
+            }
+        }
+
+        .video-info {
+            display: flex;
+            color: gainsboro;
+            font-size: small;
+        }
+
+        .playlist-description {
+            color: gainsboro;
+            font-size: small;
+            margin-top: 0;
+        }
+
+        .user-options {
+            display: flex;
+        }
+    }
+}
+
+
+.playlist-content {
+    border: 1px solid blue;
+    flex: 1;
+}

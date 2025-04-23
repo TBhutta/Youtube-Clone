@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+<!-- prettier-ignore -->
+{% block title %}Your playlists - YouTube Clone{% endblock %}
+<!-- prettier-ignore -->
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/view-playlist-page-styles.css' %}" />
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block scripts %}
+{% endblock %}
+{% block content %}
+  <section class="main-content">
+    <section class="playlist-player">
+      <a href="{% url 'watch-video' video_id=first_video.id %}">
+        <img src="{{ first_video.thumbnail.url }}" alt="thumbnail" class="first-video-thumbnail">
+      </a>
+      <section class="first-video-info">
+        <h1 id="first-video-title">{{ first_video.title }}</h1>
+        <a href="{% url 'view-channel' channel_username=first_video.author.username %}" class="channel-info">
+          <img src="{{ first_video.author.profile_pic.url }}" alt="channel-profile-icon" id="channel-profile-icon">
+          <p id="channel-username">by {{ first_video.author.username }}</p>
+        </a>
+        <div class="video-info">
+          <p>Playlist . {{ playlist.visibility }} . {{ playlist.number_of_videos }} videos</p>
+        </div>
+        <p class="playlist-description">{{ playlist.description }}</p>
+        <div class="user-options">
+          <button>Play all</button>
+          <button></button>
+          <button></button>
+          <button></button>
+          <button></button>
+        </div>
+      </section>
+    </section>
+    <section class="playlist-content">
+    </section>
+  </section>
+{% endblock %}

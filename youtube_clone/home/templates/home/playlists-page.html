@@ -28,6 +28,8 @@
   <section class="playlists-container">
     {% for playlist_id, playlist_info in data.items %}
       <section class="playlist-info">
+<!--        TODO: If link below is selected, make it so that all videos from the playlist are listed in chronological order, -->
+<!--              where next video is played automatically after the current video finishes-->
         <a href="{% url 'watch-video' video_id=playlist_info.video_id %}" class="play-video-link">
           <div class="video">
             <img
@@ -40,7 +42,7 @@
           <p class="playlist-title">{{ playlist_info.title }}</p>
   <!--        <p class="playlist-owner">{{ playlist.owner }}</p>-->
           <p class="playlist-visibility">{{ playlist_info.visibility }} . Playlist</p>
-          <a href="" class="playlist-link"><p>View full playlist</p></a>
+          <a href="{% url 'view-playlist' playlist_id=playlist_id %}" class="playlist-link"><p>View full playlist</p></a>
         </a>
       </section>
     {% endfor %}

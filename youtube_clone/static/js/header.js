@@ -1,9 +1,19 @@
 function displayMenu() {
   // TODO: Complete
-  let dropdown_menu = document.getElementById("dropdown-menu")
-  if (dropdown_menu.style.display === "none") {
-    dropdown_menu.style.display = "block"
+  let dropdownMenu = document.getElementById("dropdown-menu")
+  if (dropdownMenu.style.display === "none") {
+    dropdownMenu.style.display = "block"
   } else {
-    dropdown_menu.style.display = "none"
+    dropdownMenu.style.display = "none"
+  }
+}
+
+function toggleSidebar() {
+  // FIXME: Messes up web page styles when hidden
+  let sidebarMenu = document.getElementById("sidebar")
+  if (sidebarMenu.style.display === "none") {
+    sidebarMenu.style.display = "block"
+  } else {
+    sidebarMenu.style.display = "none"
   }
 }

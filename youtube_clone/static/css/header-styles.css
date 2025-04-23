@@ -6,6 +6,11 @@
   background-color: light-dark(white, black);
 }
 
+#menu-btn {
+  border: none;
+  background-color: light-dark(white, black);
+}
+
 #search-filter {
   width: 515px;
   height: 24px;

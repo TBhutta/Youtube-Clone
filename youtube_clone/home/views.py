@@ -76,9 +76,28 @@ def get_playlists(request):
 
 
 def playlists(request):
-    playlists = get_playlists(request)
+    fetched_playlists = get_playlists(request)
+    data = {}
+    for playlist in fetched_playlists:
+        pl = {}
+        try:
+            first_video = Playlist_Video.objects.filter(playlist=playlist).first().video
+            pl['video_id'] = first_video.id
+            pl['title'] = playlist.title
+            pl['thumbnail'] = f"{settings.MEDIA_URL}{first_video.thumbnail}"
+            pl['video_link'] = "{% url 'watch-video' video_id=playlist_info.video_id %}"
+
+        except:
+            pl['video_id'] = 1
+            pl['title'] = playlist.title
+            pl['thumbnail'] = settings.MEDIA_URL + 'videos/thumbnails/placeholder.png'
+            pl['video_link'] = "#"
+
+        pl['visibility'] = playlist.visibility
+        data[playlist.id] = pl
+
     return render(request, "home/playlists-page.html", {
-        "playlists": playlists,
+        "data": data
     })
 
 def library(request):

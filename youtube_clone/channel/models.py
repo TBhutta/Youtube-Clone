@@ -64,10 +64,18 @@ class Comment(models.Model):
     
 
 class Playlist(models.Model):
+    ACCESSIBILITY = [
+        ('public', 'Public'),
+        ('private', 'Private'),
+        ('protected', 'Protected'),
+    ]
+
     title = models.CharField(max_length=50)
     owner = models.ForeignKey(USER_MODEL, on_delete=models.CASCADE)
+    visibility = models.CharField(choices=ACCESSIBILITY, max_length=10, null=False, blank=False, default='Private')
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateField(auto_now=True)
+    number_of_videos= models.IntegerField(default=0)
     # TODO: Add visibility
     # number of videos will be calculated at runtime as I believe it is not necessary to store that information
 

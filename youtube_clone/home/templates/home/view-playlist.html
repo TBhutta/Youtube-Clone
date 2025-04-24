@@ -36,6 +36,18 @@
       </section>
     </section>
     <section class="playlist-content">
+      {% for video in playlist_videos %}
+        <a href="{% url 'watch-video' video_id=video.id %}" class="playlist-video-container">
+          <p class="playlist-index">{{ forloop.counter }}</p>
+          <section style="display: flex">
+            <img src="{{ video.thumbnail.url }}" alt="thumbnail" class="video-thumbnail" >
+            <section class="video-info">
+              <h1 class="video-title">{{ video.title }}</h1>
+              <p class="statistics">{{ video.author.username }} . {{ video.views }} views . {{ video.upload_date }}</p>
+            </section>
+          </section>
+        </a>
+      {% endfor %}
     </section>
   </section>
 {% endblock %}

@@ -49,7 +49,7 @@ p {
 }
 
 .playlist-title {
-  color: white;
+  color: light-dark(black, white);
 }
 
 .playlist-link {

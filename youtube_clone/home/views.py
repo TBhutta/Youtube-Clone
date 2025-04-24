@@ -104,14 +104,19 @@ def playlists(request):
 
 def view_playlist(request, playlist_id):
     playlist = Playlist.objects.get(id=playlist_id)
+    playlist_videos = []
     try:
         # If the playlist isn't empty then at least one video can be fetched...
         first_video = Playlist_Video.objects.filter(playlist=playlist).first().video
+        fetched_videos = Playlist_Video.objects.filter(playlist=playlist)
+        for obj in fetched_videos:
+            playlist_videos.append(obj.video)
     except:
         first_video = None
+
     return render(request, "home/view-playlist.html", {
         "first_video": first_video,
-        "playlist": playlist,
+        "playlist_videos": playlist_videos
     })
 
 def library(request):

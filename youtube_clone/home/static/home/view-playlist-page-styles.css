@@ -1,5 +1,6 @@
 :root {
   color-scheme: light dark;
+    --main-font-color: rgb(15, 15, 15);
 }
 
 p, h1, h2, a {
@@ -15,7 +16,6 @@ p, h1, h2, a {
 
 .playlist-player {
     width: 360px;
-    border: 1px solid red;
     margin-right: 4px;
     border-radius: 20px;
     display: flex;
@@ -43,7 +43,7 @@ p, h1, h2, a {
             display: flex;
             margin-top: 0;
             text-decoration: none;
-            color: gainsboro;
+            color: var(--main-font-color);
             font-size: small;
 
             #channel-profile-icon {
@@ -60,12 +60,12 @@ p, h1, h2, a {
 
         .video-info {
             display: flex;
-            color: gainsboro;
+            color: var(--main-font-color);
             font-size: small;
         }
 
         .playlist-description {
-            color: gainsboro;
+            color: var(--main-font-color);
             font-size: small;
             margin-top: 0;
         }
@@ -78,6 +78,38 @@ p, h1, h2, a {
 
 
 .playlist-content {
-    border: 1px solid blue;
+    padding-top: 1rem;
     flex: 1;
+    color: light-dark(black, white);
+
+    .playlist-index {
+        margin: auto 10px;
+    }
+
+    .playlist-video-container {
+        display: flex;
+        text-decoration: none;
+        margin-bottom: 1rem;
+
+        .video-thumbnail {
+            width: 200px;
+            height: 113px;
+            border-radius: 10px;
+        }
+
+        .video-info {
+            margin-left: 7px;
+
+            .video-title {
+                font-size: 16px;
+                margin-top: 3px;
+                margin-bottom: 0;
+            }
+
+            .statistics {
+                color: var(--main-font-color);
+                font-size: small;
+            }
+        }
+    }
 }

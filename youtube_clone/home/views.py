@@ -309,6 +309,8 @@ def video_playlist_actions(request, video_id, playlist_id):
         remove_video_from_playlist.delete()
         return JsonResponse({"data": f"successfully removed video {video_id} from playlist {playlist_id}"})
 
+
+
 def create_playlist(request):
     data = json.loads(request.body)
     new_playlist = Playlist(title=data["name"], owner=request.user)

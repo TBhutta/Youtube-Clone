@@ -3,12 +3,13 @@ from . import views
 
 urlpatterns = [
     path("", views.home, name="home"),
+    path("search_results/", views.search_query, name="search_results"),
     path("filter-videos/", views.filter_videos, name="filter-videos"),
     path("subscriptions/", views.subscriptions, name="subscriptions"),
     path("history/", views.history, name="history"),
     path("playlists/", views.playlists, name="playlists"),
     path("you/", views.library, name="you"),
-    path("view-channel/<str:channel_username>/", views.view_channel, name="view-channel"),
+    path("view-channel/<str:channel_username>/home/", views.view_channel, name="view-channel"),
     path("watch/<int:video_id>/", views.watch_video, name="watch-video"),
     path("watch/<str:video_id>/", views.watch_video, name="watch-video"),
     path("watch/<int:video_id>/get-comments/", views.get_comments, name="get-comments"),

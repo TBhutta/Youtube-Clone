@@ -8,6 +8,10 @@ function displayMenu() {
   }
 }
 
+function searchQuery(val) {
+  console.log(val)
+}
+
 function toggleSidebar() {
   // FIXME: Messes up web page styles when hidden
   let sidebarMenu = document.getElementById("sidebar")

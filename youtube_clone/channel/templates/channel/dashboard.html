@@ -26,19 +26,11 @@
       <!-- prettier-ignore -->
     {% endif %}
     <h2>Channel dashboard</h2>
-    <dialog id="my_dialog">
-      <h1>This is my dialog window</h1>
-      <button onclick="my_dialog.close()">Close Dialog</button>
-    </dialog>
     <div class="buttons">
       <!-- TODO: add tooltips -->
-      <button type="button" onclick="displayVideoUploader()">
-        Upload videos
-      </button>
-      <section id="video-uploader-container">
+      <dialog id="video-uploader-container">
         <section class="top">
           <h2>Upload videos</h2>
-
 
 
           <form
@@ -51,10 +43,16 @@
           </form>
           <div class="upload-buttons">
             <button type="button">Send feedback</button>
-            <button type="button">Close</button>
+            <button type="button" id="close-dialog-btn">Close</button>
           </div>
         </section>
-      </section>
+      </dialog>
+
+
+      <button id="showDialog" type="button" >
+        Upload videos
+      </button>
+
       <button type="button">Go live</button>
       <button type="button">Create post</button>
     </div>

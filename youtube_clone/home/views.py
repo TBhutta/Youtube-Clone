@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.shortcuts import render, redirect
 from django.conf import settings
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from channel.models import Video, Comment, Playlist, Playlist_Video, Subscriptions, History
 from django.contrib.auth import get_user_model
 import json
@@ -11,6 +11,10 @@ USER_MODEL = get_user_model()
 
 def home(request):
     return render(request, "home/home.html", {})
+
+# TODO: Make search work
+def search_query(request):
+    return render(request, "home/search-results.html", {})
 
 def filter_videos(request):
     data = json.loads(request.body)

@@ -1,3 +1,7 @@
+:root {
+  color-scheme: light dark;
+}
+
 .main-content {
   width: 100%;
   height: 100%;
@@ -12,11 +16,11 @@
 #video-uploader-container {
   width: 60%;
   /* TODO: IMPORTANT! UNcomment below soon! */
-  display: none;
+  /*display: none;*/
   position: fixed;
   left: 15%;
-  /*background-color: black;*/
-  color: black;
+  background-color: black;
+  color: light-dark(black, white);
   width: 75%;
 }
 

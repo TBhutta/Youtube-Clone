@@ -3,12 +3,25 @@ from django.contrib.auth import get_user_model
 from django.contrib import messages
 from .forms import AccountCreationForm, UserLoginForm
 from django.contrib.auth import authenticate, login, logout
+from django.core.mail import send_mail
 from home import views as homeViews
 from channel.models import Playlist
 
 USER_MODEL = get_user_model()
 
 def registration(request):
+    # TODO: Find a way to send emails
+    # try:
+    #     send_mail(
+    #         "Testing Django send mail",
+    #         "Hi! Receiving this message confirms django's successful attempt to send an email.",
+    #         "talhahabhutta@gmail.com",
+    #         ["talhahabhutta@gmail.com"],
+    #         fail_silently=False,
+    #     )
+    #     print("Email sent")
+    # except:
+    #     print("Something went wrong when sending email")
     if request.method == "POST":
         form = AccountCreationForm(request.POST, request.FILES)
         if form.is_valid():
@@ -18,6 +31,8 @@ def registration(request):
             if password != confirm_password:
                 messages.error(request, "Passwords don't match")
                 return redirect(registration)
+
+
 
             f_name = form.cleaned_data["first_name"]
             l_name = form.cleaned_data["last_name"]

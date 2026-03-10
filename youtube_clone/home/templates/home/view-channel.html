@@ -7,6 +7,13 @@
 <link rel="stylesheet" href="{% static 'home/view-channel-styles.css' %}" />
 <!-- prettier-ignore -->
 {% endblock %}
+{% block scripts %}
+{% load static %}
+<script src="{% static 'home/js/view_channel.js' %}"></script>
+<script>
+
+</script>
+{% endblock %}
 <!-- prettier-ignore -->
 {% block content %}
 <section class="main-content">
@@ -22,7 +29,7 @@
       <div style="display: flex">
         <p>{{ channel.subscribers }} subscribers </p>
         <!-- TODO: Add videos count to account model -->
-        <p>1.2k videos</p>
+        <p style="margin-left: 10px">{{ channel.number_of_videos }} videos</p>
       </div>
       <div class="channel-about">
         <p>{{ channel.about }}</p>
@@ -32,6 +39,46 @@
         <button type="button">Join</button>
       </div>
     </section>
+  </section>
+  <section class="channel-content">
+    <ul class="channel-navigation">
+      <li id="home">
+<!--        <input type="radio" name="navigate-channel" id="home" value="home" checked>-->
+<!--        <label for="home">Home</label>-->
+        Home
+      </li>
+      <li id="videos">
+<!--        <input type="radio" name="navigate-channel" id="videos" value="videos">-->
+<!--        <label for="videos">Videos</label>-->
+        Videos
+      </li>
+      <li id="shorts">
+<!--        <input type="radio" name="navigate-channel" id="shorts" value="shorts">-->
+<!--        <label for="shorts">Shorts</label>-->
+        Shorts
+      </li>
+      <li id="live">
+<!--        <input type="radio" name="navigate-channel" id="live" value="live">-->
+<!--        <label for="live">Live</label>-->
+        Live
+      </li>
+      <li id="podcasts">
+<!--        <input type="radio" name="navigate-channel" id="podcasts" value="podcasts">-->
+<!--        <label for="podcasts">Podcasts</label>-->
+        Podcasts
+      </li>
+      <li id="playlists">
+<!--        <input type="radio" name="navigate-channel" id="playlists" value="playlists">-->
+<!--        <label for="playlists">Playlists</label>-->
+        Playlists
+      </li>
+      <li id="posts">
+<!--        <input type="radio" name="navigate-channel" id="posts" value="posts">-->
+<!--        <label for="posts">Posts</label>-->
+        Posts
+      </li>
+    </ul>
+    <hr style="height: 0.1px" />
   </section>
 </section>
 

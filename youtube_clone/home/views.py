@@ -9,6 +9,8 @@ import json
 
 USER_MODEL = get_user_model()
 
+
+
 def home(request):
     return render(request, "home/home.html", {})
 

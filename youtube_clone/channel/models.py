@@ -28,7 +28,8 @@ class Video(models.Model):
     # TODO: Add visibility, perhaps use permissions?
     # TODO: Private/Unlisted videos' view count should be excluded from total channel view count
     title = models.CharField(max_length=100, null=False, blank=False)
-    thumbnail = models.ImageField(upload_to="videos/thumbnails")
+    thumbnail = models.ImageField(upload_to="videos/thumbnails/")
+    video_tags = models.CharField(max_length=255, null=True)
     video_file = models.FileField(upload_to="videos/video_files/", null=False, blank=False)
     description = models.TextField()
     # TODO: Add functionality for the three below
@@ -99,6 +100,13 @@ class Subscriptions(models.Model):
 
     class Meta:
         db_table = "subscriptions"
+
+    # Counts the number of subscribers a channel has
+    @staticmethod
+    def get_number_of_subscribers(channel):
+        number_of_subscribers = Subscriptions.objects.filter(subscribing_to=channel)
+        print(number_of_subscribers)
+        return len(number_of_subscribers)
 
 class History(models.Model):
     user = models.ForeignKey(USER_MODEL, on_delete=models.CASCADE)

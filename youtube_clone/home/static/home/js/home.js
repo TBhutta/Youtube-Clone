@@ -4,9 +4,12 @@ function fetchFeed() {
   let content = {
     filter: filter,
   };
+
+  console.log('filter_videos_url: ', filter_videos_url)
   const uri = filter_videos_url;
   const csrftoken = getCookie("csrftoken");
 
+  // posts to url 'filter_videos' and thus calls filter_videos() in home/views.py
   fetch(uri, {
     method: "POST",
     body: JSON.stringify(content),
@@ -41,10 +44,9 @@ function fetchFeed() {
                 <a href=${channel_url}>
                   <img
                     src=${video.author__profile_pic}
-                    alt="profile"
                     width="40"
                     height="40"
-                  />
+                   alt=${video.author__profile_pic}/>
                 </a>
               </div>
               <section>

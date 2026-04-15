@@ -1,3 +1,4 @@
+// Gets all channels that have been subscribed to
 function getSubscriptions() {
   const uri = get_subscriptions_url;
 

@@ -19,7 +19,7 @@
   /*display: none;*/
   position: fixed;
   left: 15%;
-  background-color: black;
+  /*background-color: black;*/
   color: light-dark(black, white);
   width: 75%;
 }

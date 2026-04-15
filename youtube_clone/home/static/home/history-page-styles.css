@@ -14,10 +14,8 @@ p, h1, h2, a {
 }
 
 .history-container {
-  /* flex: 6; */
   width: 60%;
-  /* border: 1px solid red; */
-  height: 58%;
+  height: 100vh;
   overflow-y: scroll;
   scrollbar-width: none;
 

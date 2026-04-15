@@ -5,6 +5,7 @@
 main {
   display: flex;
   overflow: hidden;
+    height: 100vh;
 }
 
 .body {
@@ -21,7 +22,7 @@ h3 {
   overflow-y: scroll;
   min-width: 240px;
   padding-right: 30px;
-  max-height: fit-content;
+  height: 100vh;
   background-color: light-dark(white, black);
 
   svg {

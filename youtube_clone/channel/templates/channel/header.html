@@ -5,7 +5,7 @@
 <section class="top-bar">
   <div>
     <button type="button">menu</button>
-    <a href="{% url "dashboard" %}">Studio</a>
+    <a href="{% url 'dashboard' %}">Studio</a>
   </div>
   <div style="display: flex">
     <form action="/" method="post">
@@ -29,7 +29,9 @@
       <li><a href="">New playlist</a></li>
       <li><a href="">New podcast</a></li>
     </ul>
-    <button type="button" id="profile-btn">[profile icon]</button>
+<!--    <button type="button" >-->
+        <img src="{{ user.avatar_url }}" alt="avatar url" width="32" height="32" id="profile-btn" />
+<!--    </button>-->
   </div>
 
   </div>

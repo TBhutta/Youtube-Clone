@@ -6,3 +6,11 @@
 #create-btn-dropdown-menu {
   display: none;
 }
+
+#profile-btn {
+    border-radius: 50%;
+}
+
+#profile-btn:hover {
+    cursor: pointer;
+}

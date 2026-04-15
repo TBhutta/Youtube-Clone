@@ -20,25 +20,48 @@ def search_query(request):
 
 def filter_videos(request):
     data = json.loads(request.body)
-    if data["filter"] == "all":
-        videos = Video.objects.all().values("id", "title", "description", "thumbnail", "upload_date", "author__username", "author__profile_pic", "views")
-        # Convert image paths to full URLs
-        for video in videos:
-            video["thumbnail"] = f"{settings.MEDIA_URL}{video['thumbnail']}"
-            video["author__profile_pic"] = f"{settings.MEDIA_URL}{video['author__profile_pic']}"
+    videos = []
+
+    if data.get("filter") == "all":
+        video_objects = Video.objects.all().select_related('author')
+
+        for v in video_objects:
+            # django-storages automatically generates signed URL as is required for a private bucket on BackBlaze
+            videos.append({
+                "id": v.id,
+                "title": v.title,
+                "description": v.description,
+                "thumbnail": v.thumbnail.url if v.thumbnail else None,
+                "upload_date": v.upload_date,
+                "author__username": v.author.username,
+                "author__profile_pic": v.author.avatar_url,
+                "views": v.views
+            })
     else:
-        videos = []
+        pass
     return JsonResponse(list(videos), safe=False)
 
-def subscribe_to_channel(request, channel_id):
+def toggle_subscribe(request, channel_id):
     channel_to_subscribe = USER_MODEL.objects.get(id=channel_id)
-    new_subscription = Subscriptions(subscriber=request.user, subscribing_to=channel_to_subscribe)
-    new_subscription.save()
-    channel_to_subscribe.subscribers += 1
-    channel_to_subscribe.save()
-    return JsonResponse({"status": "subscribed"})
+    # Checking if user is already subscribed
+    is_subscribed = Subscriptions.objects.filter(subscriber=request.user, subscribing_to=channel_to_subscribe)
+    if is_subscribed:
+        is_subscribed.delete()
+        # Updating number of subscribers
+        channel_to_subscribe.subscribers = Subscriptions.get_number_of_subscribers(channel=channel_to_subscribe)
+        channel_to_subscribe.save()
+        return JsonResponse({"status": "unsubscribed"})
+
+    else:
+        new_subscription = Subscriptions(subscriber=request.user, subscribing_to=channel_to_subscribe)
+        new_subscription.save()
+        # Updating number of subscribers
+        channel_to_subscribe.subscribers = Subscriptions.get_number_of_subscribers(channel=channel_to_subscribe)
+        channel_to_subscribe.save()
+        return JsonResponse({"status": "subscribed"})
 
 def subscriptions(request):
+
     return render(request, "home/subscriptions-page.html", {})
 
 def get_subscriptions(request):
@@ -50,6 +73,8 @@ def get_subscriptions(request):
             "profile_pic": channel.subscribing_to.profile_pic.url,
         }
     return JsonResponse({"subscriptions": json.dumps(subscriptions)})
+
+
 
 def get_history(request, limit=None):
     if limit is None:
@@ -138,13 +163,13 @@ def watch_video(request, video_id=None):
         video_age = datetime.now().timestamp() - selected_video.upload_date.timestamp()
         try:
             is_subscribed = Subscriptions.objects.get(subscriber=request.user, subscribing_to=selected_video.author)
-            is_subscribed = True
+            # is_subscribed = True
         except:
             is_subscribed = False
 
         return render(request, "home/watch-video.html", {
             "selected_video": selected_video,
-            "profile_pic": request.user.profile_pic.url,
+            "profile_pic": request.user.avatar_url,
             "is_subscribed": is_subscribed,
         })
     else:

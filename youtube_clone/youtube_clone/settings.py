@@ -1,6 +1,7 @@
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+from os import getenv
 # from django.forms.renderers import TemplatesSetting
 # import django.forms as forms
 
@@ -76,11 +77,23 @@ DATABASES = {
         # "ENGINE": "django.db.backends.sqlite3",
         # "NAME": BASE_DIR / "db.sqlite3",
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("DB_NAME"),
-        "USER": os.environ.get("USERNAME"),
-        "PASSWORD": os.environ.get("PASSWORD"),
-        "HOST": os.environ.get("HOST"),
-        "PORT": os.environ.get("PORT"),
+        # "NAME": os.environ.get("DB_NAME"),
+        # "USER": os.environ.get("USERNAME"),
+        # "PASSWORD": os.environ.get("PASSWORD"),
+        # "HOST": os.environ.get("HOST"),
+        # "PORT": os.environ.get("PORT"),
+
+        'NAME': getenv('PGDATABASE'),
+        'USER': getenv('PGUSER'),
+        'PASSWORD': getenv('PGPASSWORD'),
+        'HOST': getenv('PGHOST'),
+        'PORT': getenv('PGPORT', 5432),
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
+        'DISABLE_SERVER_SIDE_CURSORS': True,
+        'CONN_HEALTH_CHECKS': True,
+
     }
 }
 
@@ -128,13 +141,41 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS = [BASE_DIR, os.path.join(BASE_DIR, 'static')]
 
-FILE_UPLOAD_HANDLERS = [
-    "django.core.files.uploadhandler.MemoryFileUploadHandler",
-    "django.core.files.uploadhandler.TemporaryFileUploadHandler",
-]
+# FILE_UPLOAD_HANDLERS = [
+#     "django.core.files.uploadhandler.MemoryFileUploadHandler",
+#     "django.core.files.uploadhandler.TemporaryFileUploadHandler",
+# ]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+
+
+AWS_ACCESS_KEY_ID = getenv('B2_KEY_ID')
+AWS_SECRET_ACCESS_KEY = getenv('B2_APPLICATION_KEY')
+AWS_STORAGE_BUCKET_NAME = getenv('B2_BUCKET_NAME')
+AWS_S3_ENDPOINT_URL = os.getenv('B2_ENDPOINT')
+AWS_S3_REGION_NAME = os.getenv('B2_REGION')
+
+
+# Security settings for Private Bucket
+AWS_S3_ADDRESSING_STYLE = "path"
+AWS_QUERYSTRING_AUTH = True  # Generates temporary signed links
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+AWS_S3_FILE_OVERWRITE = False # Prevents deleting files with same name
+
+if AWS_STORAGE_BUCKET_NAME:
+    STORAGES = {
+        "default": {
+            "BACKEND": "storages.backends.s3.S3Storage",
+        },
+        "staticfiles": {
+            "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        },
+    }
+
+
+    MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/"
+else:
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # class CustomFormRenderer(TemplatesSetting):

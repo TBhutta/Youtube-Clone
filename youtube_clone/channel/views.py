@@ -48,6 +48,8 @@ def upload_video(request):
             messages.error(request, "Something went wrong.")
     return redirect(dashboard)
 
+
+# Fetches all videos
 def content(request):
     videos = Video.objects.all()
 
@@ -55,8 +57,13 @@ def content(request):
         "videos": videos
     })
 
-def get_videos(request):
-    videos = Video.objects.filter(author = request.user.id)
+def get_videos(request, channel=None, limit=None):
+    if channel:
+        videos = Video.objects.filter(author = channel.id)
+    else:
+        videos = Video.objects.filter(author = request.user.id)
+
+    print(videos.first())
     titles = []
     thumbnails = []
     descriptions = []

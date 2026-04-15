@@ -233,20 +233,7 @@ function getRecommendedVideos() {
     })
 }
 
-function subscribe() {
-  const uri = subscribe_url;
 
-  fetch(uri, {
-  method: "GET",
-  headers: {
-    "X-Requested-With": "XMLHttpRequest",
-  },
-})
-  .then((response) => response.json())
-  .then((data) => {
-      console.log(data)
-  })
-}
 
 function getTime() {
   const video = document.getElementById("current-video")

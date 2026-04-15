@@ -11,6 +11,7 @@
 {% block scripts %}
 {% load static %}
 <script src="{% static 'home/js/watch_video.js' %}"></script>
+<script src="{% static 'home/js/common_features.js' %}"></script>
 <script>
   let video_id = "{{ selected_video.id }}"
   let url = "{% url 'add-comment' video_id=selected_video.id %}";
@@ -49,7 +50,7 @@
           {{ selected_video.author.username }}
           <p style="font-size: small; color: gainsboro; font-weight: normal">{{ selected_video.author.subscribers }} subscribers</p>
         </section>
-        <button type="button" id="subscribe-btn" onclick="subscribe()" class="user-option-btns">Subscribe</button>
+        <button type="button" id="subscribe-btn" onclick="toggleSubscribe()" class="user-option-btns">Subscribe</button>
       </section>
 
       <section class="user-options">

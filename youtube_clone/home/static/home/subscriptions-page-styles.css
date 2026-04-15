@@ -3,6 +3,10 @@
   color-scheme: light dark;
 }
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 
 p, h1, h2, a {
   font-family: "Roboto","Arial",sans-serif;;
@@ -25,7 +29,7 @@ p, h1, h2, a {
 }
 
 .latest-videos {
-  height: 58%;
+  height: 100vh;
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
@@ -34,10 +38,18 @@ p, h1, h2, a {
 }
 
 .video {
+    border-radius: 10px;
+    padding-bottom: 10px;
   margin-bottom: 30px;
   margin-right: 10px;
   color: light-dark(black, white);
   width: 373px;
+}
+
+.video:hover {
+    cursor: pointer;
+    background-color: #363636;
+    transition-duration: 0.3s;
 }
 
 .video-title {

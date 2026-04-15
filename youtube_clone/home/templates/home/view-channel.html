@@ -10,8 +10,10 @@
 {% block scripts %}
 {% load static %}
 <script src="{% static 'home/js/view_channel.js' %}"></script>
+<script src="{% static 'home/js/common_features.js' %}"></script>
 <script>
-
+  let subscribe_url = "{% url 'subscribe' channel_id=selected_video.author.id %}";
+  let is_subscribed = "{{ is_subscribed }}";
 </script>
 {% endblock %}
 <!-- prettier-ignore -->
@@ -35,7 +37,7 @@
         <p>{{ channel.about }}</p>
       </div>
       <div class="buttons">
-        <button type="button">Subscribe</button>
+        <button type="button" onclick="toggleSubscribe()">Subscribe</button>
         <button type="button">Join</button>
       </div>
     </section>

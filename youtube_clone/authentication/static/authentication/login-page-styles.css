@@ -1,13 +1,37 @@
+
+
 .main-content {
   display: flex;
   flex-direction: column;
-}
+    background-color: light-dark(white, black);
 
-.titleee {
-  color: blue;
+    p {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
+}
+
+.heading {
+    font-family: Roboto, sans-serif;
+}
+
+.input-field {
+    width: 200px;
+    height: 23px;
+    border: 1px solid #575757;
+    border-radius: 5px;
+}
+
+.login-btn {
+    width: 100px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #207721;
+    border-radius: 13px;
+    border: 1px solid #575757;
 }

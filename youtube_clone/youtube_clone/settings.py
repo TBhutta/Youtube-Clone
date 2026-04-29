@@ -1,4 +1,6 @@
 from pathlib import Path
+
+# from django.conf.global_settings import LOGIN_URL
 from dotenv import load_dotenv
 import os
 from os import getenv
@@ -23,6 +25,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = "authentication.Account"
+# LOGIN_URL = "authentication/sign-in"
 
 # Application definition
 

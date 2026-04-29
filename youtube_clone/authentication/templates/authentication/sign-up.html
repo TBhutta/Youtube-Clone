@@ -14,7 +14,7 @@
 <!-- prettier-ignore -->
 {% block content %}
 <section class="main-content">
-  <h1 class="title">Sign up</h1>
+  <h1 class="heading">Sign up</h1>
   {% if messages %}
     {% for message in messages %}
       {{ message }}
@@ -22,7 +22,7 @@
   {% endif %}
   <form action="#" method="post" class="sign-up-form" enctype="multipart/form-data">
     {% csrf_token %} {{ form.as_p }}
-    <button type="submit">Create account</button>
+    <button type="submit" class="register-btn">Create account</button>
   </form>
   <p>
     Already have an account? Sign in

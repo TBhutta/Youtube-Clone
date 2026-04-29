@@ -36,6 +36,23 @@ function getSubscriptions() {
     })
 }
 
+
+document.addEventListener("DOMContentLoaded", function() {
+  const modal = document.getElementById("disclaimer-modal");
+  const closeBtn = document.getElementById("close-disclaimer");
+
+  if (!localStorage.getItem("disclaimerShown")) {
+    console.log('disclaimer not found');
+    modal.style.display = "flex";
+  }
+
+  closeBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+    localStorage.setItem("disclaimerShown", "true");
+  })
+});
+
+
 $(document).ready(function(){
   getSubscriptions();
 });

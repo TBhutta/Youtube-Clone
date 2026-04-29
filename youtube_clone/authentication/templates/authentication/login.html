@@ -13,11 +13,14 @@
 <!-- prettier-ignore -->
 {% block content %}
 <section class="main-content">
-  <h1 class="titleee">Sign in</h1>
+  <h1 class="heading">Sign in</h1>
 
   <form action="#" method="post" class="login-form">
     {% csrf_token %} {{ form.as_p }}
-    <button type="submit">Login</button>
+      <div style="display: flex; justify-content: end">
+
+        <button type="submit" class="login-btn">Login</button>
+      </div>
   </form>
   <p>
     Don't have an account? Sign up <a href="/authentication/sign-up/">here</a>.

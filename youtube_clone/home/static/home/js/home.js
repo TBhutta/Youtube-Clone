@@ -33,11 +33,13 @@ function fetchFeed() {
         <a href=${video_url} class="video-link">
           <div class="video">
             <!-- TODO: Make it so that the video is played a few seconds after hovering over the thumbnail. -->
+<!--            onerror attrs are used in case bandwidth cap is exceedd on backblaze, so using default assets temporarily-->
             <img
-              src=${ video.thumbnail }
+              src="${ video.thumbnail }"
               alt="video thumbnail"
               width="373"
               height="209"
+              onerror="this.src='/static/img/thumbnail.png'"
             />
             <section class="video-info">
               <div class="channel-icon">
@@ -46,7 +48,11 @@ function fetchFeed() {
                     src=${video.author__profile_pic}
                     width="40"
                     height="40"
-                   alt=${video.author__profile_pic}/>
+                   alt=${video.author__profile_pic}
+                   onerror="this.src='/static/img/default-user-icon.jpg'"
+                   />
+              
+                   
                 </a>
               </div>
               <section>
@@ -68,21 +74,7 @@ function fetchFeed() {
     });
 }
 
-function getCookie(name) {
-  let cookieValue = null;
-  if (document.cookie && document.cookie !== "") {
-    const cookies = document.cookie.split(";");
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i].trim();
-      // Does this cookie string begin with the name we want?
-      if (cookie.substring(0, name.length + 1) === name + "=") {
-        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-        break;
-      }
-    }
-  }
-  return cookieValue;
-}
+
 
 $(document).ready(function(){
   fetchFeed();

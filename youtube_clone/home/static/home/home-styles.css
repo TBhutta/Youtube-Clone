@@ -4,6 +4,7 @@
 
 .main-content {
   display: flex;
+    overflow-y: scroll;
   flex-direction: column;
   width: 100%;
   background-color: light-dark(white, black);

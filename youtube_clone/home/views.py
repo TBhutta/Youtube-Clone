@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.http import JsonResponse, HttpResponse
@@ -60,6 +61,7 @@ def toggle_subscribe(request, channel_id):
         channel_to_subscribe.save()
         return JsonResponse({"status": "subscribed"})
 
+@login_required(login_url="/authentication/sign-in")
 def subscriptions(request):
 
     return render(request, "home/subscriptions-page.html", {})
@@ -88,24 +90,28 @@ def get_history(request, limit=None):
     videos = reversed(videos)
     return videos
 
+@login_required(login_url="/authentication/sign-in")
 def history(request):
     videos = get_history(request)
-    print("videsdvsdvos", videos)
     return render(request, "home/history-page.html", {
         "videos": videos
     })
 
 def add_video_to_history(request, video_id):
     if request.user.is_authenticated:
+        print('yes')
         video = Video.objects.get(id=video_id)
         new_history = History(video=video, user=request.user)
         new_history.save()
+
+    else:
+        print('no')
 
 def get_playlists(request):
     playlists = Playlist.objects.filter(owner=request.user).order_by('title')
     return playlists
 
-
+@login_required(login_url="/authentication/sign-in")
 def playlists(request):
     fetched_playlists = get_playlists(request)
     data = {}
@@ -150,6 +156,7 @@ def view_playlist(request, playlist_id):
         "playlist_videos": playlist_videos
     })
 
+@login_required(login_url="/authentication/sign-in")
 def library(request):
     history_videos = get_history(request, limit=4)
     return render(request, "home/library.html", {
@@ -160,19 +167,20 @@ def watch_video(request, video_id=None):
     if type(video_id) == int:
         add_video_to_history(request, video_id)
         selected_video = Video.objects.filter(id=video_id).first()
-        video_age = datetime.now().timestamp() - selected_video.upload_date.timestamp()
-        try:
-            is_subscribed = Subscriptions.objects.get(subscriber=request.user, subscribing_to=selected_video.author)
-            # is_subscribed = True
-        except:
+        # video_age = selected_video.age()
+        is_subscribed = Subscriptions.objects.filter(subscriber=request.user, subscribing_to=selected_video.author) if request.user.is_authenticated else []
+        if len(is_subscribed) == 1:
+            is_subscribed = True
+        else:
             is_subscribed = False
 
         return render(request, "home/watch-video.html", {
             "selected_video": selected_video,
-            "profile_pic": request.user.avatar_url,
+            "profile_pic": request.user.avatar_url if request.user.is_authenticated else None,
             "is_subscribed": is_subscribed,
         })
     else:
+
         # Redirects user back to playlists page if trying to watch a video from an empty playlist
         return redirect('playlists')
 
@@ -188,7 +196,7 @@ def get_comments(request, video_id):
             "dislikes": comment.dislikes,
             "date_posted": comment.date_time.isoformat(),
             "commenter": comment.commenter.username,
-            "commenter_profile_pic": comment.commenter.profile_pic.url,
+            "commenter_profile_pic": comment.commenter.avatar_url,
         }
     return JsonResponse({"comments": json.dumps(all_comments)})
 

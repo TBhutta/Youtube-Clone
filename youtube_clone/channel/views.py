@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .forms import VideoUploadForm, AccountUpdateForm
 from authentication.forms import UserCreationForm
 from django.contrib import messages
@@ -49,7 +50,8 @@ def upload_video(request):
     return redirect(dashboard)
 
 
-# Fetches all videos
+# Fetches all videos, BUT the user has to be signed in first
+@login_required(login_url="/authentication/sign-in")
 def content(request):
     videos = Video.objects.all()
 

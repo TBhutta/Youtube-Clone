@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 from django.contrib.auth import get_user_model
 
@@ -47,6 +49,12 @@ class Video(models.Model):
     
     def __str__(self):
         return self.title
+
+    # Returns age, e.g. "2 years 1 month ago"
+    @property
+    def age(self):
+        video_age = datetime.now().timestamp() - self.upload_date.timestamp()
+        return video_age
     
 class Comment(models.Model):
     commenter = models.ForeignKey(USER_MODEL, on_delete=models.CASCADE)

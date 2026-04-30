@@ -134,7 +134,14 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Add your Railway URL (with the https:// prefix)
+CSRF_TRUSTED_ORIGINS = [
+    "https://youtube-clone-production-2759.up.railway.app/",
+]
 
+# Ensure these are set for production security
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 
 

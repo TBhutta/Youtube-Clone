@@ -1,11 +1,8 @@
 from pathlib import Path
 
-# from django.conf.global_settings import LOGIN_URL
 from dotenv import load_dotenv
 import os
 from os import getenv
-# from django.forms.renderers import TemplatesSetting
-# import django.forms as forms
 
 
 load_dotenv()
@@ -13,19 +10,16 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-&))7qbhbrp8^$vwri+71dtl1(srxwv111l61--49-^%vp^tpwv"
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "local-dev-secret")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('RAILWAY_ENVIRONMENT') is None
 
 ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = "authentication.Account"
-# LOGIN_URL = "authentication/sign-in"
 
 # Application definition
 
@@ -77,15 +71,7 @@ WSGI_APPLICATION = "youtube_clone.wsgi.application"
 
 DATABASES = {
     "default": {
-        # "ENGINE": "django.db.backends.sqlite3",
-        # "NAME": BASE_DIR / "db.sqlite3",
         "ENGINE": "django.db.backends.postgresql",
-        # "NAME": os.environ.get("DB_NAME"),
-        # "USER": os.environ.get("USERNAME"),
-        # "PASSWORD": os.environ.get("PASSWORD"),
-        # "HOST": os.environ.get("HOST"),
-        # "PORT": os.environ.get("PORT"),
-
         'NAME': getenv('PGDATABASE'),
         'USER': getenv('PGUSER'),
         'PASSWORD': getenv('PGPASSWORD'),
@@ -144,11 +130,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS = [BASE_DIR, os.path.join(BASE_DIR, 'static')]
 
-# FILE_UPLOAD_HANDLERS = [
-#     "django.core.files.uploadhandler.MemoryFileUploadHandler",
-#     "django.core.files.uploadhandler.TemporaryFileUploadHandler",
-# ]
-
 
 
 AWS_ACCESS_KEY_ID = getenv('B2_KEY_ID')
@@ -179,13 +160,3 @@ if AWS_STORAGE_BUCKET_NAME:
 else:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = BASE_DIR / 'media'
-
-
-# class CustomFormRenderer(TemplatesSetting):
-#     form_template_name = "formTemplate.html"
-
-# class MyForm(forms.Form):
-#     template_name = "formTemplate.html"
-
-
-# FORM_RENDERER = "youtube_clone.settings.CustomFormRenderer"

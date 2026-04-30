@@ -1,5 +1,5 @@
 [build]
-builder="railpack"
+builder = "railpack"
 
 [deploy]
-startCommand="gunicorn youtube_clone.wsgi:application --chdir youtube_clone"
+startCommand = "python youtube_clone/manage.py migrate && gunicorn youtube_clone.wsgi:application --chdir youtube_clone"

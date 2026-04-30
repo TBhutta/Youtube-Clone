@@ -167,12 +167,13 @@ def watch_video(request, video_id=None):
     if type(video_id) == int:
         add_video_to_history(request, video_id)
         selected_video = Video.objects.filter(id=video_id).first()
-        # video_age = selected_video.age()
-        is_subscribed = Subscriptions.objects.filter(subscriber=request.user, subscribing_to=selected_video.author) if request.user.is_authenticated else []
-        if len(is_subscribed) == 1:
-            is_subscribed = True
-        else:
-            is_subscribed = False
+        is_subscribed = 'no'
+        if request.user is not None:
+            is_subscribed = Subscriptions.objects.filter(subscriber=request.user, subscribing_to=selected_video.author) if request.user.is_authenticated else []
+            if len(is_subscribed) == 1:
+                is_subscribed = True
+            else:
+                is_subscribed = False
 
         return render(request, "home/watch-video.html", {
             "selected_video": selected_video,
